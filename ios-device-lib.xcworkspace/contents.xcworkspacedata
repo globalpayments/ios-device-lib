@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:ios-device-lib-SampleApp/ios-device-lib-SampleApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ios-device-lib.xcodeproj">
+   </FileRef>
+</Workspace>

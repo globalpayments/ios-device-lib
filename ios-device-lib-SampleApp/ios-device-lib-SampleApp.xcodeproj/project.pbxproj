@@ -24,7 +24,6 @@
 		2896FA732A44AA930076BBFC /* PayAppCanadaTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2896FA722A44AA930076BBFC /* PayAppCanadaTransaction.swift */; };
 		431C49AB2E69D8E700F511B7 /* HpsCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C49AA2E69D8E700F511B7 /* HpsCreditTests.swift */; };
 		43233D002E356AC300DBB5B6 /* BBPOSCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43233CFF2E356AAF00DBB5B6 /* BBPOSCreditTests.swift */; };
-		438C3D1D2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */; };
 		432535152E68C8150070A5ED /* BBPOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432535142E68C8150070A5ED /* BBPOS.xcframework */; };
 		432535192E68C8220070A5ED /* GlobalMobileSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */; };
 		4325351A2E68C8220070A5ED /* GlobalMobileSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -32,6 +31,8 @@
 		4325351E2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		432535202E68C8350070A5ED /* ios_device_lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; };
 		432535212E68C8350070A5ED /* ios_device_lib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		438C3D1D2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */; };
+		C712FA242EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift */; };
 		DD37C2E72AE0829E003891D7 /* TapToPayHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */; };
 		DD37C2F72B165674003891D7 /* TokenServiceHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */; };
 		DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */; };
@@ -119,11 +120,12 @@
 		2896FA722A44AA930076BBFC /* PayAppCanadaTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAppCanadaTransaction.swift; sourceTree = "<group>"; };
 		431C49AA2E69D8E700F511B7 /* HpsCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsCreditTests.swift; sourceTree = "<group>"; };
 		43233CFF2E356AAF00DBB5B6 /* BBPOSCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSCreditTests.swift; sourceTree = "<group>"; };
-		438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSDuplicateTransactionTests.swift; sourceTree = "<group>"; };
 		432535142E68C8150070A5ED /* BBPOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BBPOS.xcframework; path = "../ios-device-lib/Libraries/BBPOS.xcframework"; sourceTree = "<group>"; };
 		432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GlobalMobileSDK.xcframework; path = "../ios-device-lib/Libraries/GlobalMobileSDK.xcframework"; sourceTree = "<group>"; };
 		4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GlobalPaymentsApi.xcframework; path = "../ios-device-lib/Libraries/GlobalPaymentsApi.xcframework"; sourceTree = "<group>"; };
 		4325351F2E68C8350070A5ED /* ios_device_lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_device_lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSDuplicateTransactionTests.swift; sourceTree = "<group>"; };
+		C712FA232EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUPACreditDuplicateTests.swift; sourceTree = "<group>"; };
 		DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayHostedViewController.swift; sourceTree = "<group>"; };
 		DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceHostedViewController.swift; sourceTree = "<group>"; };
 		DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HpsUPALineItemDisplayTests.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 			path = BBPOS;
 			sourceTree = "<group>";
 		};
+		C712FA222EC3696700C18365 /* UPA */ = {
+			isa = PBXGroup;
+			children = (
+				C712FA232EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift */,
+			);
+			path = UPA;
+			sourceTree = "<group>";
+		};
 		DD6A4F3D2937C221008B8165 = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +305,7 @@
 		DD713F872948DC3400514143 /* ios-device-lib-SampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				C712FA222EC3696700C18365 /* UPA */,
 				43233CFE2E356A9D00DBB5B6 /* BBPOS */,
 				14864F212C9C74DD00B0E4F3 /* Moby */,
 				143A43812993D5BE0027BC3F /* Utilis */,
@@ -512,6 +523,7 @@
 				DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */,
 				DD713FC32948DC7500514143 /* Hps_Hpa_Debit_Test.m in Sources */,
 				DD713FAF2948DC7500514143 /* Hps_C2X_Credit_Test.m in Sources */,
+				C712FA242EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift in Sources */,
 				DD713FB32948DC7500514143 /* Heartland_GatewayTests.m in Sources */,
 				DD713FBF2948DC7500514143 /* Hps_Hpa_Credit_Test.m in Sources */,
 				DD713FB52948DC7500514143 /* HpsPayRollTests.m in Sources */,

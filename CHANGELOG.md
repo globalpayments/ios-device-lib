@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.1.8 2025-12-04
+- ios-device-lib: Updated cocoapods content for SDK rebrand
+- ios-device-lib: Added an allow duplicate flag in UPA to handle duplicate transactions
+- ios-device-lib: Added additional details for duplicate transactions
+
 ## 3.1.7 2025-11-12
 - ios-device-lib: Rebrand SDK into ios-device-lib
 

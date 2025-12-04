@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "ios-device-lib"
-  s.version          = '3.1.7'
-  s.summary          = "Secure Tokenized Payments by Heartland Payment Systems."
+  s.version          = '3.1.10'
+  s.summary          = "Secure Tokenized Payments by Global Payments Systems."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,13 +17,13 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-  Secure Tokenized Payments for iOS by Heartland Payment Systems.
+  Secure Tokenized Payments for iOS by Global Payments Systems.
                        DESC
 
-  s.homepage         = "https://github.com/hps/heartland-ios"
+  s.homepage         = "https://github.com/globalpayments/ios-device-lib"
   s.license          = 'EULA'
   s.author           = { "Heartland Developer Portal" => "EntApp_DevPortal@e-hps.com" }
-  s.source           = { :git => "https://github.com/hps/heartland-ios.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/globalpayments/ios-device-lib.git", :tag => s.version.to_s }
  
 
   s.platform     = :ios, '12.0'
@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
 
   s.swift_version = '5.0'
   s.pod_target_xcconfig = { 
-  	'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
   s.user_target_xcconfig = { 
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'

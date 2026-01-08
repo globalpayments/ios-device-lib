@@ -72,6 +72,10 @@
 		4341B61F2E68D56400F39F0E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4341B61E2E68D52C00F39F0E /* libc++.tbd */; };
 		4341B6202E68D57200F39F0E /* RUA_BLE.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14864F082C88A8E200B0E4F3 /* RUA_BLE.xcframework */; };
 		4341B6222E68D57500F39F0E /* TemLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14864EE42C88976000B0E4F3 /* TemLibrary.xcframework */; };
+		C718CD572ED6EECD00B5707D /* HpsPaxHostResponseCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */; };
+		C718CD5A2ED6F60700B5707D /* HpsPaxHostResponseCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */; settings = {ATTRIBUTES = (Public, ); }; };
+        C7CB249C2EEAAC6300D80770 /* UpaScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB249B2EEAAC6300D80770 /* UpaScan.swift */; };
+        C7CB249E2EEAAFE600D80770 /* UpaScanBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB249D2EEAAFE600D80770 /* UpaScanBuilder.swift */; };
 		DD2409302991688C00597A23 /* HpsUpaStartCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD24092F2991688C00597A23 /* HpsUpaStartCardResponse.swift */; };
 		DD37C2E12AE079E7003891D7 /* TapToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E02AE079E7003891D7 /* TapToPayView.swift */; };
 		DD37C2E32AE07C69003891D7 /* TapToPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E22AE07C69003891D7 /* TapToPayViewModel.swift */; };
@@ -594,6 +598,10 @@
 		432535292E68CDE50070A5ED /* BlueButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButtonStyle.swift; sourceTree = "<group>"; };
 		4325352A2E68CDE50070A5ED /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4341B61E2E68D52C00F39F0E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
+		C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HpsPaxHostResponseCredential.h; sourceTree = "<group>"; };
+		C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HpsPaxHostResponseCredential.m; sourceTree = "<group>"; };
+        C7CB249B2EEAAC6300D80770 /* UpaScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaScan.swift; sourceTree = "<group>"; };
+        C7CB249D2EEAAFE600D80770 /* UpaScanBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaScanBuilder.swift; sourceTree = "<group>"; };
 		DD24092F2991688C00597A23 /* HpsUpaStartCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaStartCardResponse.swift; sourceTree = "<group>"; };
 		DD37C2E02AE079E7003891D7 /* TapToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayView.swift; sourceTree = "<group>"; };
 		DD37C2E22AE07C69003891D7 /* TapToPayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayViewModel.swift; sourceTree = "<group>"; };
@@ -1217,6 +1225,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C7CB24992EEAAC1100D80770 /* ScanBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB249A2EEAAC5200D80770 /* Model */,
+				C7CB249D2EEAAFE600D80770 /* UpaScanBuilder.swift */,
+			);
+			path = ScanBuilder;
+			sourceTree = "<group>";
+		};
+		C7CB249A2EEAAC5200D80770 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB249B2EEAAC6300D80770 /* UpaScan.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DD37C2DD2AE079B4003891D7 /* TapToPay */ = {
 			isa = PBXGroup;
 			children = (
@@ -1475,6 +1500,7 @@
 		DDFF33552937AF4200C2D1D1 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				C7CB24992EEAAC1100D80770 /* ScanBuilder */,
 				14F88D592A029BEF009E821B /* AppCanada */,
 				DDFF335E2937AF4200C2D1D1 /* HpsUpaAdjustBuilder.h */,
 				DDFF33572937AF4200C2D1D1 /* HpsUpaAdjustBuilder.m */,
@@ -1682,6 +1708,8 @@
 				DDFF33BE2937AF4200C2D1D1 /* HpsPaxTraceRequest.m */,
 				DDFF33C52937AF4200C2D1D1 /* HpsPaxTraceResponse.h */,
 				DDFF33E32937AF4200C2D1D1 /* HpsPaxTraceResponse.m */,
+				C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */,
+				C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2180,6 +2208,7 @@
 				DDFF36972937AF4400C2D1D1 /* HpsPayItem.h in Headers */,
 				DDFF357B2937AF4300C2D1D1 /* HpsPaxCreditSaleBuilder.h in Headers */,
 				DDFF35AF2937AF4300C2D1D1 /* HpsPaxEcomSubGroup.h in Headers */,
+				C718CD5A2ED6F60700B5707D /* HpsPaxHostResponseCredential.h in Headers */,
 				DDFF35502937AF4300C2D1D1 /* HpsConnectionConfig.h in Headers */,
 				DDFF36BB2937AF4400C2D1D1 /* HpsEmployee.h in Headers */,
 				DDFF35BF2937AF4300C2D1D1 /* HpsDeviceProtocols.h in Headers */,
@@ -2465,6 +2494,7 @@
 				14864F072C88A84F00B0E4F3 /* RUADDeviceHelper.swift in Sources */,
 				DDFF37002937B6FC00C2D1D1 /* HpsTransactionStatus.swift in Sources */,
 				DDFF36BA2937AF4400C2D1D1 /* HpsJsonDoc.m in Sources */,
+				C7CB249C2EEAAC6300D80770 /* UpaScan.swift in Sources */,
 				14864EFE2C88A82800B0E4F3 /* Configurations.swift in Sources */,
 				149365DA2A408A6A005A37CC /* HpsUpaCAVoidBuilder.swift in Sources */,
 				14864EFD2C88A82800B0E4F3 /* FileUtils.swift in Sources */,
@@ -2507,6 +2537,7 @@
 				DDFF36A42937AF4400C2D1D1 /* HpsPayrollRecord.m in Sources */,
 				DDFF35A22937AF4300C2D1D1 /* HpsPaxCommercialRequest.m in Sources */,
 				14864ED32C886BF200B0E4F3 /* ExtView.swift in Sources */,
+				C718CD572ED6EECD00B5707D /* HpsPaxHostResponseCredential.m in Sources */,
 				DDFF370F2937B6FD00C2D1D1 /* GMSCreditCaptureBuilder.swift in Sources */,
 				DDFF36232937AF4400C2D1D1 /* HpsWiseCubeCreditSaleBuilder.swift in Sources */,
 				DDFF360C2937AF4400C2D1D1 /* SummaryResponse.m in Sources */,
@@ -2554,6 +2585,7 @@
 				DDFF362F2937AF4400C2D1D1 /* NSString+HexParser.m in Sources */,
 				DDFF36F92937B6FC00C2D1D1 /* GMSDevice.swift in Sources */,
 				DDFF360D2937AF4400C2D1D1 /* HpsHpaDiagnosticResponse.m in Sources */,
+				C7CB249E2EEAAFE600D80770 /* UpaScanBuilder.swift in Sources */,
 				DDFF35D82937AF4300C2D1D1 /* HpsHpaEBTSaleBuilder.m in Sources */,
 				DDFF35402937AF4300C2D1D1 /* HpsUpaTransaction.m in Sources */,
 				DDFF36942937AF4400C2D1D1 /* HpsBasePayrollResponse.m in Sources */,

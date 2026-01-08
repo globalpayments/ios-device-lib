@@ -21,7 +21,7 @@
         self.accountResponse = [[HpsPaxAccountResponse alloc] initWithBinaryReader:reader];
         self.traceResponse = [[HpsPaxTraceResponse alloc] initWithBinaryReader:reader];        
         self.extDataResponse = [[HpsPaxExtDataSubGroup alloc] initWithBinaryReader:reader];
-        
+        self.hostResponseCredential = [[HpsPaxHostResponseCredential alloc] initWithBinaryReader:reader];
         [self mapResponse];
     }
     return reader;

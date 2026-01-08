@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.1.9 2026-01-08
+- ios-device-lib: Pax Added missing fileds for void transaction
+- ios-device-lib: Added support for SI Command CancelTransaction, Ping, Restart, Reboot, LineItemDisplay, Scan, GetSignature, StartCardTransaction
+
 ## 3.1.8 2025-12-04
 - ios-device-lib: Updated cocoapods content for SDK rebrand
 - ios-device-lib: Added an allow duplicate flag in UPA to handle duplicate transactions

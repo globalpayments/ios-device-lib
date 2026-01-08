@@ -13,6 +13,7 @@
 #import "HpsTerminalResponse.h"
 #import "HpsPaxCashierSubGroup.h"
 #import "HpsPaxCheckResponse.h"
+#import "HpsPaxHostResponseCredential.h"
 
 @interface HpsPaxBaseResponse : HpsTerminalResponse <IHPSDeviceResponse>
 
@@ -30,6 +31,7 @@
 @property (nonatomic,strong) HpsPaxExtDataSubGroup *extDataResponse;
 @property (nonatomic,strong) HpsPaxCashierSubGroup *cashierResponse;
 @property (nonatomic,strong) HpsPaxCheckResponse *checkResponse;
+@property (nonatomic,strong) HpsPaxHostResponseCredential *hostResponseCredential;
 
 
 - (id) initWithMessageID:(NSString*)messageId andBuffer:(NSData*)buffer;

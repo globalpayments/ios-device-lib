@@ -32,7 +32,7 @@ class HpsUPAStartCardTests: XCTestCase {
 
         let builder = HpsUpaStartCardTransactionBuilder(with: device)
 
-        let params = HpsUpaStartCardParams(acquisitionTypes: "Swipe",
+        let params = HpsUpaStartCardParams(acquisitionTypes: AcquisitionTypes.swipe.rawValue,
                                            timeout: nil,
                                            header: nil,
                                            displayTotalAmount: nil,
@@ -72,5 +72,218 @@ class HpsUPAStartCardTests: XCTestCase {
         }
 
         wait(for: [expectation], timeout: 1000)
+    }
+    
+    func testStartCardWithContact() {
+        let expectation = XCTestExpectation(description: "Wait for execution...")
+        let device = setupDevice()
+
+        guard let device else {
+            XCTFail("Device is nil")
+            return
+        }
+
+        let builder = HpsUpaStartCardTransactionBuilder(with: device)
+
+        let params = HpsUpaStartCardParams(acquisitionTypes: AcquisitionTypes.contact.rawValue,
+                                           timeout: nil,
+                                           header: nil,
+                                           displayTotalAmount: nil,
+                                           promptForManualEntryPassword: nil,
+                                           brandIcon1: nil,
+                                           brandIcon2: nil)
+
+        let pi = HpsUpaStartCardProcessingIndicators(quickChip: "Y",
+                                                     checkLuhn: nil,
+                                                     securityCode: nil,
+                                                     cardTypeFilter: nil)
+
+        let tx = HpsUpaStartCardTransaction(totalAmount: "1.24",
+                                            cashBackAmount: nil,
+                                            tranDate: nil,
+                                            tranTime: nil,
+                                            transactionType: "Sale")
+
+        let data = HpsUpaCommandPayload<HpsUpaStartCardDataDetails>(
+            command: HpsUpaStartCardConstants.command,
+            ecrId: "123", requestId: "1234",
+            data: HpsUpaStartCardDataDetails(
+                params: params,
+                processingIndicators: pi,
+                transaction: tx
+            )
+        )
+
+        let request = HpsUpaStartCard(data: data)
+
+        builder.execute(request: request) { deviceResponse, upaResponse, error in
+            XCTAssertNotNil(deviceResponse)
+            XCTAssertNotNil(upaResponse)
+            XCTAssertNil(error)
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1000)
+    }
+    
+    func testStartCardWithContactless() {
+        let expectation = XCTestExpectation(description: "Wait for execution...")
+        let device = setupDevice()
+
+        guard let device else {
+            XCTFail("Device is nil")
+            return
+        }
+
+        let builder = HpsUpaStartCardTransactionBuilder(with: device)
+
+        let params = HpsUpaStartCardParams(acquisitionTypes: AcquisitionTypes.contactless.rawValue,
+                                           timeout: nil,
+                                           header: nil,
+                                           displayTotalAmount: nil,
+                                           promptForManualEntryPassword: nil,
+                                           brandIcon1: nil,
+                                           brandIcon2: nil)
+
+        let pi = HpsUpaStartCardProcessingIndicators(quickChip: "Y",
+                                                     checkLuhn: nil,
+                                                     securityCode: nil,
+                                                     cardTypeFilter: nil)
+
+        let tx = HpsUpaStartCardTransaction(totalAmount: "1.24",
+                                            cashBackAmount: nil,
+                                            tranDate: nil,
+                                            tranTime: nil,
+                                            transactionType: "Sale")
+
+        let data = HpsUpaCommandPayload<HpsUpaStartCardDataDetails>(
+            command: HpsUpaStartCardConstants.command,
+            ecrId: "123", requestId: "1234",
+            data: HpsUpaStartCardDataDetails(
+                params: params,
+                processingIndicators: pi,
+                transaction: tx
+            )
+        )
+
+        let request = HpsUpaStartCard(data: data)
+
+        builder.execute(request: request) { deviceResponse, upaResponse, error in
+            XCTAssertNotNil(deviceResponse)
+            XCTAssertNotNil(upaResponse)
+            XCTAssertNil(error)
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1000)
+    }
+    
+    func testStartCardWithManual() {
+        let expectation = XCTestExpectation(description: "Wait for execution...")
+        let device = setupDevice()
+
+        guard let device else {
+            XCTFail("Device is nil")
+            return
+        }
+
+        let builder = HpsUpaStartCardTransactionBuilder(with: device)
+
+        let params = HpsUpaStartCardParams(acquisitionTypes: AcquisitionTypes.manual.rawValue,
+                                           timeout: nil,
+                                           header: nil,
+                                           displayTotalAmount: nil,
+                                           promptForManualEntryPassword: nil,
+                                           brandIcon1: nil,
+                                           brandIcon2: nil)
+
+        let pi = HpsUpaStartCardProcessingIndicators(quickChip: "Y",
+                                                     checkLuhn: nil,
+                                                     securityCode: nil,
+                                                     cardTypeFilter: nil)
+
+        let tx = HpsUpaStartCardTransaction(totalAmount: "1.24",
+                                            cashBackAmount: nil,
+                                            tranDate: nil,
+                                            tranTime: nil,
+                                            transactionType: "Sale")
+
+        let data = HpsUpaCommandPayload<HpsUpaStartCardDataDetails>(
+            command: HpsUpaStartCardConstants.command,
+            ecrId: "123", requestId: "1234",
+            data: HpsUpaStartCardDataDetails(
+                params: params,
+                processingIndicators: pi,
+                transaction: tx
+            )
+        )
+
+        let request = HpsUpaStartCard(data: data)
+
+        builder.execute(request: request) { deviceResponse, upaResponse, error in
+            XCTAssertNotNil(deviceResponse)
+            XCTAssertNotNil(upaResponse)
+            XCTAssertNil(error)
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 5000)
+    }
+    
+    func testStartCardWithAllCardEntryMethod() {
+        let expectation = XCTestExpectation(description: "Wait for execution...")
+        let device = setupDevice()
+
+        guard let device else {
+            XCTFail("Device is nil")
+            return
+        }
+
+        let builder = HpsUpaStartCardTransactionBuilder(with: device)
+
+        let acqau = AcquisitionTypes.contact.rawValue + "|" + AcquisitionTypes.contactless.rawValue + "|" + AcquisitionTypes.swipe.rawValue + "|" + AcquisitionTypes.manual.rawValue
+        let params = HpsUpaStartCardParams(acquisitionTypes: acqau,
+                                           timeout: nil,
+                                           header: nil,
+                                           displayTotalAmount: nil,
+                                           promptForManualEntryPassword: nil,
+                                           brandIcon1: nil,
+                                           brandIcon2: nil)
+
+        let pi = HpsUpaStartCardProcessingIndicators(quickChip: "Y",
+                                                     checkLuhn: nil,
+                                                     securityCode: nil,
+                                                     cardTypeFilter: nil)
+
+        let tx = HpsUpaStartCardTransaction(totalAmount: "1.24",
+                                            cashBackAmount: nil,
+                                            tranDate: nil,
+                                            tranTime: nil,
+                                            transactionType: "Sale")
+
+        let data = HpsUpaCommandPayload<HpsUpaStartCardDataDetails>(
+            command: HpsUpaStartCardConstants.command,
+            ecrId: "123", requestId: "1234",
+            data: HpsUpaStartCardDataDetails(
+                params: params,
+                processingIndicators: pi,
+                transaction: tx
+            )
+        )
+
+        let request = HpsUpaStartCard(data: data)
+
+        builder.execute(request: request) { deviceResponse, upaResponse, error in
+            XCTAssertNotNil(deviceResponse)
+            XCTAssertNotNil(upaResponse)
+            XCTAssertNil(error)
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 8000)
     }
 }

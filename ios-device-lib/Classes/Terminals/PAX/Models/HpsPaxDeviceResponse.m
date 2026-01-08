@@ -22,7 +22,7 @@
 			self.responseCode = self.hostResponse.hostResponseCode;
 			self.responseText = self.hostResponse.hostResponseMessage;
 			self.approvalCode = self. hostResponse.hostResponseCode;
-            
+            self.issuerResponseCode = self.hostResponse.issuerResponseCode;
             if (!self.hostResponse.traceNumber.length && self.traceResponse.ecrRefNumber != nil) {
                 self.hostResponse.traceNumber = self.traceResponse.ecrRefNumber;
             }
@@ -46,7 +46,7 @@
 			self.cvvResponseCode = self.accountResponse.cvdApprovalCode;
 			self.cvvResponseText = self.accountResponse.cvdMessage;
 			self.cardPresent = self.accountResponse.cardPressent;
-
+            self.accountType = self.accountResponse.debitAccountType;
 		}
 		if (self.traceResponse != nil) {
 			self.referenceNumber = self.traceResponse.referenceNumber;
@@ -93,7 +93,11 @@
 			self.cardHolderVerificationMethod = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_CUSTOMER_VERIFICATION_METHOD];
 			self.terminalVerficationResult = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_TERMINAL_VERIFICATION_RESULTS];
             self.transactionStatusInformation = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_TRANSACTION_STATUS_INFORMATION];
+            self.sequenceNumber = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_APPLICATION_PRIMARY_ACCOUNT_NUMBER];
 		}
+        if(self.hostResponseCredential != nil) {
+            self.currentTransactionMID = self.hostResponseCredential.merchantID;
+        }
         if (self.transactionType != nil) {
             self.transactionType = [self mapTransactionType:self.transactionType];
         }

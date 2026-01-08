@@ -25,6 +25,9 @@ NSString * const UPA_MSG_ID_toString[] = {
     [ UPA_MSG_ID_LINE_ITEM_DISPLAY ] = @"LineItemDisplay",
     [ UPA_MSG_ID_DELETE_PREAUTH ] = @"DeletePreAuth",
     [ UPA_MSG_ID_GET_SIGNATURE ] = @"GetSignature",
+    [ UPA_MSG_ID_PING ] = @"Ping",
+    [ UPA_MSG_ID_RESTART ] = @"Restart",
+    [ UPA_MSG_ID_SCAN ] = @"Scan",
 };
 NSString * const UPA_CARD_GROUP_toString[] = {
 

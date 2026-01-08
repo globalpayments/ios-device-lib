@@ -32,7 +32,9 @@
 		432535202E68C8350070A5ED /* ios_device_lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; };
 		432535212E68C8350070A5ED /* ios_device_lib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		438C3D1D2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */; };
-		C712FA242EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift */; };
+		C712FA242EC3698C00C18365 /* UPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */; };
+        C7CB24932EE6B2E100D80770 /* HpsUpaCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24922EE6B2E100D80770 /* HpsUpaCreditTests.swift */; };
+		C7CB24982EE8346900D80770 /* UPAAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24972EE8346900D80770 /* UPAAdminTests.swift */; };
 		DD37C2E72AE0829E003891D7 /* TapToPayHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */; };
 		DD37C2F72B165674003891D7 /* TokenServiceHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */; };
 		DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */; };
@@ -125,7 +127,9 @@
 		4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GlobalPaymentsApi.xcframework; path = "../ios-device-lib/Libraries/GlobalPaymentsApi.xcframework"; sourceTree = "<group>"; };
 		4325351F2E68C8350070A5ED /* ios_device_lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_device_lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSDuplicateTransactionTests.swift; sourceTree = "<group>"; };
-		C712FA232EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUPACreditDuplicateTests.swift; sourceTree = "<group>"; };
+		C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPACreditDuplicateTests.swift; sourceTree = "<group>"; };
+        C7CB24922EE6B2E100D80770 /* HpsUpaCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaCreditTests.swift; sourceTree = "<group>"; };
+		C7CB24972EE8346900D80770 /* UPAAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPAAdminTests.swift; sourceTree = "<group>"; };
 		DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayHostedViewController.swift; sourceTree = "<group>"; };
 		DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceHostedViewController.swift; sourceTree = "<group>"; };
 		DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HpsUPALineItemDisplayTests.swift; sourceTree = "<group>"; };
@@ -246,7 +250,9 @@
 		C712FA222EC3696700C18365 /* UPA */ = {
 			isa = PBXGroup;
 			children = (
-				C712FA232EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift */,
+				C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */,
+                C7CB24922EE6B2E100D80770 /* HpsUpaCreditTests.swift */,
+				C7CB24972EE8346900D80770 /* UPAAdminTests.swift */,
 			);
 			path = UPA;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				DD713FC72948DC7500514143 /* Hps_Hpa_Admin_Test.m in Sources */,
 				DD713FB42948DC7500514143 /* HpsTableServicesTest.m in Sources */,
 				DD713FB62948DC7500514143 /* Hps_Hpa_Gift_Test.m in Sources */,
+				C7CB24982EE8346900D80770 /* UPAAdminTests.swift in Sources */,
 				438C3D1D2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift in Sources */,
 				DD713FBC2948DC7500514143 /* Hps_UPA_VRF_Test.m in Sources */,
 				DD713FC52948DC7500514143 /* Hps_Pax_Batch_Tests.m in Sources */,
@@ -523,11 +530,12 @@
 				DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */,
 				DD713FC32948DC7500514143 /* Hps_Hpa_Debit_Test.m in Sources */,
 				DD713FAF2948DC7500514143 /* Hps_C2X_Credit_Test.m in Sources */,
-				C712FA242EC3698C00C18365 /* HpsUPACreditDuplicateTests.swift in Sources */,
+				C712FA242EC3698C00C18365 /* UPACreditDuplicateTests.swift in Sources */,
 				DD713FB32948DC7500514143 /* Heartland_GatewayTests.m in Sources */,
 				DD713FBF2948DC7500514143 /* Hps_Hpa_Credit_Test.m in Sources */,
 				DD713FB52948DC7500514143 /* HpsPayRollTests.m in Sources */,
 				431C49AB2E69D8E700F511B7 /* HpsCreditTests.swift in Sources */,
+				C7CB24932EE6B2E100D80770 /* HpsUpaCreditTests.swift in Sources */,
 				DD713FBB2948DC7500514143 /* Hps_Hpa_EOD_Test.m in Sources */,
 				DD713FC62948DC7500514143 /* Hps_UPA_Credit_Test.m in Sources */,
 				DD713FC82948DC7500514143 /* Hps_Pax_Report_test.m in Sources */,

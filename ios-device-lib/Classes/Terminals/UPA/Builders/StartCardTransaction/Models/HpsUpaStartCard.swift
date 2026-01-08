@@ -80,3 +80,10 @@ public struct HpsUpaStartCardTransaction: Codable {
         self.transactionType = transactionType
     }
 }
+
+public enum AcquisitionTypes: String, Codable {
+    case contact = "Contact"
+    case contactless = "Contactless"
+    case swipe = "Swipe"
+    case manual = "Manual"
+}

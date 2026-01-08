@@ -12,6 +12,7 @@
 @property (nonatomic,strong) NSString *batchNumber;
 @property (nonatomic,strong) NSString *transactionIdentifier;
 @property (nonatomic,strong) NSString *gatewayTransactionId;
+@property (nonatomic,strong) NSString *issuerResponseCode;
 
 - (id)initWithBinaryReader: (HpsBinaryDataScanner*)br;
 

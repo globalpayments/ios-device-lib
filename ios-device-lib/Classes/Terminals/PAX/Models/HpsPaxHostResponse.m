@@ -36,7 +36,8 @@
             case 7:
                 self.gatewayTransactionId = value;
                 break;
-                
+            case 11:
+                self.issuerResponseCode = value;
             default:
                 break;
         }

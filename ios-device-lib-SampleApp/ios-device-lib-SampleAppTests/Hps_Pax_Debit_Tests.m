@@ -5,6 +5,7 @@
 #import <ios_device_lib/HpsPaxDevice.h>
 #import <ios_device_lib/HpsPaxDebitSaleBuilder.h>
 #import <ios_device_lib/HpsPaxDebitReturnBuilder.h>
+#import <ios_device_lib/HpsPaxDebitVoidBuilder.h>
 
 @interface Hps_Pax_Debit_Tests : XCTestCase
 
@@ -183,6 +184,41 @@
     }
     
     [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *error) {
+        if(error) XCTFail(@"Request Timed out");
+    }];
+}
+
+- (void) test_PAX_HTTP_Debit_Void
+{
+    XCTestExpectation *expectationSale = [self expectationWithDescription:@"test_PAX_HTTP_Debit_Sale"];
+    
+    HpsPaxDevice *device = [self setupDevice];
+    HpsPaxDebitSaleBuilder *builder = [[HpsPaxDebitSaleBuilder alloc] initWithDevice:device];
+    builder.amount = [NSNumber numberWithDouble: 1.02];
+    builder.referenceNumber = 5;
+    builder.allowDuplicates = YES;
+    
+    
+    [builder execute:^(HpsPaxDebitResponse *payload, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(payload);
+        XCTAssertEqualObjects(@"00", payload.responseCode);
+        
+        sleep(5);
+        
+        HpsPaxDebitVoidBuilder *vbuilder = [[HpsPaxDebitVoidBuilder alloc] initWithDevice:device];
+        vbuilder.transactionId = [payload.transactionId intValue];
+        
+        [vbuilder execute:^(HpsPaxDebitResponse *vpayload, NSError *verror) {
+            XCTAssertNil(verror);
+            XCTAssertEqualObjects(@"00", vpayload.responseCode);
+            XCTAssertNotNil(vpayload);
+            [expectationSale fulfill];
+        }];
+        
+    }];
+
+    [self waitForExpectationsWithTimeout:300.0 handler:^(NSError *error) {
         if(error) XCTFail(@"Request Timed out");
     }];
 }

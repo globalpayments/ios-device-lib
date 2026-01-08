@@ -63,6 +63,8 @@ static int IsFieldEnable;
     self.upaOsVersion = [data getValueAsString:@"OsVersion"];
     self.upaEmvSdkVersion = [data getValueAsString:@"EmvSdkVersion"];
     self.upaContactlessSdkVersion = [data getValueAsString:@"CTLSSdkVersion"];
+    self.scanData = [data getValueAsString:@"scanData"];
+    self.signatureData = [data getValueAsString:@"signatureData"];
 
     if ([data has:@"host"]) {
         JsonDoc* host = [data get:@"host"];

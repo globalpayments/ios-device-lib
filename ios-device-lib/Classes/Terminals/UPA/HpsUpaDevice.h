@@ -22,11 +22,15 @@
 
 - (id) initWithConfig:(HpsConnectionConfig*)config;
 - (void) cancel:(void(^)(id<IHPSDeviceResponse> payload))responseBlock;
+-(void) upaPing:(void (^)(id<IHPSDeviceResponse> payload))responseBlock;
+-(void) upaAppRestart:(void (^)(id<IHPSDeviceResponse> payload))responseBlock;
+-(void) upaRebootDevice:(void (^)(id<IHPSDeviceResponse> payload))responseBlock;
 - (void) cancelPendingNetworkRequest;
 - (void) closeLane:(void(^)(id <IHPSDeviceResponse>, NSError*))responseBlock;
 - (void) disableHostResponseBeep:(void(^)(id <IInitializeResponse>, NSError*))responseBlock;
 - (void) initialize:(void(^)(id <IInitializeResponse>, NSError*))responseBlock;
 - (void) ping:(void(^)(id <IHPSDeviceResponse>, NSError*))responseBlock;
+- (void) restart:(void(^)(id <IHPSDeviceResponse>, NSError*))responseBlock;
 - (void) openLane:(void(^)(id <IHPSDeviceResponse>, NSError*))responseBlock;
 - (void) reboot:(void(^)(id <IHPSDeviceResponse>, NSError*))responseBlock;
 - (void) reset:(void(^)(id <IHPSDeviceResponse>, NSError*))responseBlock;

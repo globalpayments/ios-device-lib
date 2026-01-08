@@ -44,9 +44,6 @@
     [subgroups addObject:avsRequest];
     
     [subgroups addObject:[[HpsPaxCashierSubGroup alloc] init]];
-    [subgroups addObject:[[HpsPaxCommercialRequest alloc] init]];
-    [subgroups addObject:[[HpsPaxEcomSubGroup alloc] init]];
-    
     HpsPaxExtDataSubGroup *extData = [[HpsPaxExtDataSubGroup alloc] init];
     
     if (self.transactionId != 0) {

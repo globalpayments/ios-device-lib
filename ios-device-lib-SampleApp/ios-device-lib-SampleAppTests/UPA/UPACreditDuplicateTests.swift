@@ -1,7 +1,7 @@
 import XCTest
 @testable import ios_device_lib
 
-final class HpsUPACreditTests: XCTestCase {
+final class UPACreditDuplicateTests: XCTestCase {
 
     var device: HpsUpaDevice!
     private var builder: HpsUpaSaleBuilder?

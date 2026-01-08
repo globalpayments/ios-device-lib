@@ -87,6 +87,12 @@
 @property (nonatomic,strong) NSString *surchargeFee;
 @property (nonatomic,strong) NSString *surchargeAmount;
 @property (nonatomic,strong) NSString *clientTxnId;
+@property (nonatomic,strong) NSString *accountType;
+@property (nonatomic,strong) NSString *currentTransactionMID;
+@property (nonatomic,strong) NSNumber *sequenceNumber;
+@property (nonatomic,strong) NSString *issuerResponseCode;
+@property (nonatomic,strong) NSString *transactionCurrencyCode;
+@property (nonatomic,strong) NSString *bankResponseCode;
 - (void) mapResponse:(id <HpaResposeInterface>) response;
 // @todo
 //+(HpsTerminalResponse*)terminalResponseFromVitalSDK:(TransactionResponse*)transactionResponse;

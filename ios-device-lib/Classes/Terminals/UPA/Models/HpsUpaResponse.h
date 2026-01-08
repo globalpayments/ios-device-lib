@@ -96,6 +96,10 @@
 @property (nonatomic,strong) NSString *upaEmvSdkVersion;
 @property (nonatomic,strong) NSString *upaContactlessSdkVersion;
 
+//Admin
+@property(nonatomic, strong) NSString *scanData;
+@property(nonatomic, strong) NSString *signatureData;
+
 @property (nonatomic, assign) BOOL duplicateFound;
 
 - (BOOL)isSuccess;

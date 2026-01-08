@@ -32,6 +32,9 @@ public struct HpsUpaStartCardResponseData: Codable {
     public let host: UpsUpaStartCardResponseHost?
     public let serviceCode: String?
     public let fallBack: String?
+    public let address: String?
+    public let zipCode: String?
+    public let cardBinDetails: HpsUpaCardBinDetails?
 
     enum CodingKeys: String, CodingKey {
         case acquisitionType
@@ -48,10 +51,13 @@ public struct HpsUpaStartCardResponseData: Codable {
         case host
         case fallBack = "fallback"
         case serviceCode
+        case address
+        case zipCode
+        case cardBinDetails = "CardBinDetails"
     }
 
     public init(acquisitionType: String?, luhnCheckPassed: String?, dataEncryptionType: String?, pan: HpsUpaStartCardResponsePan?, emvTags: String?, expiryDate: String?, cvv: String?, scannedData: String?, pinDUKPT: HpsUpaStartCardResponsePinDukpt?, threeDesDukpt: HpsUpaStartCardResponse3DesDukpt?, trackData: HpsUpaStartCardResponseTrackData?, host: UpsUpaStartCardResponseHost?,
-        fallBack: String?, serviceCode: String?) {
+                fallBack: String?, serviceCode: String?, address: String?, zipCode: String?, cardBinDetails: HpsUpaCardBinDetails?) {
         
         self.acquisitionType = acquisitionType
         self.luhnCheckPassed = luhnCheckPassed
@@ -67,6 +73,9 @@ public struct HpsUpaStartCardResponseData: Codable {
         self.host = host
         self.fallBack = fallBack
         self.serviceCode = serviceCode
+        self.address = address
+        self.zipCode = zipCode
+        self.cardBinDetails = cardBinDetails
     }
 }
 
@@ -77,6 +86,12 @@ public struct HpsUpaStartCardResponsePan: Codable {
     public let maskedPAN: String?
     public let encryptedPAN: String?
 
+    enum CodingKeys: String, CodingKey {
+        case clearPAN
+        case maskedPAN = "maskedPan"
+        case encryptedPAN
+    }
+    
     public init(clearPAN: String?, maskedPAN: String?, encryptedPAN: String?) {
         self.clearPAN = clearPAN
         self.maskedPAN = maskedPAN
@@ -121,6 +136,15 @@ public struct HpsUpaStartCardResponseTrackData: Codable {
     public let maskedTrack1: String?
     public let clearTrack3: String?
     public let maskedTrack3: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case clearTrack2
+        case maskedTrack2
+        case clearTrack1
+        case maskedTrack1
+        case clearTrack3
+        case maskedTrack3
+    }
 
     public init(clearTrack2: String?, maskedTrack2: String?, clearTrack1: String?,
                 maskedTrack1: String?, clearTrack3: String?, maskedTrack3: String?) {
@@ -142,5 +166,41 @@ public struct UpsUpaStartCardResponseHost: Codable {
     
     public init(signatureData: String?) {
         self.signatureData = signatureData
+    }
+}
+
+public struct HpsUpaCardBinDetails: Codable {
+    public let cardType: String?
+    public let cardBrand: String?
+    public let cardBrandShortName: String?
+    public let cardSecurityPromptFlag: Int?
+    public let avsFlag: Int?
+    public let cashBackFlag: Int?
+    public let surchargeFlag: Int?
+    public let ebtCardType: String?
+    public let dccEligible: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case cardType
+        case cardBrand
+        case cardBrandShortName
+        case cardSecurityPromptFlag
+        case avsFlag = "AVSFlag"
+        case cashBackFlag
+        case surchargeFlag
+        case ebtCardType = "EBTCardType"
+        case dccEligible = "DCCEligible"
+    }
+    
+    public init(cardType: String?, cardBrand: String?, cardBrandShortName: String?, cardSecurityPromptFlag: Int?, avsFlag: Int?, cashBackFlag: Int?, surchargeFlag: Int?, ebtCardType: String?, dccEligible: Int?) {
+        self.cardType = cardType
+        self.cardBrand = cardBrand
+        self.cardBrandShortName = cardBrandShortName
+        self.cardSecurityPromptFlag = cardSecurityPromptFlag
+        self.avsFlag = avsFlag
+        self.cashBackFlag = cashBackFlag
+        self.surchargeFlag = surchargeFlag
+        self.ebtCardType = ebtCardType
+        self.dccEligible = dccEligible
     }
 }

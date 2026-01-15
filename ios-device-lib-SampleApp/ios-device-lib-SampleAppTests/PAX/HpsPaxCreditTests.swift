@@ -804,4 +804,69 @@ final class HpsPaxCreditTests: XCTestCase {
         
         wait(for: [expectation], timeout: 1000)
     }
+    
+    func testPAXHTTPCreditCreditSale() {
+        let expectation = XCTestExpectation(description: "testPaxHttpCreditManual")
+        
+        device = self.setupDevice()
+        guard let device = self.device else {
+            XCTFail("Device is nil")
+            return
+        }
+        guard let builder = HpsPaxCreditSaleBuilder(device: device) else {
+            XCTFail("Builder is nil")
+            return
+        }
+        builder.allowDuplicates = true
+        builder.referenceNumber = 1
+        builder.amount = 15.0
+        
+        builder.execute() { response, error in
+            XCTAssertNil(error);
+            XCTAssertNotNil(response);
+            XCTAssertEqual("00", response?.responseCode)
+            print("Transaction Id : \(response?.traceResponse.transactionNunmber ?? "")");
+            print("Auth Code : \(response?.authorizationCode ?? "")");
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1000)
+    }
+    
+    func testPaxHttpCreditReturnByTransactionId() {
+        let expectation = XCTestExpectation(description: "testPaxHttpReturnByTransactionId")
+        
+        device = self.setupDevice()
+        guard let device = self.device else {
+            XCTFail("Device is nil")
+            return
+        }
+        guard let builder = HpsPaxCreditSaleBuilder(device: device) else {
+            XCTFail("Builder is nil")
+            return
+        }
+        builder.amount = 13.0
+        builder.referenceNumber = 1
+        builder.allowDuplicates = true
+        
+        builder.execute() { response, error in
+            guard let response = response else {
+                XCTFail("Response is nil")
+                return
+            }
+            guard let abuilder = HpsPaxCreditReturnBuilder(device: device) else {
+                XCTFail("Builder is nil")
+                return
+            }
+            abuilder.amount = 11.0
+            abuilder.transactionId = response.transactionId;
+            abuilder.referenceNumber = 2;
+            abuilder.authCode = response.authorizationCode
+            abuilder.execute { response, error in
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 3000)
+    }
 }

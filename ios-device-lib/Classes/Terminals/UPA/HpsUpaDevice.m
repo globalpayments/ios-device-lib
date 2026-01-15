@@ -5,6 +5,7 @@
 #import "NSObject+ObjectMap.h"
 #import "HpsUpaDeviceSignatureResponse.h"
 #import "UpaEnums.h"
+#import "GatewayException.h"
 
 @implementation HpsUpaDevice
 
@@ -353,40 +354,45 @@
 
 -(void)processTransactionWithJSONString:(NSString*)HpsUpaRequestString withResponseBlock:(void(^)(id <IHPSDeviceResponse>, NSString*, NSError*))responseBlock
 {
-    id<IHPSDeviceMessage> request = [HpsTerminalUtilities BuildRequest:HpsUpaRequestString withFormat:format];
-    NSLog(@"request json = \n  : %@", HpsUpaRequestString);
-    [self.interface send:request andUPAResponseBlock:^(JsonDoc *data, NSError *error) {
-        if (error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+      
+        id<IHPSDeviceMessage> request = [HpsTerminalUtilities BuildRequest:HpsUpaRequestString withFormat:format];
+        NSLog(@"request json = \n  : %@", HpsUpaRequestString);
+        [self.interface send:request andUPAResponseBlock:^(JsonDoc *data, NSError *error) {
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    responseBlock(nil, [data toString], error);
+                });
+                return;
+            }
+
+            //done
+            NSString *dataview = [data toString];
+            NSLog(@"response json = \n  : %@", dataview);
+            HpsUpaResponse *response;
+          
+            @try {
+                //parse data
+                response = [[HpsUpaResponse alloc]initWithJSONDoc:data];
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    responseBlock(response, [data toString], nil);
+                });
+            } @catch (GatewayException *exception) {
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                if (exception.rawResponse) userInfo[@"rawResponse"] = exception.rawResponse;
+
+                userInfo[NSLocalizedDescriptionKey] = exception.reason ?: @"Gateway Error";
+
+                // Always use a non-nil domain string
+                NSError *error = [NSError errorWithDomain:self->errorDomain
+                                                     code:CocoaError
+                                                 userInfo:userInfo];
+
+                dispatch_async(dispatch_get_main_queue(), ^{
                 responseBlock(nil, [data toString], error);
-            });
-            return;
-        }
-
-        //done
-        NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
-        HpsUpaResponse *response;
-
-        @try {
-            //parse data
-
-            response = [[HpsUpaResponse alloc]initWithJSONDoc:data];
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                responseBlock(response, [data toString], nil);
-            });
-        } @catch (NSException *exception) {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [exception description]};
-            NSError *error = [NSError errorWithDomain:self->errorDomain
-                                                 code:CocoaError
-                                             userInfo:userInfo];
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                responseBlock(nil, [data toString], error);
-            });
-        }
-    }];
+                });
+            }
+        }];
 }
 #pragma mark -
 #pragma mark EOD

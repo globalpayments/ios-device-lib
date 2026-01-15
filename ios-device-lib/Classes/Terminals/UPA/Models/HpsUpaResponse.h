@@ -8,7 +8,7 @@
 #import "HpsDeviceProtocols.h"
 #import "JsonDoc.h"
 #import "HpsTransactionDuplicate.h"
-
+#import "GatewayException.h"
 @interface HpsUpaResponse : HpsTerminalResponse<IHPSDeviceResponse>
 
 @property (nonatomic,strong) NSString *ecrId;
@@ -95,6 +95,8 @@
 @property (nonatomic,strong) NSString *upaOsVersion;
 @property (nonatomic,strong) NSString *upaEmvSdkVersion;
 @property (nonatomic,strong) NSString *upaContactlessSdkVersion;
+@property (nonatomic,strong) GatewayException *exceptionGateway;
+
 
 //Admin
 @property(nonatomic, strong) NSString *scanData;

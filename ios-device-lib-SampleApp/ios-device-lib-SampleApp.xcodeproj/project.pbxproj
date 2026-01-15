@@ -35,6 +35,7 @@
 		C712FA242EC3698C00C18365 /* UPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */; };
         C7CB24932EE6B2E100D80770 /* HpsUpaCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24922EE6B2E100D80770 /* HpsUpaCreditTests.swift */; };
 		C7CB24982EE8346900D80770 /* UPAAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24972EE8346900D80770 /* UPAAdminTests.swift */; };
+        C7E1A65E2EDF145D00682D19 /* HpsPaxDebitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */; };
 		DD37C2E72AE0829E003891D7 /* TapToPayHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */; };
 		DD37C2F72B165674003891D7 /* TokenServiceHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */; };
 		DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */; };
@@ -130,6 +131,7 @@
 		C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPACreditDuplicateTests.swift; sourceTree = "<group>"; };
         C7CB24922EE6B2E100D80770 /* HpsUpaCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaCreditTests.swift; sourceTree = "<group>"; };
 		C7CB24972EE8346900D80770 /* UPAAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPAAdminTests.swift; sourceTree = "<group>"; };
+        C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsPaxDebitTests.swift; sourceTree = "<group>"; };
 		DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayHostedViewController.swift; sourceTree = "<group>"; };
 		DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceHostedViewController.swift; sourceTree = "<group>"; };
 		DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HpsUPALineItemDisplayTests.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				143A437F2993BC5C0027BC3F /* HpsPaxCreditTests.swift */,
+				C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */,
 			);
 			path = PAX;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				DD713FC62948DC7500514143 /* Hps_UPA_Credit_Test.m in Sources */,
 				DD713FC82948DC7500514143 /* Hps_Pax_Report_test.m in Sources */,
 				DD713FCA2948DC7500514143 /* Hps_Hpa_Report_Test.m in Sources */,
+				C7E1A65E2EDF145D00682D19 /* HpsPaxDebitTests.swift in Sources */,
 				14864F232C9C74F400B0E4F3 /* HpsMobyTransactionsTests.swift in Sources */,
 				DD713FB02948DC7500514143 /* Hps_C2X_Device_Test.m in Sources */,
 				DD713FC12948DC7500514143 /* Hps_Pax_Gift_Tests.m in Sources */,
@@ -620,6 +624,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -681,6 +686,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -711,6 +717,7 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 264BX5RC4N;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-device-lib-SampleApp/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "ios-device-lib";
@@ -751,6 +758,7 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 264BX5RC4N;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-device-lib-SampleApp/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "ios-device-lib";
@@ -789,6 +797,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 264BX5RC4N;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -818,6 +827,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 264BX5RC4N;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

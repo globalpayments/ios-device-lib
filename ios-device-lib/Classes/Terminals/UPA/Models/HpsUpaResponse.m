@@ -1,7 +1,7 @@
 #import "HpsUpaResponse.h"
 #import "HpsHpaSharedParams.h"
 #import "NSString+HexParser.h"
-
+#import "GatewayException.h"
 @interface HpsUpaResponse()
 
 @property (readwrite,retain) NSMutableDictionary *params;
@@ -42,12 +42,37 @@ static int IsFieldEnable;
 
     if ([cmdData has:@"cmdResult"]) {
         JsonDoc* cmdResult = [cmdData get:@"cmdResult"];
-
+        
         if ([cmdData has:@"cmdResult"]) {
             self.result = [cmdResult getValueAsString:@"result"];
             self.status = [cmdResult getValueAsString:@"result"];
             self.deviceResponseCode = [cmdResult getValueAsString:@"errorCode"];
             self.deviceResponseMessage = [cmdResult getValueAsString:@"errorMessage"];
+        }
+        
+        
+        if ([self.result isEqualToString:@"Failed"]) {
+            
+            NSDictionary *fullMessage = nil;
+            NSString *jsonString = [response toString];
+            if (jsonString.length > 0) {
+                NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+                NSError *err = nil;
+                
+                id parsed = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                            options:0
+                                                              error:&err];
+                if (!err && [parsed isKindOfClass:[NSDictionary class]]) {
+                    fullMessage = parsed;
+                }
+            }
+            
+            // Absolute safety fallback
+            if (!fullMessage) {
+                fullMessage = @{ @"note": @"raw response unavailable" };
+            }
+            self.exceptionGateway = [[GatewayException alloc] exceptionWithMessage:@"Unexpected Device Response"
+                                            rawResponse:fullMessage];
         }
     }
 

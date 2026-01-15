@@ -94,6 +94,7 @@
 			self.terminalVerficationResult = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_TERMINAL_VERIFICATION_RESULTS];
             self.transactionStatusInformation = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_TRANSACTION_STATUS_INFORMATION];
             self.sequenceNumber = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_APPLICATION_PRIMARY_ACCOUNT_NUMBER];
+            self.merchantId = [self.extDataResponse.collection objectForKey:PAX_EXT_DATA_MERCHANT_ID];
 		}
         if(self.hostResponseCredential != nil) {
             self.currentTransactionMID = self.hostResponseCredential.merchantID;

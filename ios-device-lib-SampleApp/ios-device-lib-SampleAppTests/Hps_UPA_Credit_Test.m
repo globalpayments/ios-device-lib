@@ -25,8 +25,9 @@
     config.licenseID = @"145801";
     config.siteID = @"145898";
     config.deviceID = @"90916202";
-    config.ipAddress = @"192.168.4.127";
+    config.ipAddress = @"192.168.1.8";
     config.port = @"8081";
+    config.timeout = 120;
     config.connectionMode = HpsConnectionModes_TCP_IP;
     HpsUpaDevice * device = [[HpsUpaDevice alloc] initWithConfig:config];
     return device;
@@ -554,5 +555,36 @@
     }];
 }
 
+- (void)test_UPA_Gateway_Exception {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test_UPA_Gateway_Exception"];
+
+    HpsUpaDevice *device = [self setupDevice];
+    HpsUpaSaleBuilder* builder = [[HpsUpaSaleBuilder alloc] initWithDevice:device];
+    builder.ecrId = @"3";
+    builder.amount = [[NSDecimalNumber alloc] initWithDouble:5];
+    builder.gratuity = [[NSDecimalNumber alloc] initWithDouble:0];
+
+    [builder execute:^(HpsUpaResponse * response, NSError * error) {
+       
+    XCTAssertNil(error);
+    XCTAssertNotNil(response);
+ 
+        
+    XCTAssertEqualObjects(response.exceptionGateway.errorCode, @"HOST001");
+    XCTAssertEqualObjects(response.exceptionGateway.errorMessage, @"HOST ERROR");
+    XCTAssertEqualObjects(response.exceptionGateway.gatewayResponseCode, @"0");
+    XCTAssertEqualObjects(response.exceptionGateway.gatewayResponseMessage, @"Success");
+    XCTAssertEqualObjects(response.exceptionGateway.responseCode, @"05");
+    XCTAssertEqualObjects(response.exceptionGateway.responseText, @"DECLINE");
+    
+    
+    [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout: 120.0 handler:^(NSError *error) {
+            if(error) XCTFail(@"Request Timed out");
+    
+        }];
+}
 @end
 

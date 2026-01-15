@@ -93,6 +93,8 @@
 @property (nonatomic,strong) NSString *issuerResponseCode;
 @property (nonatomic,strong) NSString *transactionCurrencyCode;
 @property (nonatomic,strong) NSString *bankResponseCode;
+@property (nonatomic,retain) NSNumber* merchantId;
+
 - (void) mapResponse:(id <HpaResposeInterface>) response;
 // @todo
 //+(HpsTerminalResponse*)terminalResponseFromVitalSDK:(TransactionResponse*)transactionResponse;

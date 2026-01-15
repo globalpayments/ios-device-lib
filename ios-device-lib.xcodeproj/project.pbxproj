@@ -72,6 +72,8 @@
 		4341B61F2E68D56400F39F0E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4341B61E2E68D52C00F39F0E /* libc++.tbd */; };
 		4341B6202E68D57200F39F0E /* RUA_BLE.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14864F082C88A8E200B0E4F3 /* RUA_BLE.xcframework */; };
 		4341B6222E68D57500F39F0E /* TemLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14864EE42C88976000B0E4F3 /* TemLibrary.xcframework */; };
+		65BA5DB62EF5659800F38839 /* GatewayException.h in Headers */ = {isa = PBXBuildFile; fileRef = 65BA5DB52EF5658600F38839 /* GatewayException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65BA5DB82EF565A000F38839 /* GatewayException.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BA5DB72EF5659E00F38839 /* GatewayException.m */; };
 		C718CD572ED6EECD00B5707D /* HpsPaxHostResponseCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */; };
 		C718CD5A2ED6F60700B5707D /* HpsPaxHostResponseCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */; settings = {ATTRIBUTES = (Public, ); }; };
         C7CB249C2EEAAC6300D80770 /* UpaScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB249B2EEAAC6300D80770 /* UpaScan.swift */; };
@@ -598,6 +600,8 @@
 		432535292E68CDE50070A5ED /* BlueButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButtonStyle.swift; sourceTree = "<group>"; };
 		4325352A2E68CDE50070A5ED /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4341B61E2E68D52C00F39F0E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
+		65BA5DB52EF5658600F38839 /* GatewayException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayException.h; sourceTree = "<group>"; };
+		65BA5DB72EF5659E00F38839 /* GatewayException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayException.m; sourceTree = "<group>"; };
 		C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HpsPaxHostResponseCredential.h; sourceTree = "<group>"; };
 		C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HpsPaxHostResponseCredential.m; sourceTree = "<group>"; };
         C7CB249B2EEAAC6300D80770 /* UpaScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaScan.swift; sourceTree = "<group>"; };
@@ -1935,6 +1939,8 @@
 			isa = PBXGroup;
 			children = (
 				DDFF36DE2937B6FC00C2D1D1 /* GlobalMobileSDK */,
+				65BA5DB52EF5658600F38839 /* GatewayException.h */,
+				65BA5DB72EF5659E00F38839 /* GatewayException.m */,
 				DDFF34702937AF4200C2D1D1 /* JsonDoc.h */,
 				DDFF34712937AF4200C2D1D1 /* HpsEnums.h */,
 				DDFF34722937AF4200C2D1D1 /* HpsTerminalEnums.m */,
@@ -2234,6 +2240,7 @@
 				DDFF35A32937AF4300C2D1D1 /* HpsPaxInitializeResponse.h in Headers */,
 				DDFF35652937AF4300C2D1D1 /* HpsPaxGiftVoidBuilder.h in Headers */,
 				DDFF36612937AF4400C2D1D1 /* HpsBaseTableServiceResponse.h in Headers */,
+				65BA5DB62EF5659800F38839 /* GatewayException.h in Headers */,
 				DDFF36562937AF4400C2D1D1 /* HpsTicket.h in Headers */,
 				DDFF36682937AF4400C2D1D1 /* HpsAddress.h in Headers */,
 				DDFF356D2937AF4300C2D1D1 /* HpsPaxDebitReturnBuilder.h in Headers */,
@@ -2612,6 +2619,7 @@
 				DDFF367D2937AF4400C2D1D1 /* HpsServicesConfig.m in Sources */,
 				DDFF36A52937AF4400C2D1D1 /* HpsEmployee.m in Sources */,
 				DDFF36712937AF4400C2D1D1 /* HpsTokenData.m in Sources */,
+				65BA5DB82EF565A000F38839 /* GatewayException.m in Sources */,
 				DDFF35692937AF4300C2D1D1 /* HpsPaxCreditSaleBuilder.m in Sources */,
 				DDFF36B02937AF4400C2D1D1 /* HpsWorkLocation.m in Sources */,
 				DDFF370C2937B6FD00C2D1D1 /* GMSCreditReversalBuilder.swift in Sources */,
@@ -2828,6 +2836,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2892,6 +2901,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2922,6 +2932,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2955,6 +2966,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

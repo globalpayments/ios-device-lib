@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.1.10 2026-01-15
+- ios-device-lib: Added GatewayException to handle UPA failed response
+- ios-device-lib: Pax added the missing fileds 'Merchant ID' and 'Transaction Currency' from Canadian Receipts
+
 ## 3.1.9 2026-01-08
 - ios-device-lib: Pax Added missing fileds for void transaction
 - ios-device-lib: Added support for SI Command CancelTransaction, Ping, Restart, Reboot, LineItemDisplay, Scan, GetSignature, StartCardTransaction

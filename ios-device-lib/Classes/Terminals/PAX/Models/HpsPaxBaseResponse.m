@@ -39,7 +39,8 @@
 		@throw [NSException exceptionWithName:@"HpsScanException" reason:[NSString stringWithFormat:@"Unexpected message type received. Expected %@ but received %@.", _messageId, self.command] userInfo:nil];
 	}
 
-	NSLog(@"\r response_toString = %@ \r",[self toString]);
+    id<RequestLogger> requestLogger = [[SampleRequestLogger alloc] init];
+    [requestLogger responseReceived:[self toString]];
 	return binaryReader;
 }
 

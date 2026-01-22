@@ -1,5 +1,5 @@
 //
-//  RUADeviceHelper.swift
+//  RUAHelper.swift
 //  MobiPay
 //
 //
@@ -7,7 +7,7 @@
 import Foundation
 import RUA_BLE
 
-enum DMainMobyTransaction {
+enum MainMobyTransaction {
     case auth
     case credit
     case refund
@@ -17,7 +17,7 @@ enum DMainMobyTransaction {
 }
 
 //["Moby3000","RP45BT","Moby5500","Moby8500"]
-enum ReaderDDeviceType: String,CaseIterable{
+enum ReaderDeviceType: String,CaseIterable{
     //case Moby3000 = "Moby3000"
     case RP45BT = "RP45BT"
     case Moby5500 = "Moby5500"
@@ -43,20 +43,20 @@ enum ReaderDDeviceType: String,CaseIterable{
     }
 }
 
-enum DPairingStatus {
+enum PairingStatus {
     case Failed
     case NotSupported
     case Succeeded
     case Cancelled
 }
 
-enum DKeyMappingStubMode: String,CaseIterable{
+enum KeyMappingStubMode: String,CaseIterable{
     case None = "No stub"
     case Stub1 = "Stub 1"
     case Stub2 = "Stub 2"
 }
 
-public class DRuaDevice: NSObject,Identifiable{
+public class RuaDevice: NSObject,Identifiable{
     @objc public var deviceName: String
     @objc public var deviceIdentifier: String
     
@@ -67,7 +67,7 @@ public class DRuaDevice: NSObject,Identifiable{
 }
 
 @available(iOS 13.0, *)
-class RUADDeviceHelper: NSObject {
+class RUAHelper: NSObject {
     
     private var ruaDeviceManager: RUADeviceManager?
     private var selectedRUADevice: RUADevice? = nil
@@ -80,14 +80,14 @@ class RUADDeviceHelper: NSObject {
     
     private var rkiIsExecuted = false
     
-    var currentKeyMappingInfoMode = DKeyMappingStubMode.None
+    var currentKeyMappingInfoMode = KeyMappingStubMode.None
     
     var isConnectedToDevice = false
     
     private var stateJson: [String:AnyObject]
     
     private var loggerBlock: ((String) -> Void)?
-    private var searchBlock : ([RUADevice]) -> Void = {_ in }
+    private var searchBlock : ([RuaDevice]) -> Void = {_ in }
     private var initilalizeCompletionBlock : (String?,String?) -> Void = {_,_ in }
     private var releaseCompletionBlock : (Bool) -> Void = {_ in }
     private var readerStateFileCompletionBlock : (String?) -> Void = {_ in}
@@ -100,11 +100,11 @@ class RUADDeviceHelper: NSObject {
     private var launchTransactionAfterSetup = false
     private var hardwareType : String? = nil
     
-    public static let sharedInstance = RUADDeviceHelper()
+    public static let sharedInstance = RUAHelper()
     
     private var connectingFinishBlock: ((Bool?) -> Void) = {_ in }
     
-    public var mainTransaction: DMainMobyTransaction = .credit
+    public var mainTransaction: MainMobyTransaction = .credit
     @Published public var terminalRefNumber: String?
     public var clientTransactionId: String?
     @Published public var transactionId: String?
@@ -159,19 +159,19 @@ class RUADDeviceHelper: NSObject {
         
     }
     
-    func startSearchingDevices(searchFinishBlock : @escaping ([RUADevice]) -> Void) {
+    func startSearchingDevices(searchFinishBlock : @escaping ([RuaDevice]) -> Void) {
         self.searchBlock = searchFinishBlock
         mobyDevice?.scan()
     }
     
-    func connect(_ deviceSelected: RUADevice,
+    func connect(_ deviceSelected: RuaDevice,
                  connectingFinishBlock : @escaping (Bool?) -> Void) {
         showLoadingScreen = true
-        let device = HpsTerminalInfo.init(name: deviceSelected.name,
-                                          description: deviceSelected.description,
-                                          connected: mobyDevice?.isConnected() ?? false,
-                                          terminalType: deviceSelected.name,
-                                          identifier: UUID(uuidString: deviceSelected.identifier) ?? UUID())
+        let device = HpsTerminalInfo.init(name: deviceSelected.deviceName,
+                                             description: deviceSelected.description,
+                                             connected: mobyDevice?.isConnected() ?? false,
+                                             terminalType: deviceSelected.deviceName,
+                                             identifier: UUID(uuidString: deviceSelected.deviceIdentifier) ?? UUID())
         self.connectingFinishBlock = connectingFinishBlock
         mobyDevice?.connectDevice(device)
     }
@@ -246,23 +246,21 @@ class RUADDeviceHelper: NSObject {
     
     func discoveryComplete() {
         print("On discovery complete")
-        self.searchBlock(discoveredRUADevices.map { (ruaDevice) -> RUADevice in
-            RUADevice(name: ruaDevice.name,
-                      withIdentifier: ruaDevice.identifier,
-                      with: RUACommunicationInterface(0))
+        self.searchBlock(discoveredRUADevices.map { (ruaDevice) -> RuaDevice in
+            RuaDevice(deviceName: ruaDevice.name, deviceSerialNumber: ruaDevice.identifier)
         })
     }
     
     // MARK:  RUADeviceStatusHandler delegate methods
 
-    func getHardwareType() -> ReaderDDeviceType?{
+    func getHardwareType() -> ReaderDeviceType?{
         guard let ht = hardwareType else {
             return nil
         }
         if(ht.contains("MOB85")){
-            return ReaderDDeviceType.Moby8500
+            return ReaderDeviceType.Moby8500
         }else if(ht.contains("MOB55")){
-            return ReaderDDeviceType.Moby5500
+            return ReaderDeviceType.Moby5500
         }
         return nil
     }
@@ -330,7 +328,7 @@ class RUADDeviceHelper: NSObject {
             self.ruaDeviceManager?.getConfigurationManager().getReaderCapabilities({ ruaProgressMessage, additionalMessage in
                 print("\(ruaProgressMessage.rawValue) -> \(additionalMessage ?? "")")
             }, response: { ruaReponse in
-                self.logMessage("[onConnected][Response]\(ruaReponse?.toDescriptionString() ?? "")")
+                self.logMessage("[onConnected][Response]\(ruaReponse?.toString() ?? "")")
                 let dictionnary = ruaReponse?.responseData as? Dictionary<Int,String>
                 self.connectedDeviceSerialNumber = dictionnary?[RUAParameter.interfaceDeviceSerialNumber.rawValue]
                 self.initilalizeCompletionBlock(selectedDevice.name,self.connectedDeviceSerialNumber)
@@ -348,7 +346,7 @@ class RUADDeviceHelper: NSObject {
     func triggerRKIWithGroupName(groupName : String,_ completionBLock : @escaping (Bool) -> Void){
         self.ruaDeviceManager?.getConfigurationManager().triggerRKI(withGroupName: groupName, response: { ruaResponse in
             if(ruaResponse?.responseCode == RUAResponseCodeSuccess){
-                self.logMessage("[triggerRKIWithGroupName][Response]\(ruaResponse?.toDescriptionString() ?? "")")
+                self.logMessage("[triggerRKIWithGroupName][Response]\(ruaResponse?.toString() ?? "")")
                 self.readKeyMappingInfo(groupName,completionBLock)
             }else{
                 completionBLock(false)
@@ -507,7 +505,7 @@ class RUADDeviceHelper: NSObject {
 }
 
 extension RUAResponse{
-    func toDescriptionString() -> String {
+    func toString() -> String {
         var returnStr = ""
         
         returnStr.append(String(format : "%@:%@,\n",RUAEnumerationHelper.ruaParameter_(toString: RUAParameter.command),RUAEnumerationHelper.ruaCommand_(toString: command)))
@@ -540,7 +538,7 @@ extension RUAResponse{
 // MARK: Transaction
 
 @available(iOS 13.0, *)
-extension RUADDeviceHelper {
+extension RUAHelper {
     
     // MARK: Check if device is ready
     func isDeviceReady() -> Bool {
@@ -562,7 +560,7 @@ extension RUADDeviceHelper {
 }
 
 @available(iOS 13.0, *)
-extension RUADDeviceHelper: HpsMobyDeviceDelegate {
+extension RUAHelper: HpsMobyDeviceDelegate {
     func onConnected() {
         showLoadingScreen = false
         print(" Is Device Connected?: \(mobyDevice?.isConnected())")
@@ -596,16 +594,14 @@ extension RUADDeviceHelper: HpsMobyDeviceDelegate {
             }
         }
         
-        self.searchBlock(deviceLists.map { (ruaDevice) -> RUADevice in
-            RUADevice(name: ruaDevice.name,
-                      withIdentifier: ruaDevice.identifier.uuidString,
-                      with: RUACommunicationInterface(0))
+        self.searchBlock(deviceLists.map { (ruaDevice) -> RuaDevice in
+            RuaDevice(deviceName: ruaDevice.name, deviceSerialNumber: ruaDevice.identifier.uuidString)
         })
     }
 }
 
 @available(iOS 13.0, *)
-extension RUADDeviceHelper: GMSClientAppDelegate {
+extension RUAHelper: GMSClientAppDelegate {
     func searchComplete() {
         showLoadingScreen = false
         print("searchComplete")
@@ -662,35 +658,35 @@ extension RUADDeviceHelper: GMSClientAppDelegate {
 }
 
 @available(iOS 13.0, *)
-extension RUADDeviceHelper: GMSTransactionDelegate {
+extension RUAHelper: GMSTransactionDelegate {
     func onStatusUpdate(_ transactionStatus: ios_device_lib.HpsTransactionStatus) {
         print("status")
         print(transactionStatus.rawValue)
         
         switch transactionStatus {
         case .waitingForCard, .presentCard, .presentCardAgain, .started:
-            statusText = DLoadingStatus.WAITING_FOR_CARD.rawValue
+            statusText = LoadingStatus.WAITING_FOR_CARD.rawValue
             self.isProcessing = true
         case .processing:
-            statusText = DLoadingStatus.PROCESSING.rawValue
+            statusText = LoadingStatus.PROCESSING.rawValue
             self.isProcessing = true
         case .complete:
-            statusText = DLoadingStatus.COMPLETED.rawValue
+            statusText = LoadingStatus.COMPLETED.rawValue
             self.isProcessing = false
         case .error:
-            statusText = DLoadingStatus.ERROR.rawValue
+            statusText = LoadingStatus.ERROR.rawValue
             self.isProcessing = false
         case .terminalDeclined:
-            statusText = DLoadingStatus.DECLINED.rawValue
+            statusText = LoadingStatus.DECLINED.rawValue
             self.isProcessing = false
         case .transactionTerminated:
-            statusText = DLoadingStatus.TERMINATED.rawValue
+            statusText = LoadingStatus.TERMINATED.rawValue
             self.isProcessing = false
         case .surchargeRequested:
             statusText = "Surcharge Requested"
             self.isProcessing = false
         default:
-            statusText = DLoadingStatus.PROCESSING.rawValue
+            statusText = LoadingStatus.PROCESSING.rawValue
             self.isProcessing = true
         }
         
@@ -731,13 +727,13 @@ extension RUADDeviceHelper: GMSTransactionDelegate {
         
         if let deviceResponseCode = response.deviceResponseCode {
             switch deviceResponseCode {
-            case DLoadingStatus.APPROVAL.rawValue:
+            case LoadingStatus.APPROVAL.rawValue:
                 showDialog(for: .APPROVED(response: response))
-            case DLoadingStatus.PARTIAL_APPROVAL.rawValue:
+            case LoadingStatus.PARTIAL_APPROVAL.rawValue:
                 showDialog(for: .APPROVED(response: response))
-            case DLoadingStatus.DECLINED.rawValue:
+            case LoadingStatus.DECLINED.rawValue:
                 showDialog(for: .DECLINED(response: response))
-            case DLoadingStatus.CANCELLED.rawValue:
+            case LoadingStatus.CANCELLED.rawValue:
                 showDialog(for: .CANCELLED(response: response))
             default:
                 self.receiptImage = self.mobyDevice?.printReceipt(response: response,
@@ -761,7 +757,7 @@ extension RUADDeviceHelper: GMSTransactionDelegate {
 }
 
 @available(iOS 13.0, *)
-extension RUADDeviceHelper {
+extension RUAHelper {
     private func showDialog(for status: Status) {
         var messageResult = ""
         var isApproved = false
@@ -846,7 +842,7 @@ extension RUADDeviceHelper {
             
         case let .MESSAGE(message):
             messageResult = message
-            isApproved = (message.uppercased().contains(DLoadingStatus.SUCCESS.rawValue))
+            isApproved = (message.uppercased().contains(LoadingStatus.SUCCESS.rawValue))
         }
         showTextDialog(messageResult, isApproved)
     }
@@ -859,7 +855,7 @@ extension RUADDeviceHelper {
     }
 }
 
-public enum DLoadingStatus: String {
+public enum LoadingStatus: String {
     case WAIT = "PLEASE WAIT..."
     case CONNECTING = "Connecting to C2X Device..."
     case WAITING_FOR_CARD = "WAITING FOR CARD..."

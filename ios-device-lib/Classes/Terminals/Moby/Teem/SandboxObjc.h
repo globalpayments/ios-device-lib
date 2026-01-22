@@ -1,22 +1,21 @@
 //
-//  SObjc.h
-//  ios-device-lib
+//  SandboxObjc.h
+//  ios_device_lib
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <TemCommunicationManager.h>
-#import <TemLibrary/TemLibrary-swift.h>
 
 @class Sandbox;
 
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SObjc : NSObject
+@interface SandboxObjc : NSObject
 
 
-+(SObjc *)getInstance;
++(SandboxObjc *)getInstance;
 
 
 /**

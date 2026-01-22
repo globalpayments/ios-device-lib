@@ -1,13 +1,13 @@
 //
-//  SObjc.m
-//  ios-device-lib
+//  SandboxObjc.m
+//  ios_device_lib
 //
 //
 
-#import "SObjc.h"
+#import "SandboxObjc.h"
 
 
-@implementation SObjc
+@implementation SandboxObjc
 
 TemCommunicationManager * temCommunicationManager;
 
@@ -19,11 +19,11 @@ TemCommunicationManager * temCommunicationManager;
     return self;
 }
 
-+ (SObjc *)getInstance{
-    static SObjc *sharedInstance = nil;
++ (SandboxObjc *)getInstance{
+    static SandboxObjc *sharedInstance = nil;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            sharedInstance = [[SObjc alloc] init];
+            sharedInstance = [[SandboxObjc alloc] init];
         });
         return sharedInstance;
 }

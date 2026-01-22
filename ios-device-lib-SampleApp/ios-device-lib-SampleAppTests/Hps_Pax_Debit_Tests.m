@@ -19,6 +19,10 @@
     config.ipAddress = @"192.168.1.12";
     config.port = @"10009";
     config.connectionMode = HpsConnectionModes_TCP_IP;
+    
+    SampleRequestLogger *logger = [[SampleRequestLogger alloc] init];
+    config.requestLogger = logger;
+    
     HpsPaxDevice * device = [[HpsPaxDevice alloc] initWithConfig:config];
     return device;
 }

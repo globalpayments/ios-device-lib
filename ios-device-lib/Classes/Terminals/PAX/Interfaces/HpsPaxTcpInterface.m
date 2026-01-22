@@ -68,8 +68,7 @@
     __weak typeof(errorDomain) weakErrorDomain = errorDomain;
     
     //Connection_open_block_start
-    NSLog(@"request_toString = %@",message.toString);
-    
+    [self.config.requestLogger requestSent: baseMessageString];
     self.sendResponseBlock = responseBlock;
     
     self.connectionOpenedBlock = ^(HpsPaxTcpInterface* connection){

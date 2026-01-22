@@ -29,6 +29,10 @@
     config.port = @"8081";
     config.timeout = 120;
     config.connectionMode = HpsConnectionModes_TCP_IP;
+    
+    SampleRequestLogger *logger = [[SampleRequestLogger alloc] init];
+    config.requestLogger = logger;
+    
     HpsUpaDevice * device = [[HpsUpaDevice alloc] initWithConfig:config];
     return device;
 }

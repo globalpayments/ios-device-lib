@@ -21,6 +21,10 @@
     config.ipAddress = @"192.168.1.213";
     config.port = @"8081";
     config.connectionMode = HpsConnectionModes_TCP_IP;
+    
+    SampleRequestLogger *logger = [[SampleRequestLogger alloc] init];
+    config.requestLogger = logger;
+    
     HpsUpaDevice * device = [[HpsUpaDevice alloc] initWithConfig:config];
     return device;
 }

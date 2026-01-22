@@ -6,9 +6,9 @@ import TemLibrary
 @objcMembers
 public class HpsMobyDevice: GMSDevice, IC2xDeviceInterface {
     
-    let ruaHelper: RUADDeviceHelper = RUADDeviceHelper.sharedInstance
+    let ruaHelper: RUAHelper = RUAHelper.sharedInstance
     
-    var ruaDevice: DRuaDevice?
+    var ruaDevice: RuaDevice?
     
     public init(config: HpsConnectionConfig) {
         super.init(
@@ -25,7 +25,7 @@ public class HpsMobyDevice: GMSDevice, IC2xDeviceInterface {
         )
     }
     
-    public func searchDevice(searchFinishBlock: @escaping ([DRuaDevice]) -> Void) {
+    public func searchDevice(searchFinishBlock: @escaping ([RuaDevice]) -> Void) {
         self.deviceDelegate = ruaHelper
         self.scan()
     }

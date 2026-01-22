@@ -113,6 +113,7 @@
     request.data.data.params = [[HpsUpaParams alloc] init];
     request.data.data.params.lineItemLeft = leftText;
     request.data.data.params.lineItemRight = rightText;
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
 
@@ -126,7 +127,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {
@@ -157,9 +158,10 @@
     request.data.command = UPA_MSG_ID_toString[ UPA_MSG_ID_PING ];
     request.data.EcrId = @"13";
     request.data.requestId = @"123";
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
-    NSLog(@"request json = \n  : %@", [request JSONString]);
+    
     [self.interface send:data andUPAResponseBlock:^(JsonDoc *data, NSError *error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -170,7 +172,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {
@@ -201,9 +203,10 @@
     request.data.command = UPA_MSG_ID_toString[ UPA_MSG_ID_RESTART ];
     request.data.EcrId = @"13";
     request.data.requestId = @"123";
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
-    NSLog(@"request json = \n  : %@", [request JSONString]);
+    
     [self.interface send:data andUPAResponseBlock:^(JsonDoc *data, NSError *error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -214,7 +217,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {
@@ -253,6 +256,7 @@
     request.data.command = UPA_MSG_ID_toString[ UPA_MSG_ID_REBOOT ];
     request.data.EcrId = @"13";
     request.data.requestId = @"123";
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
     NSLog(@"request json = \n  : %@", [request JSONString]);
@@ -266,7 +270,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {
@@ -301,6 +305,7 @@
     request.data.data = [[HpsUpaData alloc] init];
     request.data.data.params = [[HpsUpaParams alloc] init];
     request.data.data.params.displayOption = @"1";
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
     NSLog(@"request json = \n  : %@", [request JSONString]);
@@ -314,7 +319,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {
@@ -356,7 +361,7 @@
 {
       
         id<IHPSDeviceMessage> request = [HpsTerminalUtilities BuildRequest:HpsUpaRequestString withFormat:format];
-        NSLog(@"request json = \n  : %@", HpsUpaRequestString);
+        [self.config.requestLogger requestSent: HpsUpaRequestString];
         [self.interface send:request andUPAResponseBlock:^(JsonDoc *data, NSError *error) {
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -367,7 +372,7 @@
 
             //done
             NSString *dataview = [data toString];
-            NSLog(@"response json = \n  : %@", dataview);
+            [self.config.requestLogger responseReceived: dataview];
             HpsUpaResponse *response;
           
             @try {
@@ -404,6 +409,7 @@
     request.data.command = UPA_MSG_ID_toString[ UPA_MSG_ID_EXECUTE_EOD ];
     request.data.EcrId = ecrId;
     request.data.requestId = requestId;
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
 
@@ -417,7 +423,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {
@@ -494,6 +500,7 @@
     request.data.command = UPA_MSG_ID_toString[ UPA_MSG_ID_GET_INFO_REPORT ];
     request.data.EcrId = @"13";
     request.data.requestId = @"123";
+    [self.config.requestLogger requestSent: [request JSONString]];
 
     id<IHPSDeviceMessage> data = [HpsTerminalUtilities BuildRequest:request.JSONString withFormat:format];
 
@@ -507,7 +514,7 @@
 
         //done
         NSString *dataview = [data toString];
-        NSLog(@"response json = \n  : %@", dataview);
+        [self.config.requestLogger responseReceived: dataview];
         HpsUpaResponse *response;
 
         @try {

@@ -1,6 +1,6 @@
 //
 //  ExtensionView.swift
-//  ios_device_lib
+//  ios-device-lib
 //
 //
 

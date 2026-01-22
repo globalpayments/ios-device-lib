@@ -6,16 +6,14 @@
 
 import SwiftUI
 import GlobalMobileSDK
-import RUA_BLE
-import TemLibrary
 
 @available(iOS 16.0, *)
-public struct DMobyDevicesView: View {
+public struct MobyDevicesView: View {
     
     @State private var showToastLoading = false
-    @State var listDevices: [RUADevice] = []
+    @State var listDevices: [RuaDevice] = []
     
-    @State private var device: RUADevice? = nil
+    @State private var device: RuaDevice? = nil
     
     @State private var mobyDevice: HpsMobyDevice?
     
@@ -40,8 +38,19 @@ public struct DMobyDevicesView: View {
             NavigationSplitView(columnVisibility: .constant(NavigationSplitViewVisibility.all)) {
                 if(!listDevices.isEmpty){
                     ScrollView {
-                        ForEach(listDevices, id: \.identifier) { device in
-                            DeviceRowView(device: device)
+                        ForEach(listDevices, id: \.self) { device in
+                            VStack {
+                                Divider()
+                                NavigationLink(
+                                    destination: MobyDeviceDetailView(deviceSelected: device),
+                                    label: {
+                                        Text("\(device.deviceName)")
+                                    })
+                                .navigationViewStyle(StackNavigationViewStyle())
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            
+                            Spacer()
                         }
                     }
                     .padding(0)
@@ -54,7 +63,7 @@ public struct DMobyDevicesView: View {
                 }
             } detail: {
                 if let device, let mobyDevice {
-                    DMobyDeviceDetailView(deviceSelected: device)
+                    MobyDeviceDetailView(deviceSelected: device)
                 }
             }
             .navigationSplitViewStyle(.balanced)
@@ -202,40 +211,20 @@ public struct DMobyDevicesView: View {
         
         config.timeout = timeout
     
-        RUADDeviceHelper.sharedInstance.initializeWith(config: config) { result1, result2 in
+        RUAHelper.sharedInstance.initializeWith(config: config) { result1, result2 in
             print(result1)
             print(result2)
         } releaseCompletionBlock: { isConnected in
             print("releaseCompletionBlock")
-            showToastLoading = RUADDeviceHelper.sharedInstance.showLoadingScreen
+            showToastLoading = RUAHelper.sharedInstance.showLoadingScreen
         }
 
-        RUADDeviceHelper.sharedInstance.startSearchingDevices { devices in
+        RUAHelper.sharedInstance.startSearchingDevices { devices in
             listDevices = devices
-            showToastLoading = RUADDeviceHelper.sharedInstance.showLoadingScreen
+            showToastLoading = RUAHelper.sharedInstance.showLoadingScreen
             if(searchEnded != nil){
                 searchEnded!()
             }
         }
-    }
-}
-
-@available(iOS 16.0, *)
-struct DeviceRowView: View {
-    let device: RUADevice
-
-    var body: some View {
-        VStack {
-            Divider()
-            NavigationLink(
-                destination: DMobyDeviceDetailView(deviceSelected: device),
-                label: {
-                    Text(device.name)
-                }
-            )
-        }
-        .frame(maxWidth: .infinity, maxHeight: 50)
-
-        Spacer()
     }
 }

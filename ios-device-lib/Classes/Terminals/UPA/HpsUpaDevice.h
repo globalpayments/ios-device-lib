@@ -9,6 +9,8 @@
 #import "HpsUpaRequest.h"
 #import "HpsUpaResponse.h"
 #import "HpsUpaDeviceSignatureResponse.h"
+#import "RequestLogger.h"
+#import "SampleRequestLogger.h"
 
 
 @interface HpsUpaDevice : NSObject<IDeviceInterface>

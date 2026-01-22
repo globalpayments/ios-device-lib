@@ -14,6 +14,8 @@
 #import "HpsPaxCashierSubGroup.h"
 #import "HpsPaxCheckResponse.h"
 #import "HpsPaxHostResponseCredential.h"
+#import "RequestLogger.h"
+#import "SampleRequestLogger.h"
 
 @interface HpsPaxBaseResponse : HpsTerminalResponse <IHPSDeviceResponse>
 
@@ -32,6 +34,7 @@
 @property (nonatomic,strong) HpsPaxCashierSubGroup *cashierResponse;
 @property (nonatomic,strong) HpsPaxCheckResponse *checkResponse;
 @property (nonatomic,strong) HpsPaxHostResponseCredential *hostResponseCredential;
+@property (nonatomic, strong) id<RequestLogger> requestLogger;
 
 
 - (id) initWithMessageID:(NSString*)messageId andBuffer:(NSData*)buffer;

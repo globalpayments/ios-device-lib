@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.2.0 2026-01-22
+- ios-device-lib: Implemented Moby Functionality for CreditAuth, CreditCapture, CreditSale, CreditAdjust, CreditReturn, CreditReversal, CreditVoid
+- ios-device-lib: Update GlobalMobileSDK framework to support Moby transaction
+- ios-device-lib: Added Moby in Sample App
+- ios-device-lib: Implemented logging functionality for UPA and PAX devices
+
 ## 3.1.10 2026-01-15
 - ios-device-lib: Added GatewayException to handle UPA failed response
 - ios-device-lib: Pax added the missing fileds 'Merchant ID' and 'Transaction Currency' from Canadian Receipts

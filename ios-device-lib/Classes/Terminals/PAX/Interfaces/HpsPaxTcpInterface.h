@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "HpsConnectionConfig.h"
 #import "HpsDeviceProtocols.h"
+#import "RequestLogger.h"
 
 // Block typedefs
 @class HpsPaxTcpInterface;
@@ -37,5 +38,6 @@ typedef void (^SendReponseBlock)(NSData*, NSError*);
 @property (copy) ConnectionBlock connectionFailedBlock;
 @property (copy) ConnectionBlock connectionClosedBlock;
 @property (copy) SendReponseBlock sendResponseBlock;
+@property (nonatomic, strong) id<RequestLogger> requestLogger;
 
 @end

@@ -19,6 +19,7 @@ final class UPACreditDuplicateTests: XCTestCase {
         
         config.connectionMode = HpsConnectionModes.TCP_IP.rawValue
         config.timeout = 1000
+        config.requestLogger = SampleRequestLogger()
         return HpsUpaDevice(config: config)
     }
     

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "HpsInterfaceLogging.h"
+#import "RequestLogger.h"
 
 @interface HpsConnectionConfig : NSObject
 
@@ -24,5 +25,6 @@
 @property (nonatomic) BOOL isProduction;
 
 @property (nonatomic, strong) id<HpsInterfaceLogging> logger;
+@property (nonatomic, strong) id<RequestLogger> requestLogger;
 
 @end

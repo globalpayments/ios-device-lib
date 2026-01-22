@@ -190,7 +190,7 @@ public struct MobyTransactionsView: View {
                             Divider()
                             
                             Button {
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -201,7 +201,7 @@ public struct MobyTransactionsView: View {
                                 builder.cpcReq = true
                                 builder.isSurchargeEnabled = false
                                 builder.allowDuplicates = NSNumber(value: self.allowDuplicates)
-                                RUADDeviceHelper.sharedInstance.mainTransaction = .credit
+                                RUAHelper.sharedInstance.mainTransaction = .credit
                                 isTransactioning = true
                                 builder.execute()
                             } label: {
@@ -215,7 +215,7 @@ public struct MobyTransactionsView: View {
                             
                             Button {
                                 // PERFORM CREDIT ADJUST
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -229,7 +229,7 @@ public struct MobyTransactionsView: View {
                                 builder.allowPartialAuth = NSNumber(value: allowPartialAuth)
                                 builder.transactionId = clientTransaction
                                 builder.referenceNumber = self.terminalReferenceNumber
-                                RUADDeviceHelper.sharedInstance.mainTransaction = .credit
+                                RUAHelper.sharedInstance.mainTransaction = .credit
                                 isTransactioning = true
                                 builder.execute()
                             } label: {
@@ -242,7 +242,7 @@ public struct MobyTransactionsView: View {
                             .disabled(isTransactioning)
                             
                             Button {
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -253,7 +253,7 @@ public struct MobyTransactionsView: View {
                                 builder.allowPartialAuth = NSNumber(value: allowPartialAuth)
                                 builder.allowDuplicates = NSNumber(value: self.allowDuplicates)
                                 builder.isSurchargeEnabled = false
-                                RUADDeviceHelper.sharedInstance.mainTransaction = .auth
+                                RUAHelper.sharedInstance.mainTransaction = .auth
                                 isTransactioning = true
                                 builder.execute()
                             } label: {
@@ -267,7 +267,7 @@ public struct MobyTransactionsView: View {
                             
                             Button {
                                 // PERFORM CREDIT CAPTURE
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -280,7 +280,7 @@ public struct MobyTransactionsView: View {
                                 builder.isSurchargeEnabled = false
                                 builder.transactionId = clientTransaction
                                 builder.referenceNumber = self.terminalReferenceNumber
-                                RUADDeviceHelper.sharedInstance.mainTransaction = .capture
+                                RUAHelper.sharedInstance.mainTransaction = .capture
                                 isTransactioning = true
                                 builder.execute()
                             } label: {
@@ -294,7 +294,7 @@ public struct MobyTransactionsView: View {
                             
                             Button {
                                 // PERFORM CREDIT RETURN
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -316,7 +316,7 @@ public struct MobyTransactionsView: View {
                             
                             Button {
                                 // PERFORM CREDIT REVERSAL
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -341,7 +341,7 @@ public struct MobyTransactionsView: View {
                             
                             Button {
                                 // PERFORM CREDIT VOID
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -360,7 +360,7 @@ public struct MobyTransactionsView: View {
                             
                             Button {
                                 // PERFORM BATCH CLOSE
-                                guard let device = RUADDeviceHelper.sharedInstance.mobyDevice else {
+                                guard let device = RUAHelper.sharedInstance.mobyDevice else {
                                     print("NO DEVICE CONNECTED")
                                     return
                                 }
@@ -432,25 +432,25 @@ public struct MobyTransactionsView: View {
             }
         }
         .padding(16)
-        .onReceive(RUADDeviceHelper.sharedInstance.$transactionId) { value in
+        .onReceive(RUAHelper.sharedInstance.$transactionId) { value in
             guard let value = value else { return }
             self.clientTransaction = value
         }
-        .onReceive(RUADDeviceHelper.sharedInstance.$terminalRefNumber) { referenceNumber in
+        .onReceive(RUAHelper.sharedInstance.$terminalRefNumber) { referenceNumber in
             guard let referenceNumber = referenceNumber else { return }
             self.terminalReferenceNumber = referenceNumber
         }
-        .onReceive(RUADDeviceHelper.sharedInstance.$showMessage, perform: { action in
+        .onReceive(RUAHelper.sharedInstance.$showMessage, perform: { action in
             self.showMessage = action
         })
-        .onReceive(RUADDeviceHelper.sharedInstance.$isProcessing, perform: { isProcessing in
+        .onReceive(RUAHelper.sharedInstance.$isProcessing, perform: { isProcessing in
             self.isTransactioning = isProcessing
         })
-        .onReceive(RUADDeviceHelper.sharedInstance.$status, perform: { status in
+        .onReceive(RUAHelper.sharedInstance.$status, perform: { status in
             self.status = status
         })
         .alert(
-            Text(RUADDeviceHelper.sharedInstance.success ? "Success" : "Failure"),
+            Text(RUAHelper.sharedInstance.success ? "Success" : "Failure"),
             isPresented: $showMessage
         ) {
             VStack {
@@ -465,18 +465,14 @@ public struct MobyTransactionsView: View {
             }
         } message: {
             VStack {
-                Text(RUADDeviceHelper.sharedInstance.message)
+                Text(RUAHelper.sharedInstance.message)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }
-        .onReceive(RUADDeviceHelper.sharedInstance.$receiptImage, perform: { image in
+        .onReceive(RUAHelper.sharedInstance.$receiptImage, perform: { image in
             self.image = image
         })
     }
 }
 
-@available(iOS 16.0, *)
-#Preview {
-    MobyTransactionsView()
-}

@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.2.1 2026-01-29
+- ios-device-lib: Implemented UPA Reference based return transaction using Terminal Reference and TransIT Reference
+
 ## 3.2.0 2026-01-22
 - ios-device-lib: Implemented Moby Functionality for CreditAuth, CreditCapture, CreditSale, CreditAdjust, CreditReturn, CreditReversal, CreditVoid
 - ios-device-lib: Update GlobalMobileSDK framework to support Moby transaction

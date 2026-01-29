@@ -45,6 +45,7 @@
 @property (nonatomic,strong) NSDecimalNumber *transactionAmount;
 @property (nonatomic,strong) NSDecimalNumber *amountDue;
 @property (nonatomic,strong) NSDecimalNumber *balanceAmount;
+@property (nonatomic,strong) NSDecimalNumber *baseAmount;
 
 @property (nonatomic,strong) NSString *cardholderName;
 @property (nonatomic,strong) NSString *cardBin;

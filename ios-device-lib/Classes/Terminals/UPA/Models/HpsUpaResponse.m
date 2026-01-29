@@ -133,6 +133,10 @@ static int IsFieldEnable;
             self.balanceAmount = [NSDecimalNumber decimalNumberWithString:[host getValueAsString:@"balanceDue"]];
             self.balanceDueAmount = [host getValueAsString:@"balanceDue"];
         }
+        
+        if ([host has:@"baseAmount"]) {
+            self.baseAmount = [NSDecimalNumber decimalNumberWithString:[host getValueAsString:@"baseAmount"]];
+        }
 
         if ([host has:@"tipAmount"] || [host has:@"additionalTipAmount"]) {
             NSDecimalNumber* tip = [NSDecimalNumber decimalNumberWithString:@"0.00"];

@@ -21,6 +21,11 @@
 @property (nonatomic, strong) NSString *transactionId;
 @property (nonatomic, readwrite) HpsStoredCardInitiator storedCardInitiator;
 @property (nonatomic, strong) NSString *cardBrandTransactionId;
+@property (nonatomic, strong) NSDecimalNumber *baseAmount;
+@property (nonatomic, strong) NSDecimalNumber *tipAmount;
+@property (nonatomic, strong) NSDecimalNumber *taxAmount;
+@property (nonatomic, strong) NSDecimalNumber *surchargeAmount;
+@property (nonatomic, strong) NSNumber *allowDuplicate;
 
 - (void) execute:(void(^)(HpsUpaResponse*, NSError*))responseBlock;
 - (id)initWithDevice: (HpsUpaDevice*)upaDevice;

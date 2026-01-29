@@ -44,8 +44,22 @@
     }
     request.data.data.transaction.totalAmount = self.amount != nil ? [[formatter stringFromNumber:[NSNumber numberWithDouble:[self.amount doubleValue]]] stringByReplacingOccurrencesOfString:@"," withString:@"."] : nil;
     
+    request.data.data.transaction.baseAmount = self.baseAmount != nil ? [[formatter stringFromNumber:[NSNumber numberWithDouble:[self.baseAmount doubleValue]]] stringByReplacingOccurrencesOfString:@"," withString:@"."] : nil;
+    
+    request.data.data.transaction.tipAmount = self.tipAmount != nil ? [[formatter stringFromNumber:[NSNumber numberWithDouble:[self.tipAmount doubleValue]]] stringByReplacingOccurrencesOfString:@"," withString:@"."] : nil;
+    
+    request.data.data.transaction.taxAmount = self.taxAmount != nil ? [[formatter stringFromNumber:[NSNumber numberWithDouble:[self.taxAmount doubleValue]]] stringByReplacingOccurrencesOfString:@"," withString:@"."] : nil;
+    
+    request.data.data.transaction.surcharge = self.surchargeAmount != nil ? [[formatter stringFromNumber:[NSNumber numberWithDouble:[self.surchargeAmount doubleValue]]] stringByReplacingOccurrencesOfString:@"," withString:@"."] : nil;
+
+    request.data.data.transaction.invoiceNbr = self.details.invoiceNumber != nil ? [[formatter stringFromNumber:[NSNumber numberWithDouble:[self.details.invoiceNumber doubleValue]]] stringByReplacingOccurrencesOfString:@"," withString:@"."] : nil;
+    
     if (self.details != nil) {
         request.data.data.transaction.invoiceNbr = self.details.invoiceNumber;
+    }
+    
+    if (self.allowDuplicate != nil) {
+        request.data.data.transaction.allowDuplicate = self.allowDuplicate;
     }
     
     [device processTransactionWithRequest:request withResponseBlock:^(id<IHPSDeviceResponse> response, NSString* rawJSON, NSError * error) {

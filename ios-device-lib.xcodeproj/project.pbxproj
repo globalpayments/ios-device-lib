@@ -79,6 +79,8 @@
 		C747073B2EFC193C005C2DC1 /* RequestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C747073A2EFC193C005C2DC1 /* RequestLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C747073F2EFC1F47005C2DC1 /* SampleRequestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C747073E2EFC1F47005C2DC1 /* SampleRequestLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C74707432EFC1F77005C2DC1 /* SampleRequestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C74707422EFC1F77005C2DC1 /* SampleRequestLogger.m */; };
+		C74707222EFBEA40005C2DC1 /* Upa_Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = C74707212EFBEA40005C2DC1 /* Upa_Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C74707242EFBEA7B005C2DC1 /* Upa_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */; };
 		DD2409302991688C00597A23 /* HpsUpaStartCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD24092F2991688C00597A23 /* HpsUpaStartCardResponse.swift */; };
 		DD37C2E12AE079E7003891D7 /* TapToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E02AE079E7003891D7 /* TapToPayView.swift */; };
 		DD37C2E32AE07C69003891D7 /* TapToPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E22AE07C69003891D7 /* TapToPayViewModel.swift */; };
@@ -608,6 +610,8 @@
 		C747073A2EFC193C005C2DC1 /* RequestLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestLogger.h; sourceTree = "<group>"; };
 		C747073E2EFC1F47005C2DC1 /* SampleRequestLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleRequestLogger.h; sourceTree = "<group>"; };
 		C74707422EFC1F77005C2DC1 /* SampleRequestLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleRequestLogger.m; sourceTree = "<group>"; };
+		C74707212EFBEA40005C2DC1 /* Upa_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Upa_Constants.h; sourceTree = "<group>"; };
+		C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Upa_Constants.m; sourceTree = "<group>"; };
 		DD24092F2991688C00597A23 /* HpsUpaStartCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaStartCardResponse.swift; sourceTree = "<group>"; };
 		DD37C2E02AE079E7003891D7 /* TapToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayView.swift; sourceTree = "<group>"; };
 		DD37C2E22AE07C69003891D7 /* TapToPayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayViewModel.swift; sourceTree = "<group>"; };
@@ -1262,6 +1266,15 @@
 				C74707422EFC1F77005C2DC1 /* SampleRequestLogger.m */,
 			);
 			path = RequestLogger;
+            sourceTree = "<group>";
+        };
+		C74707202EFBE9C8005C2DC1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C74707212EFBEA40005C2DC1 /* Upa_Constants.h */,
+				C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		DD37C2DD2AE079B4003891D7 /* TapToPay */ = {
@@ -1509,6 +1522,7 @@
 		DDFF33532937AF4200C2D1D1 /* UPA */ = {
 			isa = PBXGroup;
 			children = (
+				C74707202EFBE9C8005C2DC1 /* Constants */,
 				DDFF33772937AF4200C2D1D1 /* Interfaces */,
 				DDFF33672937AF4200C2D1D1 /* Models */,
 				DDFF33552937AF4200C2D1D1 /* Builders */,
@@ -2281,6 +2295,7 @@
 				DDFF36632937AF4400C2D1D1 /* HpsServiceContainer.h in Headers */,
 				DDFF354D2937AF4300C2D1D1 /* HpsUpaTcpInterface.h in Headers */,
 				DDFF365B2937AF4400C2D1D1 /* HpsBumpStatusCollection.h in Headers */,
+				C74707222EFBEA40005C2DC1 /* Upa_Constants.h in Headers */,
 				DDFF35B72937AF4300C2D1D1 /* HpsPaxDevice.h in Headers */,
 				DDFF356C2937AF4300C2D1D1 /* HpsPaxDebitSaleBuilder.h in Headers */,
 				DDFF359C2937AF4300C2D1D1 /* HpsPaxDebitResponse.h in Headers */,
@@ -2675,6 +2690,7 @@
 				DDFF365F2937AF4400C2D1D1 /* HpsTicket.m in Sources */,
 				DDFF35F02937AF4300C2D1D1 /* HpsHpaDevice.m in Sources */,
 				DDFF355C2937AF4300C2D1D1 /* HpsC2xTransactionDelegate.swift in Sources */,
+				C74707242EFBEA7B005C2DC1 /* Upa_Constants.m in Sources */,
 				DDFF369E2937AF4400C2D1D1 /* HpsEnum.m in Sources */,
 				DDFF360B2937AF4400C2D1D1 /* HpsLastResponse.m in Sources */,
 				284B5CA72A66F1660067AF0D /* HpsUpaDeleteSaf.swift in Sources */,

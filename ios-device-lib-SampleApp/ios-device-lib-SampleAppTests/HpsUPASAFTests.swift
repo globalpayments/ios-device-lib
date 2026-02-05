@@ -11,8 +11,8 @@ import XCTest
 class HpsUPASAFTests: XCTestCase {
     private func setupDevice() -> HpsUpaDevice? {
         let config = HpsConnectionConfig()
-        config.username = "701420636"
-        config.password = "$Test1234"
+        config.username = username
+        config.password = password
         config.licenseID = "145801"
         config.siteID = "145898"
         config.deviceID = "90916202"

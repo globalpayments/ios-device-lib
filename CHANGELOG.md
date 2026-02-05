@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.2.2 2026-02-05
+- ios-device-lib: Fixed Snyk generated issue in token services replace hardcoded String with constant
+- ios-device-lib: UPA - Allow Duplicate parameter (Sale, Refund, PreAuth)
+
 ## 3.2.1 2026-01-29
 - ios-device-lib: Implemented UPA Reference based return transaction using Terminal Reference and TransIT Reference
 

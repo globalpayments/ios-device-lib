@@ -12,11 +12,19 @@ class TokenServiceViewController: UIViewController {
     var webView: WKWebView!
     var html: String?
     var completion: HpsTokenServiceWebCompletionHandler?
-    
+    let apiKey = "pkapi_cert_P6dRqs1LzfWJ6HgGVZ"
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView = WKWebView(frame: self.view.frame)
+        let contentControllers = WKUserContentController()
+        let js = "window.dynamicApiKey = '\(TokenServiceConstant.apiKey)';"
+        let userScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+        contentControllers.addUserScript(userScript)
+        
+        let config = WKWebViewConfiguration()
+        config.userContentController = contentControllers
+        
+        webView = WKWebView(frame: self.view.frame, configuration: config)
         let contentController = self.webView.configuration.userContentController
         contentController.add(self, name: "cardFormMessageHandler")
         
@@ -37,4 +45,8 @@ extension TokenServiceViewController: WKScriptMessageHandler{
 
         self.completion?(dict)
     }
+}
+
+struct TokenServiceConstant {
+    static let apiKey = "pkapi_cert_P6dRqs1LzfWJ6HgGVZ"
 }

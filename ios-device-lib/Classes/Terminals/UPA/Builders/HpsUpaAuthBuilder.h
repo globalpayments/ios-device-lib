@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSDecimalNumber *clinicAmount;
 @property (nonatomic, strong) NSDecimalNumber *dentalAmount;
 @property (nonatomic, strong) NSDecimalNumber *visionOpticalAmount;
+@property (nonatomic, strong) NSNumber *allowDuplicate;
 
 - (void) execute:(void(^)(HpsUpaResponse*, NSError*))responseBlock;
 - (id)initWithDevice: (HpsUpaDevice*)upaDevice;

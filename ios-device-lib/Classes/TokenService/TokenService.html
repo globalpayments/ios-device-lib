@@ -81,7 +81,10 @@
 </div>
 <script type="text/javascript">
         // Configure account
-        const apiKey = "pkapi_cert_P6dRqs1LzfWJ6HgGVZ";
+        const apiKey = window.dynamicApiKey;
+        if (!apiKey) {
+            throw new Error('API key not set. Please inject window.dynamicApiKey before loading this page.');
+        }
         GlobalPayments.configure({
             publicApiKey: apiKey
         });

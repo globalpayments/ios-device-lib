@@ -196,7 +196,7 @@
 #import "SandboxObjc.h"
 #import "RUADevice.h"
 #import "TemCommunicationManager.h"
-
+#import "Upa_Constants.h"
 
 FOUNDATION_EXPORT double ios_device_libVersionNumber;
 FOUNDATION_EXPORT const unsigned char ios_device_libVersionString[];

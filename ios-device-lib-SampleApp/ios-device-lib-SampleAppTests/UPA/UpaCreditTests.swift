@@ -605,4 +605,64 @@ final class UpaCreditTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 600.0)
     }
+   
+    func testUPAForceSale() {
+        let expectation = XCTestExpectation(description: "Wait for execution...")
+        
+        guard let device = self.device else {
+            XCTFail("Device is nil")
+            return
+        }
+        
+        let builder = UpaForceSaleBuilder(upaDevice: device)
+        let param = UpaForceSaleParam(clerkId: "1234")
+        let transaction = UpaForceSaleTransaction(
+            baseAmount: "12345.67",
+            taxAmount: "1234.56",
+            tipAmount: "1234.56",
+            taxIndicator: "0",
+            invoiceNbr: "123456789012345",
+            allowDuplicate: "1"
+        )
+        let data = UpaForceSaleData(params: param, transaction: transaction)
+        let commandData = UpaForceSaleCommandData(EcrId: "13", requestId: "122", data: data)
+        let request = UpaForceSale(data: commandData)
+        
+        builder.execute(request: request) { payload, _, error in
+            let response = payload as? HpsUpaResponse
+            XCTAssertNil(error)
+            XCTAssertNotNil(response)
+            XCTAssertEqual("Success", response?.result)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1000.0)
+    }
+
+    func testUPAPhoneOrder() {
+        let expectation = XCTestExpectation(description: "Wait for execution...")
+        
+        guard let device = self.device else {
+            XCTFail("Device is nil")
+            return
+        }
+        
+        let builder = UpaPhoneOrderBuilder(upaDevice: device)
+        let param = UpaPhoneOrderParam()
+        let transaction = UpaPhoneOrderTransaction(
+            baseAmount: "1.00",
+            allowDuplicate: "1"
+        )
+        let data = UpaPhoneOrderData(params: param, transaction: transaction)
+        let commandData = UpaPhoneOrderCommandData(EcrId: "13", requestId: "3", data: data)
+        let request = UpaPhoneOrder(data: commandData)
+        
+        builder.execute(request: request) { payload, _, error in
+            let response = payload as? HpsUpaResponse
+            XCTAssertNil(error)
+            XCTAssertNotNil(response)
+            XCTAssertEqual("Success", response?.result)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1000.0)
+    }
 }

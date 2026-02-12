@@ -35,7 +35,7 @@
 		C712FA242EC3698C00C18365 /* UPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */; };
 		C7CB24932EE6B2E100D80770 /* UpaCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */; };
 		C7CB24982EE8346900D80770 /* UPAAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24972EE8346900D80770 /* UPAAdminTests.swift */; };
-        C7E1A65E2EDF145D00682D19 /* HpsPaxDebitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */; };
+		C7E1A65E2EDF145D00682D19 /* HpsPaxDebitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */; };
 		DD37C2E72AE0829E003891D7 /* TapToPayHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */; };
 		DD37C2F72B165674003891D7 /* TokenServiceHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */; };
 		DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */; };
@@ -131,7 +131,7 @@
 		C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPACreditDuplicateTests.swift; sourceTree = "<group>"; };
 		C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaCreditTests.swift; sourceTree = "<group>"; };
 		C7CB24972EE8346900D80770 /* UPAAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPAAdminTests.swift; sourceTree = "<group>"; };
-        C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsPaxDebitTests.swift; sourceTree = "<group>"; };
+		C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsPaxDebitTests.swift; sourceTree = "<group>"; };
 		DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayHostedViewController.swift; sourceTree = "<group>"; };
 		DD37C2F62B165674003891D7 /* TokenServiceHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceHostedViewController.swift; sourceTree = "<group>"; };
 		DD49DDB3296DDAE000EBD526 /* HpsUPALineItemDisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HpsUPALineItemDisplayTests.swift; sourceTree = "<group>"; };

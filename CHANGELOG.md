@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.2.3 2026-02-12
+- ios-device-lib: Added allow duplicate parameter in transaction Command (PhoneOrder, ForceSale)
+
 ## 3.2.2 2026-02-05
 - ios-device-lib: Fixed Snyk generated issue in token services replace hardcoded String with constant
 - ios-device-lib: UPA - Allow Duplicate parameter (Sale, Refund, PreAuth)

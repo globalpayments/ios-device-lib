@@ -9,6 +9,8 @@
 #import "JsonDoc.h"
 #import "HpsTransactionDuplicate.h"
 #import "GatewayException.h"
+#import "OpenTabDetail.h"
+#import "BatchRecord.h"
 @interface HpsUpaResponse : HpsTerminalResponse<IHPSDeviceResponse>
 
 @property (nonatomic,strong) NSString *ecrId;
@@ -103,6 +105,18 @@
 @property(nonatomic, strong) NSString *signatureData;
 
 @property (nonatomic, assign) BOOL duplicateFound;
+
+@property (nonatomic,strong) NSString *clerkId;
+@property (nonatomic,strong) NSString *cardGroup;
+@property (nonatomic,strong) NSString *expiryDate;
+@property (nonatomic,strong) NSString *paymentTransactionType;
+@property (nonatomic,retain) NSNumber* fallback;
+@property (nonatomic, strong) NSArray<OpenTabDetail *> *openTabDetails;
+
+//BatchRecord
+@property (nonatomic, strong) NSString *terminalId;
+@property (nonatomic, strong) NSString *terminalNumber;
+@property (nonatomic, strong) BatchRecord *batchRecord;
 
 - (BOOL)isSuccess;
 - (NSString *)duplicateTransactionId;

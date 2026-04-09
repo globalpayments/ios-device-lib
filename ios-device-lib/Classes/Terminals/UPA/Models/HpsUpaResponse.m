@@ -2,6 +2,8 @@
 #import "HpsHpaSharedParams.h"
 #import "NSString+HexParser.h"
 #import "GatewayException.h"
+#import "OpenTabDetail.h"
+
 @interface HpsUpaResponse()
 
 @property (readwrite,retain) NSMutableDictionary *params;
@@ -90,6 +92,9 @@ static int IsFieldEnable;
     self.upaContactlessSdkVersion = [data getValueAsString:@"CTLSSdkVersion"];
     self.scanData = [data getValueAsString:@"scanData"];
     self.signatureData = [data getValueAsString:@"signatureData"];
+    self.merchantName = [data getValueAsString:@"merchantName"];
+    self.terminalId = [data getValueAsString:@"terminalId"];
+    self.terminalNumber = [data getValueAsString:@"terminalNumber"];
 
     if ([data has:@"host"]) {
         JsonDoc* host = [data get:@"host"];
@@ -202,6 +207,11 @@ static int IsFieldEnable;
         self.invoiceNbr = [payment getValueAsString:@"invoiceNbr"];
         self.cardholderName = [payment getValueAsString:@"cardHolderName"];
         self.signatureData = [payment getValueAsString:@"signatureData"];
+        self.clerkId = [payment getValueAsString:@"clerkId"];
+        self.cardGroup = [payment getValueAsString:@"cardGroup"];
+        self.expiryDate = [payment getValueAsString:@"expiryDate"];
+        self.paymentTransactionType = [payment getValueAsString:@"transactionType"];
+        self.fallback = @([[payment getValueAsString:@"fallback"] intValue]);
     }
 
     if ([data has:@"emv"]) {
@@ -242,6 +252,61 @@ static int IsFieldEnable;
         self.duplicateFound = YES;
     }
 
+    // Parse OpenTabDetails array into model objects
+    if ([data has:@"OpenTabDetails"]) {
+        id openTabDetailsObj = [data getValue:@"OpenTabDetails"];
+        if ([openTabDetailsObj isKindOfClass:[NSArray class]]) {
+            NSMutableArray<OpenTabDetail *> *detailsArray = [NSMutableArray array];
+            for (id item in (NSArray *)openTabDetailsObj) {
+                NSDictionary *dict = nil;
+                if ([item isKindOfClass:[NSDictionary class]]) {
+                    dict = item;
+                } else if ([item isKindOfClass:[JsonDoc class]]) {
+                    dict = [(JsonDoc *)item finalize];
+                }
+                if (dict) {
+                    OpenTabDetail *detail = [[OpenTabDetail alloc] initWithDictionary:dict];
+                    [detailsArray addObject:detail];
+                }
+            }
+            self.openTabDetails = [detailsArray copy];
+        }
+    }
+
+    if ([data has:@"batchRecord"]) {
+        JsonDoc* batchRecord = [data get:@"batchRecord"];
+        self.batchRecord = [[BatchRecord alloc] init];
+        self.batchRecord.openTransactionId = [batchRecord getValueAsString:@"openTnxId"];
+        self.batchRecord.batchStatus = [batchRecord getValueAsString:@"batchStatus"];
+        self.batchRecord.totalCount = [batchRecord getValueAsString:@"totalCnt"];
+        self.batchRecord.batchId = [batchRecord getValueAsString:@"batchId"];
+        self.batchRecord.openUtcDateTime = [batchRecord getValueAsString:@"openUtcDateTime"];
+        self.batchRecord.closeUtcDateTime = [batchRecord getValueAsString:@"closeUtcDateTime"];
+        self.batchRecord.batchTotalAmount = [batchRecord getValueAsString:@"totalAmount"];
+        self.batchRecord.batchSequenceNumber = [batchRecord getValueAsString:@"batchSeqNbr"];
+        
+        // Parse OpenTabDetails array into model objects
+        if ([batchRecord has:@"batchDetailRecords"]) {
+            id batchDetailRecordsObj = [batchRecord getValue:@"batchDetailRecords"];
+            if ([batchDetailRecordsObj isKindOfClass:[NSArray class]]) {
+                NSMutableArray<BatchDetailRecords *> *batchDetailRecordsArray = [NSMutableArray array];
+                for (id item in (NSArray *)batchDetailRecordsObj) {
+                    NSDictionary *dict = nil;
+                    if ([item isKindOfClass:[NSDictionary class]]) {
+                        dict = item;
+                    } else if ([item isKindOfClass:[JsonDoc class]]) {
+                        dict = [(JsonDoc *)item finalize];
+                    }
+                    if (dict) {
+                        BatchDetailRecords *detail = [[BatchDetailRecords alloc] initWithDictionary:dict];
+                        [batchDetailRecordsArray addObject:detail];
+                    }
+                }
+                self.batchRecord.batchDetailRecords = [batchDetailRecordsArray copy];
+            }
+        }
+    }
+    
     return self;
 }
 

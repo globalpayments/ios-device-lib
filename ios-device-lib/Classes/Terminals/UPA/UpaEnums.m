@@ -28,6 +28,8 @@ NSString * const UPA_MSG_ID_toString[] = {
     [ UPA_MSG_ID_PING ] = @"Ping",
     [ UPA_MSG_ID_RESTART ] = @"Restart",
     [ UPA_MSG_ID_SCAN ] = @"Scan",
+    [ UPA_MSG_ID_GET_BATCH_DETAILS ] = @"GetBatchDetails",
+    [ UPA_MSG_ID_GET_OPEN_TAB_DETAILS ] = @"GetOpenTabDetails",
 };
 NSString * const UPA_CARD_GROUP_toString[] = {
 

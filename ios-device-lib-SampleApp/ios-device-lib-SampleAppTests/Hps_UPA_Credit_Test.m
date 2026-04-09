@@ -11,6 +11,7 @@
 #import <ios_device_lib/HpsUpaAuthBuilder.h>
 #import <ios_device_lib/HpsUpaCaptureBuilder.h>
 #import <ios_device_lib/HpsUpaVerifyBuilder.h>
+#import <ios_device_lib/HpsUpaDeletePreAuthBuilder.h>
 
 @interface Hps_Upa_Credit_Tests : XCTestCase
 
@@ -25,7 +26,7 @@
     config.licenseID = @"145801";
     config.siteID = @"145898";
     config.deviceID = @"90916202";
-    config.ipAddress = @"192.168.1.8";
+    config.ipAddress = @"192.168.1.2";
     config.port = @"8081";
     config.timeout = 120;
     config.connectionMode = HpsConnectionModes_TCP_IP;
@@ -51,7 +52,7 @@
     builder.ecrId = @"3";
     builder.amount = [[NSDecimalNumber alloc] initWithDouble:5];
     builder.gratuity = [[NSDecimalNumber alloc] initWithDouble:0];
-
+    
     [builder execute:^(HpsUpaResponse * response, NSError * error) {
         XCTAssertNil(error);
         XCTAssertNotNil(response);
@@ -77,7 +78,7 @@
     builder.ecrId = @"3";
     builder.amount = [[NSDecimalNumber alloc] initWithDouble:5.99];
     builder.prescriptionAmount = [[NSDecimalNumber alloc] initWithDouble:5.99];
-
+    
     [builder execute:^(HpsUpaResponse * response, NSError * error) {
         XCTAssertNil(error);
         XCTAssertNotNil(response);
@@ -108,7 +109,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Void
@@ -143,7 +144,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Refund
@@ -178,7 +179,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Adjust
@@ -214,7 +215,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Reversal
@@ -262,7 +263,7 @@
             XCTAssertNil(aerror);
             XCTAssertEqualObjects(@"00", apayload.responseCode);
             XCTAssertNotNil(apayload);
-     
+            
             sleep(1);
             
             //Reversal
@@ -299,7 +300,7 @@
         XCTAssertNotNil(payload);
         
         sleep(5);
-     
+        
         //Capture
         HpsUpaCaptureBuilder *cbuilder = [[HpsUpaCaptureBuilder alloc] initWithDevice:device];
         cbuilder.issuerRefNumber = payload.issuerRefNumber;
@@ -335,7 +336,7 @@
         XCTAssertNotNil(payload);
         
         sleep(1);
-     
+        
         //Void
         HpsUpaVoidBuilder *vbuilder = [[HpsUpaVoidBuilder alloc] initWithDevice:device];
         vbuilder.ecrId = @"1";
@@ -367,7 +368,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Reversal
@@ -397,7 +398,7 @@
     HpsUpaVerifyBuilder* builder = [[HpsUpaVerifyBuilder alloc] initWithDevice:device];
     builder.ecrId = @"3";
     builder.requestMultiUseToken = true;
-
+    
     [builder execute:^(HpsUpaResponse * response, NSError * error) {
         XCTAssertNil(error);
         XCTAssertNotNil(response);
@@ -450,7 +451,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Void
@@ -484,7 +485,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Reversal
@@ -507,16 +508,17 @@
 
 -(void) test_UPA_Signature_Data {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test_UPA_Signature_Data"];
+    
     HpsUpaDevice *device = [self setupDevice];
     [device getSignatureData:@"1234" andRequestId:@"1234" response:^(HpsUpaDeviceSignatureResponse *response, NSError *error) {
-            
-            XCTAssertNil(error);
-            XCTAssertNotNil(response);
-            [expectation fulfill];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        [expectation fulfill];
     }];
-     [self waitForExpectationsWithTimeout:120.0 handler:^(NSError *error) {
-         if(error) XCTFail(@"Request Timed out");
-     }];
+    
+    [self waitForExpectationsWithTimeout:120.0 handler:^(NSError *error) {
+        if(error) XCTFail(@"Request Timed out");
+    }];
 }
 
 - (void) test_UPA_Sale_Duplication
@@ -528,7 +530,7 @@
     builder.ecrId = @"3";
     builder.amount = [[NSDecimalNumber alloc] initWithDouble:5];
     builder.gratuity = [[NSDecimalNumber alloc] initWithDouble:0];
-
+    
     [builder execute:^(HpsUpaResponse * response, NSError * error) {
         XCTAssertNil(error);
         XCTAssertNotNil(response);
@@ -542,7 +544,7 @@
         builderDup.ecrId = @"3";
         builderDup.amount = [[NSDecimalNumber alloc] initWithDouble:5];
         builderDup.gratuity = [[NSDecimalNumber alloc] initWithDouble:0];
-
+        
         [builderDup execute:^(HpsUpaResponse * response, NSError * error) {
             XCTAssertNil(error);
             XCTAssertNotNil(response);
@@ -561,34 +563,29 @@
 
 - (void)test_UPA_Gateway_Exception {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test_UPA_Gateway_Exception"];
-
+    
     HpsUpaDevice *device = [self setupDevice];
     HpsUpaSaleBuilder* builder = [[HpsUpaSaleBuilder alloc] initWithDevice:device];
     builder.ecrId = @"3";
     builder.amount = [[NSDecimalNumber alloc] initWithDouble:5];
     builder.gratuity = [[NSDecimalNumber alloc] initWithDouble:0];
-
+    
     [builder execute:^(HpsUpaResponse * response, NSError * error) {
-       
-    XCTAssertNil(error);
-    XCTAssertNotNil(response);
- 
-        
-    XCTAssertEqualObjects(response.exceptionGateway.errorCode, @"HOST001");
-    XCTAssertEqualObjects(response.exceptionGateway.errorMessage, @"HOST ERROR");
-    XCTAssertEqualObjects(response.exceptionGateway.gatewayResponseCode, @"0");
-    XCTAssertEqualObjects(response.exceptionGateway.gatewayResponseMessage, @"Success");
-    XCTAssertEqualObjects(response.exceptionGateway.responseCode, @"05");
-    XCTAssertEqualObjects(response.exceptionGateway.responseText, @"DECLINE");
-    
-    
-    [expectation fulfill];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertEqualObjects(response.exceptionGateway.errorCode, @"HOST001");
+        XCTAssertEqualObjects(response.exceptionGateway.errorMessage, @"HOST ERROR");
+        XCTAssertEqualObjects(response.exceptionGateway.gatewayResponseCode, @"0");
+        XCTAssertEqualObjects(response.exceptionGateway.gatewayResponseMessage, @"Success");
+        XCTAssertEqualObjects(response.exceptionGateway.responseCode, @"05");
+        XCTAssertEqualObjects(response.exceptionGateway.responseText, @"DECLINE");
+        [expectation fulfill];
     }];
-
-    [self waitForExpectationsWithTimeout: 120.0 handler:^(NSError *error) {
-            if(error) XCTFail(@"Request Timed out");
     
-        }];
+    [self waitForExpectationsWithTimeout: 120.0 handler:^(NSError *error) {
+        if(error) XCTFail(@"Request Timed out");
+        
+    }];
 }
 
 - (void) test_UPA_Sale_With_AllowDuplicate
@@ -601,7 +598,7 @@
     builder.allowDuplicate = @1;
     builder.amount = [[NSDecimalNumber alloc] initWithDouble:5];
     builder.gratuity = [[NSDecimalNumber alloc] initWithDouble:0];
-
+    
     [builder execute:^(HpsUpaResponse * response, NSError * error) {
         XCTAssertNil(error);
         XCTAssertNotNil(response);
@@ -633,7 +630,7 @@
         XCTAssertNil(error);
         XCTAssertEqualObjects(@"00", payload.responseCode);
         XCTAssertNotNil(payload);
-     
+        
         sleep(1);
         
         //Refund
@@ -676,6 +673,43 @@
         cbuilder.issuerRefNumber = payload.issuerRefNumber;
         cbuilder.amount = [[NSDecimalNumber alloc] initWithDouble:15.00];
         cbuilder.gratuity = [[NSDecimalNumber alloc] initWithDouble:0.00];
+        cbuilder.ecrId = @"1";
+        
+        [cbuilder execute:^(HpsUpaResponse *cpayload, NSError *cerror) {
+            XCTAssertNil(cerror);
+            XCTAssertEqualObjects(@"00", cpayload.responseCode);
+            XCTAssertNotNil(cpayload);
+            [expectation fulfill];
+        }];
+    }];
+    
+    [self waitForExpectationsWithTimeout:120.0 handler:^(NSError *error) {
+        if(error) XCTFail(@"Request Timed out");
+    }];
+}
+
+- (void) test_UPA_Delete_PreAuth_Capture
+{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test_UPA_Delete_PreAuth_Capture"];
+    
+    HpsUpaDevice *device = [self setupDevice];
+    HpsUpaAuthBuilder *builder = [[HpsUpaAuthBuilder alloc] initWithDevice:device];
+    builder.amount = [[NSDecimalNumber alloc] initWithDouble:1.00];
+    builder.ecrId = @"1";
+    
+    [builder execute:^(HpsUpaResponse *payload, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertEqualObjects(@"00", payload.responseCode);
+        XCTAssertNotNil(payload);
+        
+        sleep(5);
+        
+        //Delete PreAuth
+     
+        //Capture
+        HpsUpaDeletePreAuthBuilder *cbuilder = [[HpsUpaDeletePreAuthBuilder alloc] initWithDevice:device];
+        cbuilder.issuerRefNumber = payload.issuerRefNumber;
+        cbuilder.amount = [[NSDecimalNumber alloc] initWithDouble:15.00];
         cbuilder.ecrId = @"1";
         
         [cbuilder execute:^(HpsUpaResponse *cpayload, NSError *cerror) {

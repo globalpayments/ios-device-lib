@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.2.4 2026-03-09
+- ios-device-lib: UPA - SI missing commands added: GetBatchDetails, GetOpenTabDetails and DeletePreAuth
+
 ## 3.2.3 2026-02-12
 - ios-device-lib: Added allow duplicate parameter in transaction Command (PhoneOrder, ForceSale)
 

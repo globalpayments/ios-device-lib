@@ -32,6 +32,7 @@
 		432535202E68C8350070A5ED /* ios_device_lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; };
 		432535212E68C8350070A5ED /* ios_device_lib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		438C3D1D2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */; };
+		65F6E08A2FD1521B00A8ECCE /* UpaMexicoTYPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6E0892FD1521B00A8ECCE /* UpaMexicoTYPTests.swift */; };
 		C712FA242EC3698C00C18365 /* UPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */; };
 		C7CB24932EE6B2E100D80770 /* UpaCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */; };
         C7A1BEE02F28B519009E1E6F /* UPABatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1BEDF2F28B519009E1E6F /* UPABatchTests.swift */; };
@@ -129,6 +130,7 @@
 		4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GlobalPaymentsApi.xcframework; path = "../ios-device-lib/Libraries/GlobalPaymentsApi.xcframework"; sourceTree = "<group>"; };
 		4325351F2E68C8350070A5ED /* ios_device_lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_device_lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSDuplicateTransactionTests.swift; sourceTree = "<group>"; };
+		65F6E0892FD1521B00A8ECCE /* UpaMexicoTYPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaMexicoTYPTests.swift; sourceTree = "<group>"; };
 		C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPACreditDuplicateTests.swift; sourceTree = "<group>"; };
 		C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaCreditTests.swift; sourceTree = "<group>"; };
         C7A1BEDF2F28B519009E1E6F /* UPABatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPABatchTests.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		C712FA222EC3696700C18365 /* UPA */ = {
 			isa = PBXGroup;
 			children = (
+				65F6E0892FD1521B00A8ECCE /* UpaMexicoTYPTests.swift */,
 				C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */,
 				C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */,
 				C7CB24972EE8346900D80770 /* UPAAdminTests.swift */,
@@ -534,6 +537,7 @@
 				DDFF6556299FC348004D41BF /* HpsUPASAFTests.swift in Sources */,
 				DD713FBA2948DC7500514143 /* Hps_Pax_Debit_Tests.m in Sources */,
 				DD713FC92948DC7500514143 /* Hps_UPA_Admin_Test.m in Sources */,
+				65F6E08A2FD1521B00A8ECCE /* UpaMexicoTYPTests.swift in Sources */,
 				DD49DDB4296DDAE100EBD526 /* HpsUPALineItemDisplayTests.swift in Sources */,
 				DD713FC32948DC7500514143 /* Hps_Hpa_Debit_Test.m in Sources */,
 				DD713FAF2948DC7500514143 /* Hps_C2X_Credit_Test.m in Sources */,

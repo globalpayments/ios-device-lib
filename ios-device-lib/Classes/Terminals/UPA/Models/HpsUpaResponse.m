@@ -193,6 +193,23 @@ static int IsFieldEnable;
             self.tokenData.tokenValue = [host getValueAsString:@"tokenValue"];
         }
 
+        // TYP Sale Extra Fields
+        self.redeemId               = [host getValueAsString:@"redeemId"];
+        self.redeemStatus           = [host getValueAsString:@"redeemStatus"];
+        self.currencyAmountRedeemed = [host getValueAsString:@"currencyAmountRedeemed"];
+        self.pointsRedeemed         = [host getValueAsString:@"pointsRedeemed"];
+        self.discountAmountRedeemed = [host getValueAsString:@"discountAmountRedeemed"];
+
+        // TYP Void/Reversal Extra Fields
+        self.voidRedeemId               = [host getValueAsString:@"voidRedeemId"];
+        self.voidRedeemStatus           = [host getValueAsString:@"voidRedeemStatus"];
+        // Fallback: some terminals send the typo key "voicCurrencyAmountRedeemed" instead of "voidCurrencyAmountRedeemed"
+        NSString *voidCAR               = [host getValueAsString:@"voidCurrencyAmountRedeemed"];
+        if (!voidCAR) { voidCAR         = [host getValueAsString:@"voicCurrencyAmountRedeemed"]; }
+        self.voidCurrencyAmountRedeemed = voidCAR;
+        self.voidPointsRedeemed         = [host getValueAsString:@"voidPointsRedeemed"];
+        self.voidDiscountAmountRedeemed = [host getValueAsString:@"voidDiscountAmountRedeemed"];
+
     }
 
     if ([data has:@"payment"]) {
@@ -308,6 +325,12 @@ static int IsFieldEnable;
     }
     
     return self;
+}
+
+// Alias — voicCurrencyAmountRedeemed matches the typo in the story acceptance criteria.
+// Both names resolve to the same value so callers using either name work correctly.
+- (NSString *)voicCurrencyAmountRedeemed {
+    return self.voidCurrencyAmountRedeemed;
 }
 
 -(void)setTransactionSummaryRecord:(TransactionSummaryRecord *)TransactionSummaryRecord{

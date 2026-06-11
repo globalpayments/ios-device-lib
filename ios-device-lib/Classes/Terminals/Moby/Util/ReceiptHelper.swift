@@ -103,14 +103,17 @@ class ReceiptHelper {
                 ReceiptHelper.entryModeName(from: Int(transaction.entryMode)).draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
                 yOffset += fontSize
                 
-                "APPROVAL:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                transaction.approvalCode.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                yOffset += fontSize
-                
-                "TXN ID:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                transaction.transactionId.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                yOffset += fontSize
-                
+                if let _ = transaction.approvalCode {
+                    "APPROVAL:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                    transaction.approvalCode.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                    yOffset += fontSize
+                }
+
+                if let _ = transaction.transactionId {
+                    "TXN ID:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                    transaction.transactionId.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                    yOffset += fontSize
+                }
                 // Continue drawing other details like AID, ARQC, Entry mode, Approval code, and Transaction ID similarly
             }
             // Handle other conditions for entry mode if required

@@ -118,6 +118,22 @@
 @property (nonatomic, strong) NSString *terminalNumber;
 @property (nonatomic, strong) BatchRecord *batchRecord;
 
+// TYP Sale Extra Fields
+@property (nonatomic, strong) NSString *redeemId;
+@property (nonatomic, strong) NSString *redeemStatus;
+@property (nonatomic, strong) NSString *currencyAmountRedeemed;
+@property (nonatomic, strong) NSString *pointsRedeemed;
+@property (nonatomic, strong) NSString *discountAmountRedeemed;
+
+// TYP Void/Reversal Extra Fields
+@property (nonatomic, strong) NSString *voidRedeemId;
+@property (nonatomic, strong) NSString *voidRedeemStatus;
+@property (nonatomic, strong) NSString *voidCurrencyAmountRedeemed;
+@property (nonatomic, strong) NSString *voidPointsRedeemed;
+@property (nonatomic, strong) NSString *voidDiscountAmountRedeemed;
+// Alias for voidCurrencyAmountRedeemed — matches the typo in the story acceptance criteria (voic vs void)
+@property (nonatomic, readonly) NSString *voicCurrencyAmountRedeemed;
+
 - (BOOL)isSuccess;
 - (NSString *)duplicateTransactionId;
 - (BOOL)isDuplicateTransactionError;

@@ -1,7 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## 3.2.4 2026-03-09
+
+## 3.2.5 2026-06-11
+- ios-device-lib: Fixed MOBY CL1/CL3 Bluetooth connection issue
+- ios-device-lib: Mexico GP-API CP UPA TYP added
+
+## 3.2.4 2026-04-09
 - ios-device-lib: UPA - SI missing commands added: GetBatchDetails, GetOpenTabDetails and DeletePreAuth
 
 ## 3.2.3 2026-02-12

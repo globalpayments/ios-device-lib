@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 import GlobalPaymentsApi
 
 @objcMembers
@@ -19,14 +18,14 @@ public class GMSWrapper: NSObject {
     
     // MARK: Init
     
-    public init(_ gatewayConfig: GMSConfiguration?, delegate: GMSClientAppDelegate, entryModes: [EntryMode], terminalType: TerminalType) {
+    public init(_ gatewayConfig: GMSConfiguration?, delegate: GMSClientAppDelegate, entryModes: [EntryMode], terminalType: TerminalType, connectionInterface: RUACommunicationInterface? = nil) {
         self.gatewayConfig = gatewayConfig
         self.delegate = delegate
         transactionType = .unknown
         self.entryModes = entryModes
         
         if let config = gatewayConfig {
-            try! GMSManager.shared.configure(gatewayConfig: config.asPorticoConfig(terminalType: terminalType))
+            try! GMSManager.shared.configure(gatewayConfig: config.asPorticoConfig(terminalType: terminalType), connectionInterface: connectionInterface)
         }
     }
     
@@ -293,7 +292,7 @@ extension GMSWrapper: TransactionDelegate {
 }
 
 /*
- Utilities added as a temp work around for inconsistent GlobalMobileSDK behavior.
+ Utilities added as a temp work around for inconsistent iOSDeviceLib behavior.
  
  Transaction-failing errors are usually returned within response objects passed into
  onTransactionComplete. However, if a card is inserted before a transaction
@@ -304,7 +303,7 @@ extension GMSWrapper: TransactionDelegate {
  have this...
  */
 
-private extension GlobalMobileSDK.TransactionError {
+private extension TransactionError {
     var isStartError: Bool {
         switch self {
         case .cardNotRemoved: return true
@@ -314,7 +313,7 @@ private extension GlobalMobileSDK.TransactionError {
 }
 
 private extension HpsTransactionType {
-    var asGMSTransactionType: GlobalMobileSDK.TransactionType? {
+    var asGMSTransactionType: TransactionType? {
         switch self {
         case .batchClose: return .BatchClose
         case .creditAdjust: return .TipAdjust
@@ -330,7 +329,7 @@ private extension HpsTransactionType {
 }
 
 private extension GMSWrapper {
-    func onTransactionStartFailed(withError gmsError: GlobalMobileSDK.TransactionError) {
+    func onTransactionStartFailed(withError gmsError: TransactionError) {
         let response = HpsTerminalResponse()
         let error = NSError(fromTransactionError: gmsError)
         let reason = error.userInfo["reason"] as? String
@@ -369,13 +368,13 @@ extension GMSWrapper: TerminalOTAManagerDelegate {
         terminalOTADelegate?.terminalVersionDetails(info: info)
     }
     
-    public func terminalOTAResult(resultType: GlobalMobileSDK.TerminalOTAResult,
+    public func terminalOTAResult(resultType: TerminalOTAResult,
                                   info: [String: AnyObject]?, error: Error?)
     {
         terminalOTADelegate?.terminalOTAResult(resultType: resultType, info: info, error: error)
     }
     
-    public func listOfVersionsFor(type: GlobalMobileSDK.TerminalOTAUpdateType, results: [Any]?) {
+    public func listOfVersionsFor(type: TerminalOTAUpdateType, results: [Any]?) {
         terminalOTADelegate?.listOfVersionsFor(type: type, results: results)
     }
     
@@ -383,8 +382,8 @@ extension GMSWrapper: TerminalOTAManagerDelegate {
         terminalOTADelegate?.otaUpdateProgress(percentage: percentage)
     }
     
-    public func onReturnSetTargetVersion(resultType: GlobalMobileSDK.TerminalOTAResult,
-                                         type: GlobalMobileSDK.TerminalOTAUpdateType,
+    public func onReturnSetTargetVersion(resultType: TerminalOTAResult,
+                                         type: TerminalOTAUpdateType,
                                          message: String)
     {
         terminalOTADelegate?.onReturnSetTargetVersion(resultType: resultType, type: type, message: message)

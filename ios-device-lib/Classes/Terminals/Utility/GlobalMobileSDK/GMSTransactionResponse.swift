@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objc
 public class GMSTransactionResponse: NSObject {

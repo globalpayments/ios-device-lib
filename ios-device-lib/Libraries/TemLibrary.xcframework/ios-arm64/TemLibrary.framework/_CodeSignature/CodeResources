@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/TemLibrary-Swift.h</key>
 		<data>
-		rnaxeMNQfy9XmhlLqu+U5D9Ntf4=
+		lugEz9sNMk/yoeO1CM9wZOCvJAo=
 		</data>
 		<key>Headers/TemLibrary.h</key>
 		<data>
@@ -14,31 +14,35 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4ZwwnVVGvwlAjbIzDxlF/tvX/gI=
+		4nvGrMYFpf3HBU9HI7yXkbjJ92c=
 		</data>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		dPCMHYlDzOCTJ7kVBFlIjD5egOA=
+		5hT47UcpCpTZuUyFs6ZA+4FGZ+k=
 		</data>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		9nMRnwNra5Qkx+SulL+byNWUT0E=
+		uTn+PcqY/q70guB4+IZ8oZm3oSg=
 		</data>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		3nC4IntIs3ZbWU0rxtqAMewHQI8=
+		xnLEMbTUZENMlyJffyITaSQh+fI=
 		</data>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		9nMRnwNra5Qkx+SulL+byNWUT0E=
+		uTn+PcqY/q70guB4+IZ8oZm3oSg=
 		</data>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		UinYuI+soXDDVPUmPduGK7ej0Yg=
+		M9prefYNqldG4BMfQjHvE4w4pPc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		lIhPrT2Kq+ThOqrq3jOTI7K1d1g=
+		AeT82NY4OwDru3sHu8qwbS9nJo8=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		SraPNMUO57EnyJTq9xrYPCRZc8A=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -47,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rnaxeMNQfy9XmhlLqu+U5D9Ntf4=
+			lugEz9sNMk/yoeO1CM9wZOCvJAo=
 			</data>
 			<key>hash2</key>
 			<data>
-			+2XbH2Mw+7DhkSOKoFau4ec+bVYv7yJP6ffYxcBwypM=
+			BxPQiKwrJ8iqy4Vb9TqzYKaQvluTJkrnFPBjc+eq/kQ=
 			</data>
 		</dict>
 		<key>Headers/TemLibrary.h</key>
@@ -69,66 +73,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dPCMHYlDzOCTJ7kVBFlIjD5egOA=
+			5hT47UcpCpTZuUyFs6ZA+4FGZ+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			8jaC9oDGgfrv+XKOEXL6vAJGRIVAoDXKMhTWeDawIR0=
+			XCBAQSB3GcOd13s7ItXY73rHeXDnPfqtgTKqLTuMNJ8=
 			</data>
 		</dict>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9nMRnwNra5Qkx+SulL+byNWUT0E=
+			uTn+PcqY/q70guB4+IZ8oZm3oSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			hzgjRgrlkdda87i3pHKwg1mPZFJv6Yn26PLNVr0RcG4=
+			DDgCTeM6BlG68w+DrTKZq5fqVx2WTGJPZyaibaoMW2I=
 			</data>
 		</dict>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3nC4IntIs3ZbWU0rxtqAMewHQI8=
+			xnLEMbTUZENMlyJffyITaSQh+fI=
 			</data>
 			<key>hash2</key>
 			<data>
-			R27Mmy3yWFFLkLioWnnmjfPQypiD1Cm3muN/B1YuYO8=
+			2MyGJj11ClwjDmWmXGgbzY3RP6Uk6iipGL263Nr5JJg=
 			</data>
 		</dict>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9nMRnwNra5Qkx+SulL+byNWUT0E=
+			uTn+PcqY/q70guB4+IZ8oZm3oSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			hzgjRgrlkdda87i3pHKwg1mPZFJv6Yn26PLNVr0RcG4=
+			DDgCTeM6BlG68w+DrTKZq5fqVx2WTGJPZyaibaoMW2I=
 			</data>
 		</dict>
 		<key>Modules/TemLibrary.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UinYuI+soXDDVPUmPduGK7ej0Yg=
+			M9prefYNqldG4BMfQjHvE4w4pPc=
 			</data>
 			<key>hash2</key>
 			<data>
-			d9Hv8HFMRFRabQlNptYAxPodaOABBh8hnKygfgOS/00=
+			cyj933tX87ponPDU/JODz9wrBibdBJMDUQmM7eA4a8Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lIhPrT2Kq+ThOqrq3jOTI7K1d1g=
+			AeT82NY4OwDru3sHu8qwbS9nJo8=
 			</data>
 			<key>hash2</key>
 			<data>
-			wC632ja8e77idQ/5atP1TJTDBN+QNMHS3DU1TiKijcU=
+			QcDmE2cMkXPVWhrK1deaGHlRkB5GUDvQ5GtjAVJZT70=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SraPNMUO57EnyJTq9xrYPCRZc8A=
+			</data>
+			<key>hash2</key>
+			<data>
+			DTyU8j+CyzgCmXKAZI3+RL7tZiE6++y+OPQRH3TV8Yg=
 			</data>
 		</dict>
 	</dict>

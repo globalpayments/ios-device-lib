@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EDB66E88C6D4FD9836DAAB3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */; };
 		141A6E8B2B9A205000310B4B /* HpsUpaDeletePreAuthBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 141A6E892B9A205000310B4B /* HpsUpaDeletePreAuthBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		141A6E8C2B9A205000310B4B /* HpsUpaDeletePreAuthBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A6E8A2B9A205000310B4B /* HpsUpaDeletePreAuthBuilder.m */; };
 		142669EC2BB326820018D4B0 /* HpsTransactionDuplicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 142669EB2BB326820018D4B0 /* HpsTransactionDuplicate.m */; };
@@ -40,7 +41,6 @@
 		14DBE25D2BF7DAE8005F27DF /* DEV-5500-V11.00.uns in Sources */ = {isa = PBXBuildFile; fileRef = 14DBE22E2BF7D9EB005F27DF /* DEV-5500-V11.00.uns */; };
 		14DBE25E2BF7DAE9005F27DF /* DEV-8500-V33.01.00.uns in Sources */ = {isa = PBXBuildFile; fileRef = 14DBE22F2BF7D9EB005F27DF /* DEV-8500-V33.01.00.uns */; };
 		14DBE2752BFCFC79005F27DF /* provisioning_8500.json in Resources */ = {isa = PBXBuildFile; fileRef = 14DBE26F2BFCFC79005F27DF /* provisioning_8500.json */; };
-		14DBE2762BFCFC79005F27DF /* provisioning_5500.json in Resources */ = {isa = PBXBuildFile; fileRef = 14DBE2702BFCFC79005F27DF /* provisioning_5500.json */; };
 		14DBE2772BFCFC79005F27DF /* DEV-8500-V33.01.00.uns in Resources */ = {isa = PBXBuildFile; fileRef = 14DBE2712BFCFC79005F27DF /* DEV-8500-V33.01.00.uns */; };
 		14DBE2782BFCFC79005F27DF /* DEV-5500-V11.00.uns in Resources */ = {isa = PBXBuildFile; fileRef = 14DBE2722BFCFC79005F27DF /* DEV-5500-V11.00.uns */; };
 		14DBE2792BFCFC79005F27DF /* EMVConfigs.json in Resources */ = {isa = PBXBuildFile; fileRef = 14DBE2732BFCFC79005F27DF /* EMVConfigs.json */; };
@@ -65,28 +65,126 @@
 		432883BB2ED78341003BC355 /* SandboxObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 432883B82ED78341003BC355 /* SandboxObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		432883BC2ED78341003BC355 /* SandboxObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 432883B92ED78341003BC355 /* SandboxObjc.m */; };
 		4341B6182E68D4FC00F39F0E /* BBPOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC13AA52A73F87D0069F2E2 /* BBPOS.xcframework */; };
-		4341B61A2E68D50300F39F0E /* GlobalMobileSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC13AA32A73F87D0069F2E2 /* GlobalMobileSDK.xcframework */; };
 		4341B61C2E68D51500F39F0E /* GlobalPaymentsApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC13AA42A73F87D0069F2E2 /* GlobalPaymentsApi.xcframework */; };
 		4341B61F2E68D56400F39F0E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4341B61E2E68D52C00F39F0E /* libc++.tbd */; };
-		4341B6202E68D57200F39F0E /* RUA_BLE.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14864F082C88A8E200B0E4F3 /* RUA_BLE.xcframework */; };
-		4341B6222E68D57500F39F0E /* TemLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14864EE42C88976000B0E4F3 /* TemLibrary.xcframework */; };
+		4357895830122C080051FF3C /* BBPOSTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357895730122C060051FF3C /* BBPOSTerminal.swift */; };
+		4357895D301231F00051FF3C /* BBDeviceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357895C301231E90051FF3C /* BBDeviceConstants.swift */; };
+		43578962301233C10051FF3C /* BBDeviceOTAController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43578960301233C10051FF3C /* BBDeviceOTAController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43578963301233C10051FF3C /* BBDeviceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4357895F301233C10051FF3C /* BBDeviceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43578964301233C10051FF3C /* BBDeviceCAPK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4357895E301233C10051FF3C /* BBDeviceCAPK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43578965301233C10051FF3C /* BBDeviceVASMerchantConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 43578961301233C10051FF3C /* BBDeviceVASMerchantConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		439119E22FB70B9E0029BF01 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439119E12FB70B990029BF01 /* SearchDelegate.swift */; };
+		43A101AD2FC45671007BAC35 /* SaleTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A101AC2FC45670007BAC35 /* SaleTransaction.swift */; };
+		43A101AF2FC456AF007BAC35 /* AuthTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A101AE2FC456AD007BAC35 /* AuthTransaction.swift */; };
+		43A101B12FC456FF007BAC35 /* CaptureTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A101B02FC456FC007BAC35 /* CaptureTransaction.swift */; };
+		43A101B32FC45723007BAC35 /* VoidTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A101B22FC45721007BAC35 /* VoidTransaction.swift */; };
+		43CC2F452FD8379A00478E82 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F442FD8379300478E82 /* Terminal.swift */; };
+		43CC2F492FD84C7600478E82 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F482FD84C7600478E82 /* TransactionManager.swift */; };
+		43CC2F4B2FD8516F00478E82 /* ManualCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F4A2FD8516600478E82 /* ManualCardData.swift */; };
+		43CC2F4D2FD8522000478E82 /* TokenizedCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F4C2FD8521D00478E82 /* TokenizedCardData.swift */; };
+		43CC2F4F2FD8527200478E82 /* TerminalOTAState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F4E2FD8526D00478E82 /* TerminalOTAState.swift */; };
+		43CC2F512FD891F600478E82 /* TerminalOTAManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F502FD891F300478E82 /* TerminalOTAManagerDelegate.swift */; };
+		43CC2F532FD8922300478E82 /* TerminalOTAUpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F522FD8922100478E82 /* TerminalOTAUpdateType.swift */; };
+		43CC2F552FD8923F00478E82 /* TerminalSettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F542FD8923E00478E82 /* TerminalSettingType.swift */; };
+		43CC2F572FD8926E00478E82 /* TerminalSettingsUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F562FD8926A00478E82 /* TerminalSettingsUpdateDelegate.swift */; };
+		43CC2F5E2FD892B600478E82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CC2F5C2FD892B600478E82 /* Assets.xcassets */; };
+		43CC2F5F2FD892B600478E82 /* RuaPairingStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43CC2F582FD892B600478E82 /* RuaPairingStoryBoard.storyboard */; };
+		43CC2F662FDAF2F900478E82 /* ConnectionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F652FDAF2F900478E82 /* ConnectionListener.swift */; };
+		43CC2F682FDAF58D00478E82 /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC2F672FDAF58D00478E82 /* PairingViewController.swift */; };
+		43D030422FBB1E5200572C9B /* IngenicoTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D030412FBB1E4A00572C9B /* IngenicoTerminal.swift */; };
+		52D31B66C96E4899AE71175B /* BBDeviceOTA-1.6.8.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D8AF4C301BA72300F48B50 /* BBDeviceOTA-1.6.8.xcframework */; };
 		6589FBD62F2C9514003CC370 /* UpaPhoneOrderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FBD52F2C950E003CC370 /* UpaPhoneOrderBuilder.swift */; };
 		6589FBD82F2C952E003CC370 /* UpaPhoneOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FBD72F2C9524003CC370 /* UpaPhoneOrder.swift */; };
 		6589FBDC2F2C955D003CC370 /* UpaForceSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FBDB2F2C9553003CC370 /* UpaForceSale.swift */; };
 		6589FBDE2F2C9570003CC370 /* UpaForceSaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FBDD2F2C9569003CC370 /* UpaForceSaleBuilder.swift */; };
 		65BA5DB62EF5659800F38839 /* GatewayException.h in Headers */ = {isa = PBXBuildFile; fileRef = 65BA5DB52EF5658600F38839 /* GatewayException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65BA5DB82EF565A000F38839 /* GatewayException.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BA5DB72EF5659E00F38839 /* GatewayException.m */; };
+		C7031074301CB91900EB6122 /* TemCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7031073301CB91900EB6122 /* TemCommunicationManager.m */; };
+		C70BFF192FC048BA00DB1008 /* ContactCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BFF182FC048BA00DB1008 /* ContactCardData.swift */; };
+		C70BFF1B2FC04A8000DB1008 /* ContactlessCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BFF1A2FC04A8000DB1008 /* ContactlessCardData.swift */; };
+		C70BFF1E2FC0657700DB1008 /* MSRCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BFF1D2FC0657700DB1008 /* MSRCardData.swift */; };
+		C70BFF202FC0677400DB1008 /* MSRFallbackCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BFF1F2FC0677400DB1008 /* MSRFallbackCardData.swift */; };
 		C718CD572ED6EECD00B5707D /* HpsPaxHostResponseCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */; };
 		C718CD5A2ED6F60700B5707D /* HpsPaxHostResponseCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C72284742FC570FE000550C0 /* ListSaF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284732FC570FE000550C0 /* ListSaF.swift */; };
+		C72284762FC5714E000550C0 /* EntryMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284752FC5714E000550C0 /* EntryMode.swift */; };
+		C72284782FC571CD000550C0 /* TerminalTransactionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284772FC571CD000550C0 /* TerminalTransactionDelegate.swift */; };
+		C722847A2FC5721F000550C0 /* TransactionFlowStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284792FC5721F000550C0 /* TransactionFlowStep.swift */; };
+		C722847E2FC5726E000550C0 /* TerminalTender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C722847D2FC5726E000550C0 /* TerminalTender.swift */; };
+		C72284812FC579EB000550C0 /* HostProcessingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284802FC579EB000550C0 /* HostProcessingResult.swift */; };
+		C72284832FC57AC7000550C0 /* TransactionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284822FC57AC7000550C0 /* TransactionDelegate.swift */; };
+		C72284892FC5A61C000550C0 /* HostTenderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72284882FC5A61C000550C0 /* HostTenderResponse.swift */; };
+		C73FD3242FE3C4F1004C8EBE /* ReversalReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3232FE3C4F1004C8EBE /* ReversalReason.swift */; };
+		C73FD3262FE3C550004C8EBE /* TaxCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3252FE3C550004C8EBE /* TaxCategory.swift */; };
+		C73FD3282FE3C65F004C8EBE /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3272FE3C65F004C8EBE /* Address.swift */; };
+		C73FD32A2FE3C6B5004C8EBE /* TerminalSettingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3292FE3C6B5004C8EBE /* TerminalSettingResult.swift */; };
+		C73FD32F2FE3C807004C8EBE /* AutoSubstantiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD32E2FE3C807004C8EBE /* AutoSubstantiation.swift */; };
+		C73FD3322FE3C8F4004C8EBE /* GatewayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3312FE3C8F4004C8EBE /* GatewayError.swift */; };
+		C73FD3342FE3CDC5004C8EBE /* FallbackReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3332FE3CDC5004C8EBE /* FallbackReason.swift */; };
+		C73FD3372FE3CE2A004C8EBE /* AIDConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3362FE3CE2A004C8EBE /* AIDConfiguration.swift */; };
+		C73FD33A2FE3D125004C8EBE /* GatewayEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD3392FE3D125004C8EBE /* GatewayEnvironment.swift */; };
+		C73FD33E2FE3E0A5004C8EBE /* IngenicoDeviceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73FD33D2FE3E0A5004C8EBE /* IngenicoDeviceConfiguration.swift */; };
+		C744D5452FC70357007EEC16 /* EMVTerminalConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D5442FC70357007EEC16 /* EMVTerminalConfiguration.swift */; };
+		C744D5472FC70559007EEC16 /* TerminalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D5462FC70559007EEC16 /* TerminalEnums.swift */; };
+		C744D5492FC7065E007EEC16 /* EncryptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D5482FC7065E007EEC16 /* EncryptionType.swift */; };
+		C744D54E2FC708A2007EEC16 /* RUATerminalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D54D2FC708A2007EEC16 /* RUATerminalConfig.swift */; };
+		C744D5502FC70BCF007EEC16 /* IngenicoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D54F2FC70BCF007EEC16 /* IngenicoMethod.swift */; };
+		C744D5522FC70D05007EEC16 /* IngenicoDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D5512FC70D05007EEC16 /* IngenicoDeviceManager.swift */; };
+		C744D5562FC83AAA007EEC16 /* MobyBLEThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D5552FC83AAA007EEC16 /* MobyBLEThread.swift */; };
+		C744D5602FC991AC007EEC16 /* IngenicoMoby5500DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744D55F2FC991AC007EEC16 /* IngenicoMoby5500DeviceManager.swift */; };
+		C74707222EFBEA40005C2DC1 /* Upa_Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = C74707212EFBEA40005C2DC1 /* Upa_Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C74707242EFBEA7B005C2DC1 /* Upa_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */; };
 		C747073B2EFC193C005C2DC1 /* RequestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C747073A2EFC193C005C2DC1 /* RequestLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C747073F2EFC1F47005C2DC1 /* SampleRequestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C747073E2EFC1F47005C2DC1 /* SampleRequestLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C74707432EFC1F77005C2DC1 /* SampleRequestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C74707422EFC1F77005C2DC1 /* SampleRequestLogger.m */; };
-		C74707222EFBEA40005C2DC1 /* Upa_Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = C74707212EFBEA40005C2DC1 /* Upa_Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C74707242EFBEA7B005C2DC1 /* Upa_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */; };
+		C763BD7E2FB4681F00712966 /* TerminalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763BD7D2FB4681F00712966 /* TerminalInfo.swift */; };
+		C763BD852FB478EE00712966 /* GMSTerminalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763BD842FB478EE00712966 /* GMSTerminalInfo.swift */; };
+		C763BD872FB484EE00712966 /* TerminalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763BD862FB484EE00712966 /* TerminalConfig.swift */; };
+		C763BD8A2FB4A0B600712966 /* TerminalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763BD892FB4A0B600712966 /* TerminalType.swift */; };
+		C763BD8E2FB603B800712966 /* IngenicoDeviceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763BD8D2FB603B800712966 /* IngenicoDeviceManagerDelegate.swift */; };
+		C763BD902FB6054200712966 /* RUATerminalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763BD8F2FB6054200712966 /* RUATerminalType.swift */; };
+		C76755F92FF5131A006349CD /* LandiSDK_MFI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755F62FF5131A006349CD /* LandiSDK_MFI.xcframework */; };
+		C76755FA2FF5131A006349CD /* RUA_MFI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755F72FF5131A006349CD /* RUA_MFI.xcframework */; };
+		C76755FB2FF5131A006349CD /* TemLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755F82FF5131A006349CD /* TemLibrary.xcframework */; };
+		C76755FE2FF51648006349CD /* TemCommunicationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C76755FD2FF51648006349CD /* TemCommunicationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C76C86592FBAF5D10043E2C4 /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86582FBAF5D10043E2C4 /* ConnectionDelegate.swift */; };
+		C76C865B2FBAF77B0043E2C4 /* TransactionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C865A2FBAF77B0043E2C4 /* TransactionState.swift */; };
+		C76C865E2FBAF8370043E2C4 /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C865D2FBAF8370043E2C4 /* ConnectionError.swift */; };
+		C76C86602FBAF9FF0043E2C4 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C865F2FBAF9FF0043E2C4 /* TransactionType.swift */; };
+		C76C86642FBB1CD00043E2C4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86632FBB1CD00043E2C4 /* Transaction.swift */; };
+		C76C86672FBC411C0043E2C4 /* ReturnTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86662FBC411C0043E2C4 /* ReturnTransaction.swift */; };
+		C76C86692FBC4DFA0043E2C4 /* VerifyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86682FBC4DFA0043E2C4 /* VerifyTransaction.swift */; };
+		C76C866B2FBC4E2B0043E2C4 /* TokenizationTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C866A2FBC4E2B0043E2C4 /* TokenizationTransaction.swift */; };
+		C76C866D2FBC4E620043E2C4 /* BatchCloseTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C866C2FBC4E620043E2C4 /* BatchCloseTransaction.swift */; };
+		C76C866F2FBC4E880043E2C4 /* TipAdjustTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C866E2FBC4E880043E2C4 /* TipAdjustTransaction.swift */; };
+		C76C86712FBC4EAD0043E2C4 /* ReversalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86702FBC4EAD0043E2C4 /* ReversalTransaction.swift */; };
+		C76C86732FBC53B00043E2C4 /* CommonEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86722FBC53B00043E2C4 /* CommonEnums.swift */; };
 		C771EFE42F73BAC1007743B8 /* BatchRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = C771EFE22F73BAC1007743B8 /* BatchRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C771EFE52F73BAC1007743B8 /* BatchDetailRecords.h in Headers */ = {isa = PBXBuildFile; fileRef = C771EFE02F73BAC1007743B8 /* BatchDetailRecords.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C771EFE62F73BAC1007743B8 /* BatchRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C771EFE32F73BAC1007743B8 /* BatchRecord.m */; };
 		C771EFE72F73BAC1007743B8 /* BatchDetailRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = C771EFE12F73BAC1007743B8 /* BatchDetailRecords.m */; };
+		C78FC76E2FE2B0030053C10B /* GMSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC76D2FE2B0030053C10B /* GMSManager.swift */; };
+		C78FC76F2FE2B0030053C10B /* DefaultSaFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC76A2FE2B0030053C10B /* DefaultSaFManager.swift */; };
+		C78FC7702FE2B0030053C10B /* FormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC76C2FE2B0030053C10B /* FormatHelper.swift */; };
+		C78FC7712FE2B0030053C10B /* DefaultTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC76B2FE2B0030053C10B /* DefaultTransactionManager.swift */; };
+		C78FC7732FE2B0880053C10B /* SurchargeUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7722FE2B0880053C10B /* SurchargeUtility.swift */; };
+		C78FC7752FE2B1E60053C10B /* TerminalOTAResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7742FE2B1E60053C10B /* TerminalOTAResult.swift */; };
+		C78FC7772FE2B27B0053C10B /* ProcessSaF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7762FE2B27B0053C10B /* ProcessSaF.swift */; };
+		C78FC7792FE2B36A0053C10B /* SaFDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7782FE2B36A0053C10B /* SaFDelegate.swift */; };
+		C78FC77D2FE2B46F0053C10B /* SaFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC77A2FE2B46F0053C10B /* SaFError.swift */; };
+		C78FC77E2FE2B46F0053C10B /* SearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC77B2FE2B46F0053C10B /* SearchError.swift */; };
+		C78FC77F2FE2B46F0053C10B /* TerminalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC77C2FE2B46F0053C10B /* TerminalError.swift */; };
+		C78FC7812FE2BB750053C10B /* SafFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7802FE2BB750053C10B /* SafFileManager.swift */; };
+		C78FC7842FE2BBBF0053C10B /* GenericPasswordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7832FE2BBBF0053C10B /* GenericPasswordStore.swift */; };
+		C78FC7852FE2BBBF0053C10B /* CommonCryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7822FE2BBBF0053C10B /* CommonCryptoHelper.swift */; };
+		C78FC78B2FE2BC5D0053C10B /* PorticoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC78A2FE2BC5D0053C10B /* PorticoConfig.swift */; };
+		C78FC78D2FE2BCB50053C10B /* GatewayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC78C2FE2BCB50053C10B /* GatewayConfig.swift */; };
+		C78FC78F2FE2BD0D0053C10B /* KeyPathMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC78E2FE2BD0D0053C10B /* KeyPathMapping.swift */; };
+		C78FC7912FE2C9330053C10B /* PorticoGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7902FE2C9330053C10B /* PorticoGateway.swift */; };
+		C78FC7932FE2C97B0053C10B /* PorticoRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7922FE2C97B0053C10B /* PorticoRequestHelper.swift */; };
+		C78FC7952FE2C9BB0053C10B /* PorticoResponseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7942FE2C9BB0053C10B /* PorticoResponseHelper.swift */; };
+		C78FC7982FE2CAD30053C10B /* TransactionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC7972FE2CAD30053C10B /* TransactionError.swift */; };
+		C78FC79C2FE2CB400053C10B /* CreditCardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FC79B2FE2CB400053C10B /* CreditCardHelper.swift */; };
 		C7A1BEDB2F28AE8C009E1E6F /* UpaBatchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1BEDA2F28AE8C009E1E6F /* UpaBatchBuilder.swift */; };
 		C7A1BEDE2F28AF7F009E1E6F /* UpaGetBatchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1BEDD2F28AF7F009E1E6F /* UpaGetBatchDetail.swift */; };
 		C7B3247C2F2B3EBD00A388C9 /* UpaOpenTabBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3247B2F2B3EBD00A388C9 /* UpaOpenTabBuilder.swift */; };
@@ -95,6 +193,42 @@
 		C7B324832F2B669700A388C9 /* OpenTabDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B324822F2B669700A388C9 /* OpenTabDetail.m */; };
 		C7CB249C2EEAAC6300D80770 /* UpaScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB249B2EEAAC6300D80770 /* UpaScan.swift */; };
 		C7CB249E2EEAAFE600D80770 /* UpaScanBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB249D2EEAAFE600D80770 /* UpaScanBuilder.swift */; };
+		C7D2A6062FBDA7B9007F0749 /* AID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D2A6052FBDA7B9007F0749 /* AID.swift */; };
+		C7D2A6082FBDAB8C007F0749 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D2A6072FBDAB8C007F0749 /* CardData.swift */; };
+		C7D2A60A2FBDAEF7007F0749 /* AnyCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D2A6092FBDAEF7007F0749 /* AnyCardData.swift */; };
+		C7D2A60E2FBEF285007F0749 /* IngenicoEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D2A60D2FBEF285007F0749 /* IngenicoEnums.swift */; };
+		C7DF885B2FE2AB0500E3E416 /* GatewayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF885A2FE2AB0500E3E416 /* GatewayDelegate.swift */; };
+		C7DF885D2FE2AB3800E3E416 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF885C2FE2AB3800E3E416 /* Gateway.swift */; };
+		C7DF885F2FE2AB5F00E3E416 /* SaFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF885E2FE2AB5F00E3E416 /* SaFManager.swift */; };
+		C7DF886F2FE2AB9E00E3E416 /* SaleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88682FE2AB9E00E3E416 /* SaleResponse.swift */; };
+		C7DF88702FE2AB9E00E3E416 /* ReturnResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88662FE2AB9E00E3E416 /* ReturnResponse.swift */; };
+		C7DF88712FE2AB9E00E3E416 /* ListSaFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88642FE2AB9E00E3E416 /* ListSaFResponse.swift */; };
+		C7DF88722FE2AB9E00E3E416 /* DuplicateDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88632FE2AB9E00E3E416 /* DuplicateDataResponse.swift */; };
+		C7DF88732FE2AB9E00E3E416 /* CaptureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88622FE2AB9E00E3E416 /* CaptureResponse.swift */; };
+		C7DF88742FE2AB9E00E3E416 /* ProcessSaFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88652FE2AB9E00E3E416 /* ProcessSaFResponse.swift */; };
+		C7DF88752FE2AB9E00E3E416 /* ReversalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88672FE2AB9E00E3E416 /* ReversalResponse.swift */; };
+		C7DF88762FE2AB9E00E3E416 /* BatchCloseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88612FE2AB9E00E3E416 /* BatchCloseResponse.swift */; };
+		C7DF88772FE2AB9E00E3E416 /* SurchargeRequestedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88692FE2AB9E00E3E416 /* SurchargeRequestedResponse.swift */; };
+		C7DF88782FE2AB9E00E3E416 /* TipAdjustResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF886A2FE2AB9E00E3E416 /* TipAdjustResponse.swift */; };
+		C7DF88792FE2AB9E00E3E416 /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF886D2FE2AB9E00E3E416 /* VoidResponse.swift */; };
+		C7DF887A2FE2AB9E00E3E416 /* VerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF886C2FE2AB9E00E3E416 /* VerifyResponse.swift */; };
+		C7DF887B2FE2AB9E00E3E416 /* TokenizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF886B2FE2AB9E00E3E416 /* TokenizationResponse.swift */; };
+		C7DF887C2FE2AB9E00E3E416 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF88602FE2AB9E00E3E416 /* AuthResponse.swift */; };
+		C7DF887E2FE2AC0A00E3E416 /* QuickChipCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF887D2FE2AC0A00E3E416 /* QuickChipCardData.swift */; };
+		C7DF88802FE2AE1000E3E416 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF887F2FE2AE1000E3E416 /* TransactionResponse.swift */; };
+		C7EDAD042FE9159E0010D122 /* CardDataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD032FE9159E0010D122 /* CardDataEnums.swift */; };
+		C7EDAD062FE918690010D122 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD052FE918690010D122 /* Tag.swift */; };
+		C7EDAD082FE91B800010D122 /* BerValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD072FE91B800010D122 /* BerValue.swift */; };
+		C7EDAD0A2FE92C0A0010D122 /* BerLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD092FE92C0A0010D122 /* BerLength.swift */; };
+		C7EDAD0C2FE92D9A0010D122 /* EMVTagHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD0B2FE92D9A0010D122 /* EMVTagHelper.swift */; };
+		C7EDAD0E2FE930C00010D122 /* TLVObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD0D2FE930C00010D122 /* TLVObject.swift */; };
+		C7EDAD102FE9336E0010D122 /* TLVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD0F2FE9336E0010D122 /* TLVDecoder.swift */; };
+		C7EDAD122FE935C50010D122 /* TLVUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD112FE935C50010D122 /* TLVUtility.swift */; };
+		C7EDAD142FE938820010D122 /* TLVGMParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD132FE938820010D122 /* TLVGMParser.swift */; };
+		C7EDAD162FE93C090010D122 /* EMVTagDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD152FE93C090010D122 /* EMVTagDescriptor.swift */; };
+		C7EDAD192FE94C570010D122 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD182FE94C570010D122 /* Utilities.swift */; };
+		C7EDAD1C2FE97CB70010D122 /* PorticoUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EDAD1B2FE97CB70010D122 /* PorticoUtility.swift */; };
+		C7FCF4CB3004B8960040E684 /* provisioning_5500.json in Resources */ = {isa = PBXBuildFile; fileRef = C7FCF4C93004B8960040E684 /* provisioning_5500.json */; };
 		DD2409302991688C00597A23 /* HpsUpaStartCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD24092F2991688C00597A23 /* HpsUpaStartCardResponse.swift */; };
 		DD37C2E12AE079E7003891D7 /* TapToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E02AE079E7003891D7 /* TapToPayView.swift */; };
 		DD37C2E32AE07C69003891D7 /* TapToPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E22AE07C69003891D7 /* TapToPayViewModel.swift */; };
@@ -550,6 +684,7 @@
 		DDFF370F2937B6FD00C2D1D1 /* GMSCreditCaptureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF36F62937B6FC00C2D1D1 /* GMSCreditCaptureBuilder.swift */; };
 		DDFF37102937B6FD00C2D1D1 /* GMSBatchCloseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF36F72937B6FC00C2D1D1 /* GMSBatchCloseBuilder.swift */; };
 		DDFF37112937B6FD00C2D1D1 /* GMSTransactionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF36F82937B6FC00C2D1D1 /* GMSTransactionDelegate.swift */; };
+		0EDB66E88C6D4FD9836DAAB3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -562,10 +697,8 @@
 		144E0C6A2C664DBD00BF7A89 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ExternalAccessory.framework; sourceTree = DEVELOPER_DIR; };
 		144E0C6B2C664DC800BF7A89 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		144E0C6C2C664DE000BF7A89 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		14864EE42C88976000B0E4F3 /* TemLibrary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TemLibrary.xcframework; sourceTree = "<group>"; };
 		14864EFA2C88A82800B0E4F3 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		14864EFB2C88A82800B0E4F3 /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
-		14864F082C88A8E200B0E4F3 /* RUA_BLE.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RUA_BLE.xcframework; sourceTree = "<group>"; };
 		14864F0F2C89F8FD00B0E4F3 /* MobyTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobyTransactionsView.swift; sourceTree = "<group>"; };
 		14864F112C8F1E7900B0E4F3 /* HpsMobyCreditAuthBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsMobyCreditAuthBuilder.swift; sourceTree = "<group>"; };
 		14864F132C8F242500B0E4F3 /* HpsMobyCreditCaptureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsMobyCreditCaptureBuilder.swift; sourceTree = "<group>"; };
@@ -590,7 +723,6 @@
 		14DBE22E2BF7D9EB005F27DF /* DEV-5500-V11.00.uns */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DEV-5500-V11.00.uns"; sourceTree = "<group>"; };
 		14DBE22F2BF7D9EB005F27DF /* DEV-8500-V33.01.00.uns */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DEV-8500-V33.01.00.uns"; sourceTree = "<group>"; };
 		14DBE26F2BFCFC79005F27DF /* provisioning_8500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = provisioning_8500.json; sourceTree = "<group>"; };
-		14DBE2702BFCFC79005F27DF /* provisioning_5500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = provisioning_5500.json; sourceTree = "<group>"; };
 		14DBE2712BFCFC79005F27DF /* DEV-8500-V33.01.00.uns */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DEV-8500-V33.01.00.uns"; sourceTree = "<group>"; };
 		14DBE2722BFCFC79005F27DF /* DEV-5500-V11.00.uns */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DEV-5500-V11.00.uns"; sourceTree = "<group>"; };
 		14DBE2732BFCFC79005F27DF /* EMVConfigs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EMVConfigs.json; sourceTree = "<group>"; };
@@ -615,23 +747,125 @@
 		432883B82ED78341003BC355 /* SandboxObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxObjc.h; sourceTree = "<group>"; };
 		432883B92ED78341003BC355 /* SandboxObjc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SandboxObjc.m; sourceTree = "<group>"; };
 		4341B61E2E68D52C00F39F0E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
+		4357895730122C060051FF3C /* BBPOSTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSTerminal.swift; sourceTree = "<group>"; };
+		4357895C301231E90051FF3C /* BBDeviceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBDeviceConstants.swift; sourceTree = "<group>"; };
+		4357895E301233C10051FF3C /* BBDeviceCAPK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDeviceCAPK.h; sourceTree = "<group>"; };
+		4357895F301233C10051FF3C /* BBDeviceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDeviceController.h; sourceTree = "<group>"; };
+		43578960301233C10051FF3C /* BBDeviceOTAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDeviceOTAController.h; sourceTree = "<group>"; };
+		43578961301233C10051FF3C /* BBDeviceVASMerchantConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDeviceVASMerchantConfig.h; sourceTree = "<group>"; };
+		439119E12FB70B990029BF01 /* SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
+		43A101AC2FC45670007BAC35 /* SaleTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTransaction.swift; sourceTree = "<group>"; };
+		43A101AE2FC456AD007BAC35 /* AuthTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTransaction.swift; sourceTree = "<group>"; };
+		43A101B02FC456FC007BAC35 /* CaptureTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTransaction.swift; sourceTree = "<group>"; };
+		43A101B22FC45721007BAC35 /* VoidTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidTransaction.swift; sourceTree = "<group>"; };
+		43CC2F442FD8379300478E82 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		43CC2F482FD84C7600478E82 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
+		43CC2F4A2FD8516600478E82 /* ManualCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCardData.swift; sourceTree = "<group>"; };
+		43CC2F4C2FD8521D00478E82 /* TokenizedCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizedCardData.swift; sourceTree = "<group>"; };
+		43CC2F4E2FD8526D00478E82 /* TerminalOTAState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalOTAState.swift; sourceTree = "<group>"; };
+		43CC2F502FD891F300478E82 /* TerminalOTAManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalOTAManagerDelegate.swift; sourceTree = "<group>"; };
+		43CC2F522FD8922100478E82 /* TerminalOTAUpdateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalOTAUpdateType.swift; sourceTree = "<group>"; };
+		43CC2F542FD8923E00478E82 /* TerminalSettingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSettingType.swift; sourceTree = "<group>"; };
+		43CC2F562FD8926A00478E82 /* TerminalSettingsUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSettingsUpdateDelegate.swift; sourceTree = "<group>"; };
+		43CC2F582FD892B600478E82 /* RuaPairingStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RuaPairingStoryBoard.storyboard; sourceTree = "<group>"; };
+		43CC2F5C2FD892B600478E82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43CC2F652FDAF2F900478E82 /* ConnectionListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionListener.swift; sourceTree = "<group>"; };
+		43CC2F672FDAF58D00478E82 /* PairingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
+		43D030412FBB1E4A00572C9B /* IngenicoTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoTerminal.swift; sourceTree = "<group>"; };
 		6589FBD52F2C950E003CC370 /* UpaPhoneOrderBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaPhoneOrderBuilder.swift; sourceTree = "<group>"; };
 		6589FBD72F2C9524003CC370 /* UpaPhoneOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaPhoneOrder.swift; sourceTree = "<group>"; };
 		6589FBDB2F2C9553003CC370 /* UpaForceSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaForceSale.swift; sourceTree = "<group>"; };
 		6589FBDD2F2C9569003CC370 /* UpaForceSaleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaForceSaleBuilder.swift; sourceTree = "<group>"; };
 		65BA5DB52EF5658600F38839 /* GatewayException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayException.h; sourceTree = "<group>"; };
 		65BA5DB72EF5659E00F38839 /* GatewayException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayException.m; sourceTree = "<group>"; };
+		7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		C7031073301CB91900EB6122 /* TemCommunicationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemCommunicationManager.m; sourceTree = "<group>"; };
+		C70BFF182FC048BA00DB1008 /* ContactCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardData.swift; sourceTree = "<group>"; };
+		C70BFF1A2FC04A8000DB1008 /* ContactlessCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactlessCardData.swift; sourceTree = "<group>"; };
+		C70BFF1D2FC0657700DB1008 /* MSRCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRCardData.swift; sourceTree = "<group>"; };
+		C70BFF1F2FC0677400DB1008 /* MSRFallbackCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRFallbackCardData.swift; sourceTree = "<group>"; };
 		C718CD542ED6EEB600B5707D /* HpsPaxHostResponseCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HpsPaxHostResponseCredential.h; sourceTree = "<group>"; };
 		C718CD562ED6EECD00B5707D /* HpsPaxHostResponseCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HpsPaxHostResponseCredential.m; sourceTree = "<group>"; };
+		C72284732FC570FE000550C0 /* ListSaF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSaF.swift; sourceTree = "<group>"; };
+		C72284752FC5714E000550C0 /* EntryMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryMode.swift; sourceTree = "<group>"; };
+		C72284772FC571CD000550C0 /* TerminalTransactionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTransactionDelegate.swift; sourceTree = "<group>"; };
+		C72284792FC5721F000550C0 /* TransactionFlowStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFlowStep.swift; sourceTree = "<group>"; };
+		C722847D2FC5726E000550C0 /* TerminalTender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTender.swift; sourceTree = "<group>"; };
+		C72284802FC579EB000550C0 /* HostProcessingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProcessingResult.swift; sourceTree = "<group>"; };
+		C72284822FC57AC7000550C0 /* TransactionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDelegate.swift; sourceTree = "<group>"; };
+		C72284882FC5A61C000550C0 /* HostTenderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostTenderResponse.swift; sourceTree = "<group>"; };
+		C73FD3232FE3C4F1004C8EBE /* ReversalReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversalReason.swift; sourceTree = "<group>"; };
+		C73FD3252FE3C550004C8EBE /* TaxCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxCategory.swift; sourceTree = "<group>"; };
+		C73FD3272FE3C65F004C8EBE /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		C73FD3292FE3C6B5004C8EBE /* TerminalSettingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSettingResult.swift; sourceTree = "<group>"; };
+		C73FD32E2FE3C807004C8EBE /* AutoSubstantiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSubstantiation.swift; sourceTree = "<group>"; };
+		C73FD3312FE3C8F4004C8EBE /* GatewayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayError.swift; sourceTree = "<group>"; };
+		C73FD3332FE3CDC5004C8EBE /* FallbackReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackReason.swift; sourceTree = "<group>"; };
+		C73FD3362FE3CE2A004C8EBE /* AIDConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDConfiguration.swift; sourceTree = "<group>"; };
+		C73FD3392FE3D125004C8EBE /* GatewayEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayEnvironment.swift; sourceTree = "<group>"; };
+		C73FD33D2FE3E0A5004C8EBE /* IngenicoDeviceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoDeviceConfiguration.swift; sourceTree = "<group>"; };
+		C744D5442FC70357007EEC16 /* EMVTerminalConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMVTerminalConfiguration.swift; sourceTree = "<group>"; };
+		C744D5462FC70559007EEC16 /* TerminalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalEnums.swift; sourceTree = "<group>"; };
+		C744D5482FC7065E007EEC16 /* EncryptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionType.swift; sourceTree = "<group>"; };
+		C744D54D2FC708A2007EEC16 /* RUATerminalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUATerminalConfig.swift; sourceTree = "<group>"; };
+		C744D54F2FC70BCF007EEC16 /* IngenicoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoMethod.swift; sourceTree = "<group>"; };
+		C744D5512FC70D05007EEC16 /* IngenicoDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoDeviceManager.swift; sourceTree = "<group>"; };
+		C744D5552FC83AAA007EEC16 /* MobyBLEThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobyBLEThread.swift; sourceTree = "<group>"; };
+		C744D55F2FC991AC007EEC16 /* IngenicoMoby5500DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoMoby5500DeviceManager.swift; sourceTree = "<group>"; };
+		C74707212EFBEA40005C2DC1 /* Upa_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Upa_Constants.h; sourceTree = "<group>"; };
+		C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Upa_Constants.m; sourceTree = "<group>"; };
 		C747073A2EFC193C005C2DC1 /* RequestLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestLogger.h; sourceTree = "<group>"; };
 		C747073E2EFC1F47005C2DC1 /* SampleRequestLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleRequestLogger.h; sourceTree = "<group>"; };
 		C74707422EFC1F77005C2DC1 /* SampleRequestLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleRequestLogger.m; sourceTree = "<group>"; };
-		C74707212EFBEA40005C2DC1 /* Upa_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Upa_Constants.h; sourceTree = "<group>"; };
-		C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Upa_Constants.m; sourceTree = "<group>"; };
+		C763BD7D2FB4681F00712966 /* TerminalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalInfo.swift; sourceTree = "<group>"; };
+		C763BD842FB478EE00712966 /* GMSTerminalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSTerminalInfo.swift; sourceTree = "<group>"; };
+		C763BD862FB484EE00712966 /* TerminalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalConfig.swift; sourceTree = "<group>"; };
+		C763BD892FB4A0B600712966 /* TerminalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalType.swift; sourceTree = "<group>"; };
+		C763BD8D2FB603B800712966 /* IngenicoDeviceManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoDeviceManagerDelegate.swift; sourceTree = "<group>"; };
+		C763BD8F2FB6054200712966 /* RUATerminalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUATerminalType.swift; sourceTree = "<group>"; };
+		C76755F62FF5131A006349CD /* LandiSDK_MFI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LandiSDK_MFI.xcframework; sourceTree = "<group>"; };
+		C76755F72FF5131A006349CD /* RUA_MFI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RUA_MFI.xcframework; sourceTree = "<group>"; };
+		C76755F82FF5131A006349CD /* TemLibrary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TemLibrary.xcframework; sourceTree = "<group>"; };
+		C76755FC2FF51418006349CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C76755FD2FF51648006349CD /* TemCommunicationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemCommunicationManager.h; sourceTree = "<group>"; };
+		C76C86582FBAF5D10043E2C4 /* ConnectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
+		C76C865A2FBAF77B0043E2C4 /* TransactionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionState.swift; sourceTree = "<group>"; };
+		C76C865D2FBAF8370043E2C4 /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
+		C76C865F2FBAF9FF0043E2C4 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		C76C86632FBB1CD00043E2C4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		C76C86662FBC411C0043E2C4 /* ReturnTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnTransaction.swift; sourceTree = "<group>"; };
+		C76C86682FBC4DFA0043E2C4 /* VerifyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyTransaction.swift; sourceTree = "<group>"; };
+		C76C866A2FBC4E2B0043E2C4 /* TokenizationTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizationTransaction.swift; sourceTree = "<group>"; };
+		C76C866C2FBC4E620043E2C4 /* BatchCloseTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCloseTransaction.swift; sourceTree = "<group>"; };
+		C76C866E2FBC4E880043E2C4 /* TipAdjustTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAdjustTransaction.swift; sourceTree = "<group>"; };
+		C76C86702FBC4EAD0043E2C4 /* ReversalTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversalTransaction.swift; sourceTree = "<group>"; };
+		C76C86722FBC53B00043E2C4 /* CommonEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
 		C771EFE02F73BAC1007743B8 /* BatchDetailRecords.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchDetailRecords.h; sourceTree = "<group>"; };
 		C771EFE12F73BAC1007743B8 /* BatchDetailRecords.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchDetailRecords.m; sourceTree = "<group>"; };
 		C771EFE22F73BAC1007743B8 /* BatchRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchRecord.h; sourceTree = "<group>"; };
 		C771EFE32F73BAC1007743B8 /* BatchRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchRecord.m; sourceTree = "<group>"; };
+		C78FC76A2FE2B0030053C10B /* DefaultSaFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSaFManager.swift; sourceTree = "<group>"; };
+		C78FC76B2FE2B0030053C10B /* DefaultTransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransactionManager.swift; sourceTree = "<group>"; };
+		C78FC76C2FE2B0030053C10B /* FormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatHelper.swift; sourceTree = "<group>"; };
+		C78FC76D2FE2B0030053C10B /* GMSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSManager.swift; sourceTree = "<group>"; };
+		C78FC7722FE2B0880053C10B /* SurchargeUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurchargeUtility.swift; sourceTree = "<group>"; };
+		C78FC7742FE2B1E60053C10B /* TerminalOTAResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalOTAResult.swift; sourceTree = "<group>"; };
+		C78FC7762FE2B27B0053C10B /* ProcessSaF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessSaF.swift; sourceTree = "<group>"; };
+		C78FC7782FE2B36A0053C10B /* SaFDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaFDelegate.swift; sourceTree = "<group>"; };
+		C78FC77A2FE2B46F0053C10B /* SaFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaFError.swift; sourceTree = "<group>"; };
+		C78FC77B2FE2B46F0053C10B /* SearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchError.swift; sourceTree = "<group>"; };
+		C78FC77C2FE2B46F0053C10B /* TerminalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalError.swift; sourceTree = "<group>"; };
+		C78FC7802FE2BB750053C10B /* SafFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafFileManager.swift; sourceTree = "<group>"; };
+		C78FC7822FE2BBBF0053C10B /* CommonCryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCryptoHelper.swift; sourceTree = "<group>"; };
+		C78FC7832FE2BBBF0053C10B /* GenericPasswordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordStore.swift; sourceTree = "<group>"; };
+		C78FC78A2FE2BC5D0053C10B /* PorticoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorticoConfig.swift; sourceTree = "<group>"; };
+		C78FC78C2FE2BCB50053C10B /* GatewayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayConfig.swift; sourceTree = "<group>"; };
+		C78FC78E2FE2BD0D0053C10B /* KeyPathMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathMapping.swift; sourceTree = "<group>"; };
+		C78FC7902FE2C9330053C10B /* PorticoGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorticoGateway.swift; sourceTree = "<group>"; };
+		C78FC7922FE2C97B0053C10B /* PorticoRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorticoRequestHelper.swift; sourceTree = "<group>"; };
+		C78FC7942FE2C9BB0053C10B /* PorticoResponseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorticoResponseHelper.swift; sourceTree = "<group>"; };
+		C78FC7972FE2CAD30053C10B /* TransactionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionError.swift; sourceTree = "<group>"; };
+		C78FC79B2FE2CB400053C10B /* CreditCardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardHelper.swift; sourceTree = "<group>"; };
 		C7A1BEDA2F28AE8C009E1E6F /* UpaBatchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaBatchBuilder.swift; sourceTree = "<group>"; };
 		C7A1BEDD2F28AF7F009E1E6F /* UpaGetBatchDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaGetBatchDetail.swift; sourceTree = "<group>"; };
 		C7B3247B2F2B3EBD00A388C9 /* UpaOpenTabBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaOpenTabBuilder.swift; sourceTree = "<group>"; };
@@ -640,6 +874,43 @@
 		C7B324822F2B669700A388C9 /* OpenTabDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenTabDetail.m; sourceTree = "<group>"; };
 		C7CB249B2EEAAC6300D80770 /* UpaScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaScan.swift; sourceTree = "<group>"; };
 		C7CB249D2EEAAFE600D80770 /* UpaScanBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaScanBuilder.swift; sourceTree = "<group>"; };
+		C7D2A6052FBDA7B9007F0749 /* AID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AID.swift; sourceTree = "<group>"; };
+		C7D2A6072FBDAB8C007F0749 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		C7D2A6092FBDAEF7007F0749 /* AnyCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCardData.swift; sourceTree = "<group>"; };
+		C7D2A60D2FBEF285007F0749 /* IngenicoEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngenicoEnums.swift; sourceTree = "<group>"; };
+		C7D8AF4C301BA72300F48B50 /* BBDeviceOTA-1.6.8.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "BBDeviceOTA-1.6.8.xcframework"; sourceTree = "<group>"; };
+		C7DF885A2FE2AB0500E3E416 /* GatewayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayDelegate.swift; sourceTree = "<group>"; };
+		C7DF885C2FE2AB3800E3E416 /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
+		C7DF885E2FE2AB5F00E3E416 /* SaFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaFManager.swift; sourceTree = "<group>"; };
+		C7DF88602FE2AB9E00E3E416 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		C7DF88612FE2AB9E00E3E416 /* BatchCloseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCloseResponse.swift; sourceTree = "<group>"; };
+		C7DF88622FE2AB9E00E3E416 /* CaptureResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureResponse.swift; sourceTree = "<group>"; };
+		C7DF88632FE2AB9E00E3E416 /* DuplicateDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateDataResponse.swift; sourceTree = "<group>"; };
+		C7DF88642FE2AB9E00E3E416 /* ListSaFResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSaFResponse.swift; sourceTree = "<group>"; };
+		C7DF88652FE2AB9E00E3E416 /* ProcessSaFResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessSaFResponse.swift; sourceTree = "<group>"; };
+		C7DF88662FE2AB9E00E3E416 /* ReturnResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnResponse.swift; sourceTree = "<group>"; };
+		C7DF88672FE2AB9E00E3E416 /* ReversalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversalResponse.swift; sourceTree = "<group>"; };
+		C7DF88682FE2AB9E00E3E416 /* SaleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleResponse.swift; sourceTree = "<group>"; };
+		C7DF88692FE2AB9E00E3E416 /* SurchargeRequestedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurchargeRequestedResponse.swift; sourceTree = "<group>"; };
+		C7DF886A2FE2AB9E00E3E416 /* TipAdjustResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAdjustResponse.swift; sourceTree = "<group>"; };
+		C7DF886B2FE2AB9E00E3E416 /* TokenizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizationResponse.swift; sourceTree = "<group>"; };
+		C7DF886C2FE2AB9E00E3E416 /* VerifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyResponse.swift; sourceTree = "<group>"; };
+		C7DF886D2FE2AB9E00E3E416 /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
+		C7DF887D2FE2AC0A00E3E416 /* QuickChipCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickChipCardData.swift; sourceTree = "<group>"; };
+		C7DF887F2FE2AE1000E3E416 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
+		C7EDAD032FE9159E0010D122 /* CardDataEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataEnums.swift; sourceTree = "<group>"; };
+		C7EDAD052FE918690010D122 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		C7EDAD072FE91B800010D122 /* BerValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerValue.swift; sourceTree = "<group>"; };
+		C7EDAD092FE92C0A0010D122 /* BerLength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerLength.swift; sourceTree = "<group>"; };
+		C7EDAD0B2FE92D9A0010D122 /* EMVTagHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMVTagHelper.swift; sourceTree = "<group>"; };
+		C7EDAD0D2FE930C00010D122 /* TLVObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLVObject.swift; sourceTree = "<group>"; };
+		C7EDAD0F2FE9336E0010D122 /* TLVDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLVDecoder.swift; sourceTree = "<group>"; };
+		C7EDAD112FE935C50010D122 /* TLVUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLVUtility.swift; sourceTree = "<group>"; };
+		C7EDAD132FE938820010D122 /* TLVGMParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLVGMParser.swift; sourceTree = "<group>"; };
+		C7EDAD152FE93C090010D122 /* EMVTagDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMVTagDescriptor.swift; sourceTree = "<group>"; };
+		C7EDAD182FE94C570010D122 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C7EDAD1B2FE97CB70010D122 /* PorticoUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorticoUtility.swift; sourceTree = "<group>"; };
+		C7FCF4C93004B8960040E684 /* provisioning_5500.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = provisioning_5500.json; sourceTree = "<group>"; };
 		DD24092F2991688C00597A23 /* HpsUpaStartCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaStartCardResponse.swift; sourceTree = "<group>"; };
 		DD37C2E02AE079E7003891D7 /* TapToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayView.swift; sourceTree = "<group>"; };
 		DD37C2E22AE07C69003891D7 /* TapToPayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayViewModel.swift; sourceTree = "<group>"; };
@@ -664,7 +935,6 @@
 		DD6A4ED22937C05C008B8165 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		DD8CECF1294CC00B0006908F /* HpsUpaStartCardTransactionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaStartCardTransactionBuilder.swift; sourceTree = "<group>"; };
 		DD8CECF5294CC29B0006908F /* HpsUpaStartCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaStartCard.swift; sourceTree = "<group>"; };
-		DDC13AA32A73F87D0069F2E2 /* GlobalMobileSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GlobalMobileSDK.xcframework; sourceTree = "<group>"; };
 		DDC13AA42A73F87D0069F2E2 /* GlobalPaymentsApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GlobalPaymentsApi.xcframework; sourceTree = "<group>"; };
 		DDC13AA52A73F87D0069F2E2 /* BBPOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BBPOS.xcframework; sourceTree = "<group>"; };
 		DDD0E0432980641700D4A32D /* HpsUpaTipAdjust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsUpaTipAdjust.swift; sourceTree = "<group>"; };
@@ -1099,6 +1369,7 @@
 		DDFF36F62937B6FC00C2D1D1 /* GMSCreditCaptureBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSCreditCaptureBuilder.swift; sourceTree = "<group>"; };
 		DDFF36F72937B6FC00C2D1D1 /* GMSBatchCloseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSBatchCloseBuilder.swift; sourceTree = "<group>"; };
 		DDFF36F82937B6FC00C2D1D1 /* GMSTransactionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSTransactionDelegate.swift; sourceTree = "<group>"; };
+		7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1107,11 +1378,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4341B6182E68D4FC00F39F0E /* BBPOS.xcframework in Frameworks */,
+				C76755F92FF5131A006349CD /* LandiSDK_MFI.xcframework in Frameworks */,
+				C76755FA2FF5131A006349CD /* RUA_MFI.xcframework in Frameworks */,
+				C76755FB2FF5131A006349CD /* TemLibrary.xcframework in Frameworks */,
 				4341B61C2E68D51500F39F0E /* GlobalPaymentsApi.xcframework in Frameworks */,
 				4341B61F2E68D56400F39F0E /* libc++.tbd in Frameworks */,
-				4341B61A2E68D50300F39F0E /* GlobalMobileSDK.xcframework in Frameworks */,
-				4341B6222E68D57500F39F0E /* TemLibrary.xcframework in Frameworks */,
-				4341B6202E68D57200F39F0E /* RUA_BLE.xcframework in Frameworks */,
+				52D31B66C96E4899AE71175B /* BBDeviceOTA-1.6.8.xcframework in Frameworks */,
+				0EDB66E88C6D4FD9836DAAB3 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,25 +1415,48 @@
 		14864EF92C88A81F00B0E4F3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C78FC7822FE2BBBF0053C10B /* CommonCryptoHelper.swift */,
+				C78FC7832FE2BBBF0053C10B /* GenericPasswordStore.swift */,
 				14864EFB2C88A82800B0E4F3 /* Configurations.swift */,
 				14864EFA2C88A82800B0E4F3 /* FileUtils.swift */,
 				1438BFF52CC7FD940040F364 /* ReceiptHelper.swift */,
+				C78FC7802FE2BB750053C10B /* SafFileManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
 		};
-		14864F052C88A84100B0E4F3 /* RUUA */ = {
+		14864F052C88A84100B0E4F3 /* RUA */ = {
 			isa = PBXGroup;
 			children = (
+				C7FCF4CA3004B8960040E684 /* Provisioning */,
+				43CC2F5D2FD892B600478E82 /* PairingConfirmation */,
+				C73FD33D2FE3E0A5004C8EBE /* IngenicoDeviceConfiguration.swift */,
+				C744D55F2FC991AC007EEC16 /* IngenicoMoby5500DeviceManager.swift */,
+				C744D5552FC83AAA007EEC16 /* MobyBLEThread.swift */,
+				43D030412FBB1E4A00572C9B /* IngenicoTerminal.swift */,
 				432883B62ED782C9003BC355 /* RUAHelper.swift */,
+				C722847D2FC5726E000550C0 /* TerminalTender.swift */,
+				C72284882FC5A61C000550C0 /* HostTenderResponse.swift */,
+				C744D54D2FC708A2007EEC16 /* RUATerminalConfig.swift */,
+				C744D5512FC70D05007EEC16 /* IngenicoDeviceManager.swift */,
 			);
-			path = RUUA;
+			path = RUA;
 			sourceTree = "<group>";
 		};
 		14DBE22D2BF7D9C3005F27DF /* Moby */ = {
 			isa = PBXGroup;
 			children = (
-				14864F052C88A84100B0E4F3 /* RUUA */,
+				C73FD3352FE3CE00004C8EBE /* Configuration */,
+				C78FC7992FE2CB1D0053C10B /* Core */,
+				C78FC7862FE2BC240053C10B /* Gateways */,
+				C744D54A2FC707DE007EEC16 /* Classes */,
+				C722847F2FC5796A000550C0 /* Terminals */,
+				C7D2A6042FBDA791007F0749 /* CardData */,
+				C76C86612FBB1C6F0043E2C4 /* Transaction */,
+				C76C865C2FBAF8150043E2C4 /* Errors */,
+				C763BD882FB4A09900712966 /* Enums */,
+				C763BD832FB4789100712966 /* Model */,
+				14864F052C88A84100B0E4F3 /* RUA */,
 				14864EF92C88A81F00B0E4F3 /* Util */,
 				14864ECC2C886BE500B0E4F3 /* View */,
 				14DBE28F2BFE54E0005F27DF /* Protocols */,
@@ -1179,7 +1475,6 @@
 				14DBE2712BFCFC79005F27DF /* DEV-8500-V33.01.00.uns */,
 				14DBE2732BFCFC79005F27DF /* EMVConfigs.json */,
 				14DBE2742BFCFC79005F27DF /* EMVTransactionParameters.json */,
-				14DBE2702BFCFC79005F27DF /* provisioning_5500.json */,
 				14DBE26F2BFCFC79005F27DF /* provisioning_8500.json */,
 				14DBE22E2BF7D9EB005F27DF /* DEV-5500-V11.00.uns */,
 				14DBE22F2BF7D9EB005F27DF /* DEV-8500-V33.01.00.uns */,
@@ -1213,7 +1508,24 @@
 		14DBE28F2BFE54E0005F27DF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C78FC78E2FE2BD0D0053C10B /* KeyPathMapping.swift */,
+				C78FC78C2FE2BCB50053C10B /* GatewayConfig.swift */,
+				C78FC7782FE2B36A0053C10B /* SaFDelegate.swift */,
+				C7DF885E2FE2AB5F00E3E416 /* SaFManager.swift */,
+				C7DF885C2FE2AB3800E3E416 /* Gateway.swift */,
+				C7DF885A2FE2AB0500E3E416 /* GatewayDelegate.swift */,
+				43CC2F482FD84C7600478E82 /* TransactionManager.swift */,
+				43CC2F442FD8379300478E82 /* Terminal.swift */,
+				43CC2F562FD8926A00478E82 /* TerminalSettingsUpdateDelegate.swift */,
+				43CC2F502FD891F300478E82 /* TerminalOTAManagerDelegate.swift */,
+				439119E12FB70B990029BF01 /* SearchDelegate.swift */,
 				14DBE28B2BFE54A8005F27DF /* IMobyDeviceInterface.swift */,
+				C763BD7D2FB4681F00712966 /* TerminalInfo.swift */,
+				C763BD8D2FB603B800712966 /* IngenicoDeviceManagerDelegate.swift */,
+				C76C86582FBAF5D10043E2C4 /* ConnectionDelegate.swift */,
+				C72284772FC571CD000550C0 /* TerminalTransactionDelegate.swift */,
+				C72284822FC57AC7000550C0 /* TransactionDelegate.swift */,
+				C744D54F2FC70BCF007EEC16 /* IngenicoMethod.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1249,6 +1561,8 @@
 			children = (
 				432883B82ED78341003BC355 /* SandboxObjc.h */,
 				432883B92ED78341003BC355 /* SandboxObjc.m */,
+				C76755FD2FF51648006349CD /* TemCommunicationManager.h */,
+				C7031073301CB91900EB6122 /* TemCommunicationManager.m */,
 			);
 			path = Teem;
 			sourceTree = "<group>";
@@ -1259,6 +1573,26 @@
 				4341B61E2E68D52C00F39F0E /* libc++.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4357895630122B5C0051FF3C /* BBPOS */ = {
+			isa = PBXGroup;
+			children = (
+				4357895730122C060051FF3C /* BBPOSTerminal.swift */,
+				4357895C301231E90051FF3C /* BBDeviceConstants.swift */,
+			);
+			path = BBPOS;
+			sourceTree = "<group>";
+		};
+		43CC2F5D2FD892B600478E82 /* PairingConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				43CC2F582FD892B600478E82 /* RuaPairingStoryBoard.storyboard */,
+				43CC2F672FDAF58D00478E82 /* PairingViewController.swift */,
+				43CC2F652FDAF2F900478E82 /* ConnectionListener.swift */,
+				43CC2F5C2FD892B600478E82 /* Assets.xcassets */,
+			);
+			path = PairingConfirmation;
 			sourceTree = "<group>";
 		};
 		6589FBD32F2C94EB003CC370 /* PhoneOrderBuilder */ = {
@@ -1295,6 +1629,77 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C722847F2FC5796A000550C0 /* Terminals */ = {
+			isa = PBXGroup;
+			children = (
+				C72284802FC579EB000550C0 /* HostProcessingResult.swift */,
+				C744D5442FC70357007EEC16 /* EMVTerminalConfiguration.swift */,
+			);
+			path = Terminals;
+			sourceTree = "<group>";
+		};
+		C73FD3222FE3C4B1004C8EBE /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD3332FE3CDC5004C8EBE /* FallbackReason.swift */,
+				C73FD3252FE3C550004C8EBE /* TaxCategory.swift */,
+				C73FD3232FE3C4F1004C8EBE /* ReversalReason.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C73FD32D2FE3C7E1004C8EBE /* AutoSubstantiation */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD32E2FE3C807004C8EBE /* AutoSubstantiation.swift */,
+			);
+			path = AutoSubstantiation;
+			sourceTree = "<group>";
+		};
+		C73FD3302FE3C8D6004C8EBE /* GatewayError */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD3312FE3C8F4004C8EBE /* GatewayError.swift */,
+			);
+			path = GatewayError;
+			sourceTree = "<group>";
+		};
+		C73FD3352FE3CE00004C8EBE /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD3362FE3CE2A004C8EBE /* AIDConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		C73FD3382FE3D107004C8EBE /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD3392FE3D125004C8EBE /* GatewayEnvironment.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		C744D54A2FC707DE007EEC16 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C78FC76A2FE2B0030053C10B /* DefaultSaFManager.swift */,
+				C78FC76B2FE2B0030053C10B /* DefaultTransactionManager.swift */,
+				C78FC76C2FE2B0030053C10B /* FormatHelper.swift */,
+				C78FC76D2FE2B0030053C10B /* GMSManager.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C74707202EFBE9C8005C2DC1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C74707212EFBEA40005C2DC1 /* Upa_Constants.h */,
+				C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		C74707252EFC052C005C2DC1 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -1311,32 +1716,140 @@
 				C74707422EFC1F77005C2DC1 /* SampleRequestLogger.m */,
 			);
 			path = RequestLogger;
-            sourceTree = "<group>";
-        };
-		C74707202EFBE9C8005C2DC1 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				C74707212EFBEA40005C2DC1 /* Upa_Constants.h */,
-				C74707232EFBEA7B005C2DC1 /* Upa_Constants.m */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
-		C7CB24992EEAAC1100D80770 /* ScanBuilder */ = {
+		C763BD832FB4789100712966 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C7CB249A2EEAAC5200D80770 /* Model */,
-				C7CB249D2EEAAFE600D80770 /* UpaScanBuilder.swift */,
-			);
-			path = ScanBuilder;
-			sourceTree = "<group>";
-		};
-		C7CB249A2EEAAC5200D80770 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C7CB249B2EEAAC6300D80770 /* UpaScan.swift */,
+				C763BD862FB484EE00712966 /* TerminalConfig.swift */,
+				C763BD842FB478EE00712966 /* GMSTerminalInfo.swift */,
+				C78FC7722FE2B0880053C10B /* SurchargeUtility.swift */,
+				C73FD32D2FE3C7E1004C8EBE /* AutoSubstantiation */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C763BD882FB4A09900712966 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD3292FE3C6B5004C8EBE /* TerminalSettingResult.swift */,
+				C78FC7742FE2B1E60053C10B /* TerminalOTAResult.swift */,
+				43CC2F4E2FD8526D00478E82 /* TerminalOTAState.swift */,
+				43CC2F542FD8923E00478E82 /* TerminalSettingType.swift */,
+				43CC2F522FD8922100478E82 /* TerminalOTAUpdateType.swift */,
+				C763BD892FB4A0B600712966 /* TerminalType.swift */,
+				C763BD8F2FB6054200712966 /* RUATerminalType.swift */,
+				C76C865A2FBAF77B0043E2C4 /* TransactionState.swift */,
+				C76C865F2FBAF9FF0043E2C4 /* TransactionType.swift */,
+				C76C86722FBC53B00043E2C4 /* CommonEnums.swift */,
+				C7D2A60D2FBEF285007F0749 /* IngenicoEnums.swift */,
+				C72284752FC5714E000550C0 /* EntryMode.swift */,
+				C72284792FC5721F000550C0 /* TransactionFlowStep.swift */,
+				C744D5462FC70559007EEC16 /* TerminalEnums.swift */,
+				C744D5482FC7065E007EEC16 /* EncryptionType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C76C865C2FBAF8150043E2C4 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C78FC77A2FE2B46F0053C10B /* SaFError.swift */,
+				C78FC77B2FE2B46F0053C10B /* SearchError.swift */,
+				C78FC77C2FE2B46F0053C10B /* TerminalError.swift */,
+				C76C865D2FBAF8370043E2C4 /* ConnectionError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		C76C86612FBB1C6F0043E2C4 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				C7DF887F2FE2AE1000E3E416 /* TransactionResponse.swift */,
+				C73FD3222FE3C4B1004C8EBE /* Enums */,
+				C78FC7962FE2CAB10053C10B /* Errors */,
+				C76C86652FBC40DA0043E2C4 /* TransactionDTO */,
+				C7DF886E2FE2AB9E00E3E416 /* ResponseDTOs */,
+				C76C86622FBB1CA30043E2C4 /* Protocols */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		C76C86622FBB1CA30043E2C4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C76C86632FBB1CD00043E2C4 /* Transaction.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C76C86652FBC40DA0043E2C4 /* TransactionDTO */ = {
+			isa = PBXGroup;
+			children = (
+				C78FC7762FE2B27B0053C10B /* ProcessSaF.swift */,
+				43A101B22FC45721007BAC35 /* VoidTransaction.swift */,
+				43A101B02FC456FC007BAC35 /* CaptureTransaction.swift */,
+				43A101AE2FC456AD007BAC35 /* AuthTransaction.swift */,
+				43A101AC2FC45670007BAC35 /* SaleTransaction.swift */,
+				C76C86662FBC411C0043E2C4 /* ReturnTransaction.swift */,
+				C76C86682FBC4DFA0043E2C4 /* VerifyTransaction.swift */,
+				C76C866A2FBC4E2B0043E2C4 /* TokenizationTransaction.swift */,
+				C76C866C2FBC4E620043E2C4 /* BatchCloseTransaction.swift */,
+				C76C866E2FBC4E880043E2C4 /* TipAdjustTransaction.swift */,
+				C76C86702FBC4EAD0043E2C4 /* ReversalTransaction.swift */,
+				C72284732FC570FE000550C0 /* ListSaF.swift */,
+			);
+			path = TransactionDTO;
+			sourceTree = "<group>";
+		};
+		C78FC7862FE2BC240053C10B /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				C7EDAD1A2FE97CA80010D122 /* Utility */,
+				C73FD3382FE3D107004C8EBE /* Environment */,
+				C73FD3302FE3C8D6004C8EBE /* GatewayError */,
+				C78FC7892FE2BC380053C10B /* Portico */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		C78FC7892FE2BC380053C10B /* Portico */ = {
+			isa = PBXGroup;
+			children = (
+				C78FC7942FE2C9BB0053C10B /* PorticoResponseHelper.swift */,
+				C78FC7922FE2C97B0053C10B /* PorticoRequestHelper.swift */,
+				C78FC7902FE2C9330053C10B /* PorticoGateway.swift */,
+				C78FC78A2FE2BC5D0053C10B /* PorticoConfig.swift */,
+			);
+			path = Portico;
+			sourceTree = "<group>";
+		};
+		C78FC7962FE2CAB10053C10B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C78FC7972FE2CAD30053C10B /* TransactionError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		C78FC7992FE2CB1D0053C10B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C7EDAD172FE94AF20010D122 /* Utility */,
+				C7EDAD022FE914810010D122 /* Enums */,
+				C7EDAD012FE910570010D122 /* TLVData */,
+				C78FC79A2FE2CB270053C10B /* CardData */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C78FC79A2FE2CB270053C10B /* CardData */ = {
+			isa = PBXGroup;
+			children = (
+				C73FD3272FE3C65F004C8EBE /* Address.swift */,
+				C78FC79B2FE2CB400053C10B /* CreditCardHelper.swift */,
+			);
+			path = CardData;
 			sourceTree = "<group>";
 		};
 		C7A1BED92F28AE5F009E1E6F /* BatchBuilder */ = {
@@ -1388,6 +1901,92 @@
 				C7CB249B2EEAAC6300D80770 /* UpaScan.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C7D2A6042FBDA791007F0749 /* CardData */ = {
+			isa = PBXGroup;
+			children = (
+				C7DF887D2FE2AC0A00E3E416 /* QuickChipCardData.swift */,
+				43CC2F4C2FD8521D00478E82 /* TokenizedCardData.swift */,
+				43CC2F4A2FD8516600478E82 /* ManualCardData.swift */,
+				C7D2A6052FBDA7B9007F0749 /* AID.swift */,
+				C7D2A6072FBDAB8C007F0749 /* CardData.swift */,
+				C7D2A6092FBDAEF7007F0749 /* AnyCardData.swift */,
+				C70BFF182FC048BA00DB1008 /* ContactCardData.swift */,
+				C70BFF1A2FC04A8000DB1008 /* ContactlessCardData.swift */,
+				C70BFF1D2FC0657700DB1008 /* MSRCardData.swift */,
+				C70BFF1F2FC0677400DB1008 /* MSRFallbackCardData.swift */,
+			);
+			path = CardData;
+			sourceTree = "<group>";
+		};
+		C7DF886E2FE2AB9E00E3E416 /* ResponseDTOs */ = {
+			isa = PBXGroup;
+			children = (
+				C7DF88602FE2AB9E00E3E416 /* AuthResponse.swift */,
+				C7DF88612FE2AB9E00E3E416 /* BatchCloseResponse.swift */,
+				C7DF88622FE2AB9E00E3E416 /* CaptureResponse.swift */,
+				C7DF88632FE2AB9E00E3E416 /* DuplicateDataResponse.swift */,
+				C7DF88642FE2AB9E00E3E416 /* ListSaFResponse.swift */,
+				C7DF88652FE2AB9E00E3E416 /* ProcessSaFResponse.swift */,
+				C7DF88662FE2AB9E00E3E416 /* ReturnResponse.swift */,
+				C7DF88672FE2AB9E00E3E416 /* ReversalResponse.swift */,
+				C7DF88682FE2AB9E00E3E416 /* SaleResponse.swift */,
+				C7DF88692FE2AB9E00E3E416 /* SurchargeRequestedResponse.swift */,
+				C7DF886A2FE2AB9E00E3E416 /* TipAdjustResponse.swift */,
+				C7DF886B2FE2AB9E00E3E416 /* TokenizationResponse.swift */,
+				C7DF886C2FE2AB9E00E3E416 /* VerifyResponse.swift */,
+				C7DF886D2FE2AB9E00E3E416 /* VoidResponse.swift */,
+			);
+			path = ResponseDTOs;
+			sourceTree = "<group>";
+		};
+		C7EDAD012FE910570010D122 /* TLVData */ = {
+			isa = PBXGroup;
+			children = (
+				C7EDAD052FE918690010D122 /* Tag.swift */,
+				C7EDAD072FE91B800010D122 /* BerValue.swift */,
+				C7EDAD092FE92C0A0010D122 /* BerLength.swift */,
+				C7EDAD0B2FE92D9A0010D122 /* EMVTagHelper.swift */,
+				C7EDAD0D2FE930C00010D122 /* TLVObject.swift */,
+				C7EDAD0F2FE9336E0010D122 /* TLVDecoder.swift */,
+				C7EDAD112FE935C50010D122 /* TLVUtility.swift */,
+				C7EDAD132FE938820010D122 /* TLVGMParser.swift */,
+			);
+			path = TLVData;
+			sourceTree = "<group>";
+		};
+		C7EDAD022FE914810010D122 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C7EDAD032FE9159E0010D122 /* CardDataEnums.swift */,
+				C7EDAD152FE93C090010D122 /* EMVTagDescriptor.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C7EDAD172FE94AF20010D122 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C7EDAD182FE94C570010D122 /* Utilities.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		C7EDAD1A2FE97CA80010D122 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C7EDAD1B2FE97CB70010D122 /* PorticoUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		C7FCF4CA3004B8960040E684 /* Provisioning */ = {
+			isa = PBXGroup;
+			children = (
+				C7FCF4C93004B8960040E684 /* provisioning_5500.json */,
+			);
+			path = Provisioning;
 			sourceTree = "<group>";
 		};
 		DD37C2DD2AE079B4003891D7 /* TapToPay */ = {
@@ -1539,15 +2138,21 @@
 		DDC13AA22A73F87D0069F2E2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				14864F082C88A8E200B0E4F3 /* RUA_BLE.xcframework */,
-				14864EE42C88976000B0E4F3 /* TemLibrary.xcframework */,
+				C76755F62FF5131A006349CD /* LandiSDK_MFI.xcframework */,
+				C76755F72FF5131A006349CD /* RUA_MFI.xcframework */,
+				C76755F82FF5131A006349CD /* TemLibrary.xcframework */,
 				144E0C6C2C664DE000BF7A89 /* CoreBluetooth.framework */,
 				144E0C6B2C664DC800BF7A89 /* MediaPlayer.framework */,
 				144E0C6A2C664DBD00BF7A89 /* ExternalAccessory.framework */,
 				149BD7C32C64D98500886BFB /* libc++.tbd */,
-				DDC13AA32A73F87D0069F2E2 /* GlobalMobileSDK.xcframework */,
 				DDC13AA42A73F87D0069F2E2 /* GlobalPaymentsApi.xcframework */,
 				DDC13AA52A73F87D0069F2E2 /* BBPOS.xcframework */,
+				4357895E301233C10051FF3C /* BBDeviceCAPK.h */,
+				4357895F301233C10051FF3C /* BBDeviceController.h */,
+				43578960301233C10051FF3C /* BBDeviceOTAController.h */,
+				43578961301233C10051FF3C /* BBDeviceVASMerchantConfig.h */,
+				C7D8AF4C301BA72300F48B50 /* BBDeviceOTA-1.6.8.xcframework */,
+				7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -1572,6 +2177,7 @@
 		DDFF33452937AEE000C2D1D1 /* ios-device-lib */ = {
 			isa = PBXGroup;
 			children = (
+				C76755FC2FF51418006349CD /* Info.plist */,
 				DDC13AA22A73F87D0069F2E2 /* Libraries */,
 				DD6A4ED72937C08F008B8165 /* Supporting Files */,
 				DD6A4ECC2937C05C008B8165 /* ThirdParty */,
@@ -1608,6 +2214,7 @@
 		DDFF33522937AF4200C2D1D1 /* Terminals */ = {
 			isa = PBXGroup;
 			children = (
+				4357895630122B5C0051FF3C /* BBPOS */,
 				14DBE22D2BF7D9C3005F27DF /* Moby */,
 				DDFF33FA2937AF4200C2D1D1 /* HPA */,
 				DDFF34632937AF4200C2D1D1 /* WiseCube */,
@@ -2460,6 +3067,7 @@
 				DDFF362B2937AF4400C2D1D1 /* JsonDoc.h in Headers */,
 				DDFF36042937AF4300C2D1D1 /* Field.h in Headers */,
 				DDFF357F2937AF4300C2D1D1 /* HpsPaxLocalDetailReportBuilder.h in Headers */,
+				C76755FE2FF51648006349CD /* TemCommunicationManager.h in Headers */,
 				DDFF367C2937AF4400C2D1D1 /* HpsPosRequest.h in Headers */,
 				DDFF35762937AF4300C2D1D1 /* HpsPaxCreditAdjustBuilder.h in Headers */,
 				DDFF35A12937AF4300C2D1D1 /* HpaPaxSafDeleteResponse.h in Headers */,
@@ -2531,6 +3139,10 @@
 				DDFF367A2937AF4400C2D1D1 /* HpsGiftCard.h in Headers */,
 				DDFF36AC2937AF4400C2D1D1 /* HpsTerminationReason.h in Headers */,
 				DDFF36B52937AF4400C2D1D1 /* HpsPayrollEncoder.h in Headers */,
+				43578962301233C10051FF3C /* BBDeviceOTAController.h in Headers */,
+				43578963301233C10051FF3C /* BBDeviceController.h in Headers */,
+				43578964301233C10051FF3C /* BBDeviceCAPK.h in Headers */,
+				43578965301233C10051FF3C /* BBDeviceVASMerchantConfig.h in Headers */,
 				DDFF35662937AF4300C2D1D1 /* HpsPaxCreditCaptureBuilder.h in Headers */,
 				DDFF35492937AF4300C2D1D1 /* HpsUpaParser.h in Headers */,
 				DDFF35AE2937AF4300C2D1D1 /* HpsPaxCashierSubGroup.h in Headers */,
@@ -2628,6 +3240,9 @@
 				DD6A4ED32937C05D008B8165 /* LICENCE.md in Resources */,
 				149BD7C22C64136400886BFB /* Assets.xcassets in Resources */,
 				DDFF36D42937AF4400C2D1D1 /* icon_card_empty.png in Resources */,
+				C7FCF4CB3004B8960040E684 /* provisioning_5500.json in Resources */,
+				43CC2F5E2FD892B600478E82 /* Assets.xcassets in Resources */,
+				43CC2F5F2FD892B600478E82 /* RuaPairingStoryBoard.storyboard in Resources */,
 				14DBE2772BFCFC79005F27DF /* DEV-8500-V33.01.00.uns in Resources */,
 				DDFF36CC2937AF4400C2D1D1 /* icon_jcb.png in Resources */,
 				DDFF36D62937AF4400C2D1D1 /* icon_mastercard.png in Resources */,
@@ -2642,7 +3257,6 @@
 				DD37C2F32B164F9A003891D7 /* TokenService.html in Resources */,
 				DDFF36D22937AF4400C2D1D1 /* icon_cvv.png in Resources */,
 				DDFF36CE2937AF4400C2D1D1 /* icon_discover.png in Resources */,
-				14DBE2762BFCFC79005F27DF /* provisioning_5500.json in Resources */,
 				14DBE27A2BFCFC79005F27DF /* EMVTransactionParameters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2656,6 +3270,7 @@
 			files = (
 				142669EC2BB326820018D4B0 /* HpsTransactionDuplicate.m in Sources */,
 				DDFF35FA2937AF4300C2D1D1 /* CardSummary.m in Sources */,
+				C763BD872FB484EE00712966 /* TerminalConfig.swift in Sources */,
 				14DBE25D2BF7DAE8005F27DF /* DEV-5500-V11.00.uns in Sources */,
 				DDFF36672937AF4400C2D1D1 /* HpsTransactionDetails.m in Sources */,
 				149365DE2A408BA3005A37CC /* HpsUpaCARefundBuilder.swift in Sources */,
@@ -2679,36 +3294,56 @@
 				DDFF35482937AF4300C2D1D1 /* HpsUpaEvent.m in Sources */,
 				DDFF35C02937AF4300C2D1D1 /* HpsTcpInterface.m in Sources */,
 				432883B32ED77E58003BC355 /* MobyDevicesView.swift in Sources */,
+				C76C865E2FBAF8370043E2C4 /* ConnectionError.swift in Sources */,
 				DDFF36FA2937B6FC00C2D1D1 /* GMSTransactionResponse.swift in Sources */,
+				C76C86672FBC411C0043E2C4 /* ReturnTransaction.swift in Sources */,
+				4357895D301231F00051FF3C /* BBDeviceConstants.swift in Sources */,
 				DD37C2E52AE07DCB003891D7 /* TapToPay.swift in Sources */,
 				DDFF36272937AF4400C2D1D1 /* HpsWiseCubeCreditAdjustBuilder.swift in Sources */,
 				DDFF36AF2937AF4400C2D1D1 /* HpsPayGroup.m in Sources */,
 				DD8CECF6294CC29B0006908F /* HpsUpaStartCard.swift in Sources */,
 				DDFF36C22937AF4400C2D1D1 /* HpsTokenService.m in Sources */,
 				DDFF35532937AF4300C2D1D1 /* HpsC2xCreditCaptureBuilder.swift in Sources */,
+				C7EDAD102FE9336E0010D122 /* TLVDecoder.swift in Sources */,
+				C7D2A6062FBDA7B9007F0749 /* AID.swift in Sources */,
 				DDFF35882937AF4300C2D1D1 /* HpsPaxTraceRequest.m in Sources */,
 				DD6A4ED62937C05D008B8165 /* XMLDictionary.m in Sources */,
 				14DBE28A2BFE5487005F27DF /* HpsMobyDevice.swift in Sources */,
 				DDFF35E22937AF4300C2D1D1 /* HpsHpaGiftBalanceBuilder.m in Sources */,
+				43CC2F4B2FD8516F00478E82 /* ManualCardData.swift in Sources */,
 				DDFF36962937AF4400C2D1D1 /* HpsEmployeeFinder.m in Sources */,
 				6589FBDE2F2C9570003CC370 /* UpaForceSaleBuilder.swift in Sources */,
+				C7EDAD192FE94C570010D122 /* Utilities.swift in Sources */,
+				C7EDAD1C2FE97CB70010D122 /* PorticoUtility.swift in Sources */,
 				DDFF35B62937AF4300C2D1D1 /* HpsPaxMessageIDs.m in Sources */,
 				DDFF366C2937AF4400C2D1D1 /* HpsCreditCard.m in Sources */,
+				C78FC7732FE2B0880053C10B /* SurchargeUtility.swift in Sources */,
 				DDFF370A2937B6FD00C2D1D1 /* GMSCreditReturnBuilder.swift in Sources */,
 				DDFF36BD2937AF4400C2D1D1 /* Rfc2898DeriveBytes.m in Sources */,
 				DDFF35922937AF4300C2D1D1 /* HpaPaxSafReportResponse.m in Sources */,
 				432883B72ED782C9003BC355 /* RUAHelper.swift in Sources */,
 				DDFF366B2937AF4400C2D1D1 /* HpsCommon.m in Sources */,
 				DDFF35372937AF4300C2D1D1 /* HpsUpaReturnBuilder.m in Sources */,
+				C78FC78B2FE2BC5D0053C10B /* PorticoConfig.swift in Sources */,
 				DDFF35F32937AF4300C2D1D1 /* HpsHpaBaseResponse.m in Sources */,
+				43CC2F532FD8922300478E82 /* TerminalOTAUpdateType.swift in Sources */,
 				DDFF359B2937AF4300C2D1D1 /* HpsPaxAmountResponse.m in Sources */,
 				DDFF35F12937AF4300C2D1D1 /* HpsHpaHeartBeatResponse.m in Sources */,
+				C78FC76E2FE2B0030053C10B /* GMSManager.swift in Sources */,
+				C78FC78D2FE2BCB50053C10B /* GatewayConfig.swift in Sources */,
+				C78FC76F2FE2B0030053C10B /* DefaultSaFManager.swift in Sources */,
+				C78FC7702FE2B0030053C10B /* FormatHelper.swift in Sources */,
+				C78FC7712FE2B0030053C10B /* DefaultTransactionManager.swift in Sources */,
 				DDFF36152937AF4400C2D1D1 /* HpsHpaSharedParams.m in Sources */,
 				DDFF36A42937AF4400C2D1D1 /* HpsPayrollRecord.m in Sources */,
 				DDFF35A22937AF4300C2D1D1 /* HpsPaxCommercialRequest.m in Sources */,
 				C718CD572ED6EECD00B5707D /* HpsPaxHostResponseCredential.m in Sources */,
+				C72284812FC579EB000550C0 /* HostProcessingResult.swift in Sources */,
 				DDFF370F2937B6FD00C2D1D1 /* GMSCreditCaptureBuilder.swift in Sources */,
 				DDFF36232937AF4400C2D1D1 /* HpsWiseCubeCreditSaleBuilder.swift in Sources */,
+				C76C865B2FBAF77B0043E2C4 /* TransactionState.swift in Sources */,
+				C78FC79C2FE2CB400053C10B /* CreditCardHelper.swift in Sources */,
+				C7DF887E2FE2AC0A00E3E416 /* QuickChipCardData.swift in Sources */,
 				DDFF360C2937AF4400C2D1D1 /* SummaryResponse.m in Sources */,
 				DDFF367F2937AF4400C2D1D1 /* HpsTransaction.m in Sources */,
 				DDFF36662937AF4400C2D1D1 /* HpsCardData.m in Sources */,
@@ -2717,24 +3352,33 @@
 				DDFF36C72937AF4400C2D1D1 /* HpsTableServiceConfiguration.m in Sources */,
 				DDFF36292937AF4400C2D1D1 /* HpsWiseCubeBatchCloseBuilder.swift in Sources */,
 				432883BC2ED78341003BC355 /* SandboxObjc.m in Sources */,
+				C78FC7792FE2B36A0053C10B /* SaFDelegate.swift in Sources */,
 				DDFF359E2937AF4300C2D1D1 /* HpsPaxCreditResponse.m in Sources */,
 				DDFF361C2937AF4400C2D1D1 /* HpsHpaDeviceResponse.m in Sources */,
 				DDFF36C62937AF4400C2D1D1 /* HpsServiceConfig.m in Sources */,
 				DDFF369F2937AF4400C2D1D1 /* HpsPayRollRequest.m in Sources */,
+				C744D5502FC70BCF007EEC16 /* IngenicoMethod.swift in Sources */,
 				DDFF360E2937AF4400C2D1D1 /* HpsHpaSafResponse.m in Sources */,
+				C7DF885B2FE2AB0500E3E416 /* GatewayDelegate.swift in Sources */,
 				DDFF35A02937AF4300C2D1D1 /* HpsPaxBatchCloseResponse.m in Sources */,
+				C76C86732FBC53B00043E2C4 /* CommonEnums.swift in Sources */,
 				DDFF36B92937AF4400C2D1D1 /* NSData+SM_EncryptionHelper.m in Sources */,
 				DDFF36252937AF4400C2D1D1 /* HpsWiseCubeCreditReturnBuilder.swift in Sources */,
 				DDFF36122937AF4400C2D1D1 /* HpsHpaEodResponse.m in Sources */,
 				14B86F0E29B7AB7F00657AF3 /* HpsAutoSubstantiation.m in Sources */,
+				C744D5492FC7065E007EEC16 /* EncryptionType.swift in Sources */,
 				DD37C2EC2AFAE344003891D7 /* TokenProvider.swift in Sources */,
 				4325352C2E68CDE50070A5ED /* BlueButtonStyle.swift in Sources */,
 				4325352D2E68CDE50070A5ED /* Extensions.swift in Sources */,
 				432883B52ED78088003BC355 /* ExtensionView.swift in Sources */,
 				DDFF35862937AF4300C2D1D1 /* HpsPaxAmountRequest.m in Sources */,
+				43A101B32FC45723007BAC35 /* VoidTransaction.swift in Sources */,
 				DDFF35892937AF4300C2D1D1 /* HpsPaxDebitResponse.m in Sources */,
 				432883B12ED77DEA003BC355 /* MobyDeviceDetailView.swift in Sources */,
+				C73FD3262FE3C550004C8EBE /* TaxCategory.swift in Sources */,
+				C7EDAD122FE935C50010D122 /* TLVUtility.swift in Sources */,
 				DDFF37022937B6FC00C2D1D1 /* HpsTransactionType.swift in Sources */,
+				43CC2F572FD8926E00478E82 /* TerminalSettingsUpdateDelegate.swift in Sources */,
 				DDFF36222937AF4400C2D1D1 /* HpsWiseCubeCreditVoidBuilder.swift in Sources */,
 				DDFF36AB2937AF4400C2D1D1 /* HpsPayrollEntity.m in Sources */,
 				DDFF37032937B6FC00C2D1D1 /* GMSRequestHelper.swift in Sources */,
@@ -2744,22 +3388,32 @@
 				DDFF36A12937AF4400C2D1D1 /* HpsPayrollEncoder.m in Sources */,
 				DDFF35CF2937AF4300C2D1D1 /* HpsHpaSafBuilder.m in Sources */,
 				DDFF36732937AF4400C2D1D1 /* HpsCardHolderData.m in Sources */,
+				C7DF88802FE2AE1000E3E416 /* TransactionResponse.swift in Sources */,
 				DDFF358D2937AF4300C2D1D1 /* HpsPaxExtDataSubGroup.m in Sources */,
+				43CC2F4D2FD8522000478E82 /* TokenizedCardData.swift in Sources */,
 				DDFF35592937AF4300C2D1D1 /* HpsC2xCreditAuthBuilder.swift in Sources */,
+				C78FC7952FE2C9BB0053C10B /* PorticoResponseHelper.swift in Sources */,
+				C7EDAD062FE918690010D122 /* Tag.swift in Sources */,
 				DDFF36CB2937AF4400C2D1D1 /* HpsConfiguration.m in Sources */,
 				DDFF36242937AF4400C2D1D1 /* HpsWiseCubeCreditReversalBuilder.swift in Sources */,
 				DDFF36072937AF4400C2D1D1 /* HpaFileUpload.m in Sources */,
+				C76C86642FBB1CD00043E2C4 /* Transaction.swift in Sources */,
+				C744D5472FC70559007EEC16 /* TerminalEnums.swift in Sources */,
 				DDFF35D52937AF4300C2D1D1 /* HpsHpaSendFileBuilder.m in Sources */,
 				DDFF36312937AF4400C2D1D1 /* NSObject+ObjectMap.m in Sources */,
 				DDFF35ED2937AF4300C2D1D1 /* HpsHpaStartCardBuilder.m in Sources */,
 				C7A1BEDB2F28AE8C009E1E6F /* UpaBatchBuilder.swift in Sources */,
 				DDFF362F2937AF4400C2D1D1 /* NSString+HexParser.m in Sources */,
+				C76C866D2FBC4E620043E2C4 /* BatchCloseTransaction.swift in Sources */,
 				DDFF36F92937B6FC00C2D1D1 /* GMSDevice.swift in Sources */,
+				C78FC78F2FE2BD0D0053C10B /* KeyPathMapping.swift in Sources */,
 				DDFF360D2937AF4400C2D1D1 /* HpsHpaDiagnosticResponse.m in Sources */,
 				C7CB249E2EEAAFE600D80770 /* UpaScanBuilder.swift in Sources */,
 				DDFF35D82937AF4300C2D1D1 /* HpsHpaEBTSaleBuilder.m in Sources */,
 				DDFF35402937AF4300C2D1D1 /* HpsUpaTransaction.m in Sources */,
 				DDFF36942937AF4400C2D1D1 /* HpsBasePayrollResponse.m in Sources */,
+				43CC2F682FDAF58D00478E82 /* PairingViewController.swift in Sources */,
+				C72284762FC5714E000550C0 /* EntryMode.swift in Sources */,
 				DDFF354C2937AF4300C2D1D1 /* HpsUpaParser.m in Sources */,
 				C7B3247F2F2B3F2500A388C9 /* UpaOpenTabDetails.swift in Sources */,
 				143A4379298AB2980027BC3F /* String+ProjectName.swift in Sources */,
@@ -2768,14 +3422,18 @@
 				DDFF370E2937B6FD00C2D1D1 /* GMSCreditAuthBuilder.swift in Sources */,
 				DDFF36FB2937B6FC00C2D1D1 /* HpsC2xEnums.swift in Sources */,
 				DDFF35FC2937AF4300C2D1D1 /* HpsTransactionSummary.m in Sources */,
+				43A101AF2FC456AF007BAC35 /* AuthTransaction.swift in Sources */,
 				DDFF36862937AF4400C2D1D1 /* HpsCardEntryViewController.m in Sources */,
 				DDFF364E2937AF4400C2D1D1 /* HpsBinaryDataScanner.m in Sources */,
 				DDFF36262937AF4400C2D1D1 /* HpsWiseCubeBaseBuilder.swift in Sources */,
 				DDFF35F42937AF4300C2D1D1 /* HpsHpaParser.m in Sources */,
+				C744D5452FC70357007EEC16 /* EMVTerminalConfiguration.swift in Sources */,
+				C70BFF202FC0677400DB1008 /* MSRFallbackCardData.swift in Sources */,
 				DDFF35842937AF4300C2D1D1 /* HpaPaxSafDeleteResponse.m in Sources */,
 				14864F182C90D59E00B0E4F3 /* HpsMobyBatchCloseBuilder.swift in Sources */,
 				DDFF37102937B6FD00C2D1D1 /* GMSBatchCloseBuilder.swift in Sources */,
 				DDFF36852937AF4400C2D1D1 /* HpsCardInfoViewController.m in Sources */,
+				C7EDAD142FE938820010D122 /* TLVGMParser.swift in Sources */,
 				DDFF35802937AF4300C2D1D1 /* HpsPaxDebitReturnBuilder.m in Sources */,
 				14DBE28C2BFE54A8005F27DF /* IMobyDeviceInterface.swift in Sources */,
 				149365D52A2669E2005A37CC /* HpsUpaDeviceSignatureResponse.m in Sources */,
@@ -2787,8 +3445,12 @@
 				65BA5DB82EF565A000F38839 /* GatewayException.m in Sources */,
 				DDFF35692937AF4300C2D1D1 /* HpsPaxCreditSaleBuilder.m in Sources */,
 				DDFF36B02937AF4400C2D1D1 /* HpsWorkLocation.m in Sources */,
+				43CC2F552FD8923F00478E82 /* TerminalSettingType.swift in Sources */,
 				DDFF370C2937B6FD00C2D1D1 /* GMSCreditReversalBuilder.swift in Sources */,
+				C78FC7912FE2C9330053C10B /* PorticoGateway.swift in Sources */,
+				43CC2F452FD8379A00478E82 /* Terminal.swift in Sources */,
 				DDFF353D2937AF4300C2D1D1 /* HpsUpaRequest.m in Sources */,
+				C78FC7932FE2C97B0053C10B /* PorticoRequestHelper.swift in Sources */,
 				DDFF36142937AF4400C2D1D1 /* BatchSummary.m in Sources */,
 				DDFF35B42937AF4300C2D1D1 /* HpsPaxHostResponse.m in Sources */,
 				DDFF35362937AF4300C2D1D1 /* HpsUpaVoidBuilder.m in Sources */,
@@ -2799,17 +3461,30 @@
 				DDFF370B2937B6FD00C2D1D1 /* GMSDeviceInterface.swift in Sources */,
 				DDFF35CD2937AF4300C2D1D1 /* HpsHpaCreditSaleBuilder.m in Sources */,
 				DDFF37092937B6FD00C2D1D1 /* GMSCreditSaleBuilder.swift in Sources */,
+				C78FC7772FE2B27B0053C10B /* ProcessSaF.swift in Sources */,
+				C73FD3372FE3CE2A004C8EBE /* AIDConfiguration.swift in Sources */,
 				DDFF358E2937AF4300C2D1D1 /* HpsPaxCashierSubGroup.m in Sources */,
 				6589FBD62F2C9514003CC370 /* UpaPhoneOrderBuilder.swift in Sources */,
+				C73FD3282FE3C65F004C8EBE /* Address.swift in Sources */,
 				DDFF35B32937AF4300C2D1D1 /* HpsPaxAccountRequest.m in Sources */,
 				DDFF360A2937AF4400C2D1D1 /* TransactionSummaryRecord.m in Sources */,
+				C70BFF192FC048BA00DB1008 /* ContactCardData.swift in Sources */,
 				DDFF35E52937AF4300C2D1D1 /* HpsHpaEodBuilder.m in Sources */,
+				C7EDAD042FE9159E0010D122 /* CardDataEnums.swift in Sources */,
 				DDFF36552937AF4400C2D1D1 /* HpsBumpStatusCollection.m in Sources */,
+				C7D2A6082FBDAB8C007F0749 /* CardData.swift in Sources */,
 				DDFF35282937AF4300C2D1D1 /* HpsUpaCaptureBuilder.m in Sources */,
+				43D030422FBB1E5200572C9B /* IngenicoTerminal.swift in Sources */,
 				DDFF36102937AF4400C2D1D1 /* Record.m in Sources */,
+				C7D2A60A2FBDAEF7007F0749 /* AnyCardData.swift in Sources */,
 				DDFF35E82937AF4300C2D1D1 /* HpsHpaDebitRefundBuilder.m in Sources */,
+				C722847A2FC5721F000550C0 /* TransactionFlowStep.swift in Sources */,
 				DDFF366A2937AF4400C2D1D1 /* HpsAdditionalTxnFields.m in Sources */,
+				C73FD33E2FE3E0A5004C8EBE /* IngenicoDeviceConfiguration.swift in Sources */,
+				C73FD3322FE3C8F4004C8EBE /* GatewayError.swift in Sources */,
 				DDFF35A72937AF4300C2D1D1 /* HpsPaxCommercialResponse.m in Sources */,
+				C7EDAD162FE93C090010D122 /* EMVTagDescriptor.swift in Sources */,
+				439119E22FB70B9E0029BF01 /* SearchDelegate.swift in Sources */,
 				DDFF36B42937AF4400C2D1D1 /* HpsPayrollService.m in Sources */,
 				DDFF358C2937AF4300C2D1D1 /* HpsPaxAvsResponse.m in Sources */,
 				DDFF35C12937AF4300C2D1D1 /* HpsTerminalResponse.m in Sources */,
@@ -2820,6 +3495,7 @@
 				DDFF35F02937AF4300C2D1D1 /* HpsHpaDevice.m in Sources */,
 				DDFF355C2937AF4300C2D1D1 /* HpsC2xTransactionDelegate.swift in Sources */,
 				C74707242EFBEA7B005C2DC1 /* Upa_Constants.m in Sources */,
+				C763BD8A2FB4A0B600712966 /* TerminalType.swift in Sources */,
 				DDFF369E2937AF4400C2D1D1 /* HpsEnum.m in Sources */,
 				DDFF360B2937AF4400C2D1D1 /* HpsLastResponse.m in Sources */,
 				284B5CA72A66F1660067AF0D /* HpsUpaDeleteSaf.swift in Sources */,
@@ -2834,27 +3510,36 @@
 				DDFF35CA2937AF4300C2D1D1 /* HpsHpaCreditVoidBuilder.m in Sources */,
 				DDFF35B12937AF4300C2D1D1 /* HpsPaxGiftResponse.m in Sources */,
 				DDFF36282937AF4400C2D1D1 /* HpsWiseCubeCreditCaptureBuilder.swift in Sources */,
+				C763BD7E2FB4681F00712966 /* TerminalInfo.swift in Sources */,
 				DDFF35452937AF4300C2D1D1 /* HpsUpaData.m in Sources */,
+				C7DF885F2FE2AB5F00E3E416 /* SaFManager.swift in Sources */,
 				DDFF36952937AF4400C2D1D1 /* HpsClientInfo.m in Sources */,
+				C73FD3342FE3CDC5004C8EBE /* FallbackReason.swift in Sources */,
 				DDFF36512937AF4400C2D1D1 /* HpsTerminalUtilities.m in Sources */,
+				C7EDAD0A2FE92C0A0010D122 /* BerLength.swift in Sources */,
 				DDFF365D2937AF4400C2D1D1 /* NSMutableDictionary+ShiftAssignments.m in Sources */,
 				DDFF35822937AF4300C2D1D1 /* HpsPaxInitializeResponse.m in Sources */,
 				DDFF35382937AF4300C2D1D1 /* UpaEnums.m in Sources */,
+				C7EDAD082FE91B800010D122 /* BerValue.swift in Sources */,
 				DDFF35C82937AF4300C2D1D1 /* HpsHpaCreditVerifyBuilder.m in Sources */,
 				DD37C2F12B164F18003891D7 /* HpsTokenServiceWeb.swift in Sources */,
 				DDFF352D2937AF4300C2D1D1 /* HpsUpaAuthBuilder.m in Sources */,
 				DD426C03299ED3F000DBFAC5 /* HpsUpaResponsePayload.swift in Sources */,
+				C744D5602FC991AC007EEC16 /* IngenicoMoby5500DeviceManager.swift in Sources */,
+				C78FC7812FE2BB750053C10B /* SafFileManager.swift in Sources */,
 				DDFF355F2937AF4300C2D1D1 /* HpsDeviceProtocols.m in Sources */,
 				14F88D612A02F6EC009E821B /* HpsUpaCAEnums.swift in Sources */,
 				DD426C07299EDF2300DBFAC5 /* HpsUpaCommandPayload.swift in Sources */,
 				DDFF36132937AF4400C2D1D1 /* CardSummaryRecord.m in Sources */,
 				DDFF35C52937AF4300C2D1D1 /* HpsHpaCreditAuthBuilder.m in Sources */,
+				43A101AD2FC45671007BAC35 /* SaleTransaction.swift in Sources */,
 				DDFF36842937AF4400C2D1D1 /* HpsHeader.m in Sources */,
 				DDFF35772937AF4300C2D1D1 /* HpsPaxGiftAddValueBuilder.m in Sources */,
 				DDFF366F2937AF4400C2D1D1 /* HpsPosRequest.m in Sources */,
 				DDFF36B32937AF4400C2D1D1 /* HpsPayItem.m in Sources */,
 				C7A1BEDE2F28AF7F009E1E6F /* UpaGetBatchDetail.swift in Sources */,
 				DDFF36602937AF4400C2D1D1 /* HpsLoginResponse.m in Sources */,
+				C73FD3242FE3C4F1004C8EBE /* ReversalReason.swift in Sources */,
 				DDFF35642937AF4300C2D1D1 /* HpsPaxCreditAdjustBuilder.m in Sources */,
 				DDFF353E2937AF4300C2D1D1 /* HpsUpaResponse.m in Sources */,
 				14B86F1029B7BCB400657AF3 /* HpsAutoSubstantiation+toAutoSubstantiation.swift in Sources */,
@@ -2865,13 +3550,18 @@
 				6589FBD82F2C952E003CC370 /* UpaPhoneOrder.swift in Sources */,
 				14CCA1ED2A43746900943932 /* HpsUpaCARefundModelResponse.swift in Sources */,
 				DDFF35C22937AF4300C2D1D1 /* HpsConnectionConfig.m in Sources */,
+				C72284892FC5A61C000550C0 /* HostTenderResponse.swift in Sources */,
 				DDFF35462937AF4300C2D1D1 /* HpsUpaDevice.m in Sources */,
 				DDFF35A92937AF4300C2D1D1 /* HpsPaxBaseResponse.m in Sources */,
 				DD8CECF2294CC00B0006908F /* HpsUpaStartCardTransactionBuilder.swift in Sources */,
+				C744D54E2FC708A2007EEC16 /* RUATerminalConfig.swift in Sources */,
+				C763BD852FB478EE00712966 /* GMSTerminalInfo.swift in Sources */,
 				DDFF35612937AF4300C2D1D1 /* HpsPaxCreditVerifyBuilder.m in Sources */,
+				43CC2F492FD84C7600478E82 /* TransactionManager.swift in Sources */,
 				DDFF35292937AF4300C2D1D1 /* HpsUpaAdjustBuilder.m in Sources */,
 				DDFF35CC2937AF4300C2D1D1 /* HpsHpaCreditRefundBuilder.m in Sources */,
 				141A6E8C2B9A205000310B4B /* HpsUpaDeletePreAuthBuilder.m in Sources */,
+				43CC2F512FD891F600478E82 /* TerminalOTAManagerDelegate.swift in Sources */,
 				DDFF35BD2937AF4300C2D1D1 /* NSInputStream+Hps.m in Sources */,
 				DDFF35712937AF4300C2D1D1 /* HpsPaxGiftSaleBuilder.m in Sources */,
 				DDFF36FD2937B6FC00C2D1D1 /* HpsTerminalInfo.swift in Sources */,
@@ -2879,37 +3569,50 @@
 				DDFF35A52937AF4300C2D1D1 /* HpsPaxCheckResponse.m in Sources */,
 				DDFF36AE2937AF4400C2D1D1 /* HpsLaborField.m in Sources */,
 				DDFF355B2937AF4300C2D1D1 /* HpsC2xDeviceDelegate.swift in Sources */,
+				C70BFF1E2FC0657700DB1008 /* MSRCardData.swift in Sources */,
 				14AFC6D32A1545B7001BA380 /* HpsUpaCAStartVoid.swift in Sources */,
 				DD2409302991688C00597A23 /* HpsUpaStartCardResponse.swift in Sources */,
 				DDFF36212937AF4400C2D1D1 /* HpsWiseCubeDevice.swift in Sources */,
 				DD49DDB729787F6C00EBD526 /* HpsUpaTipAdjustBuilder.swift in Sources */,
 				DDFF368D2937AF4400C2D1D1 /* HpsTableServiceConnector.m in Sources */,
+				C72284742FC570FE000550C0 /* ListSaF.swift in Sources */,
 				DDFF365A2937AF4400C2D1D1 /* HpsServerAssignmentResponse.m in Sources */,
 				DDFF35D72937AF4300C2D1D1 /* HpsHpaEBTRefundBuilder.m in Sources */,
 				DD37C2F52B165098003891D7 /* TokenServiceViewController.swift in Sources */,
 				DD37C2E12AE079E7003891D7 /* TapToPayView.swift in Sources */,
+				C76C866F2FBC4E880043E2C4 /* TipAdjustTransaction.swift in Sources */,
 				14AFC6D52A17C812001BA380 /* HpsUpaCAStartRefund.swift in Sources */,
+				C744D5522FC70D05007EEC16 /* IngenicoDeviceManager.swift in Sources */,
 				DDFF35902937AF4300C2D1D1 /* HpsPaxDeviceResponse.m in Sources */,
 				DDFF35AD2937AF4300C2D1D1 /* HpsPaxTraceResponse.m in Sources */,
 				DDFF35562937AF4300C2D1D1 /* HpsC2xCreditReturnBuilder.swift in Sources */,
+				C763BD902FB6054200712966 /* RUATerminalType.swift in Sources */,
 				DDFF35412937AF4300C2D1D1 /* HpsUpaParams.m in Sources */,
 				DDFF369D2937AF4400C2D1D1 /* HpsLaborFieldLookup.m in Sources */,
 				DDFF364D2937AF4400C2D1D1 /* JsonDoc.m in Sources */,
 				DDFF35952937AF4300C2D1D1 /* HpaPaxSafUploadResponse.m in Sources */,
+				C7DF885D2FE2AB3800E3E416 /* Gateway.swift in Sources */,
 				DDFF36FC2937B6FC00C2D1D1 /* GMSWrapper.swift in Sources */,
 				DDFF36912937AF4400C2D1D1 /* HpsTerminationReason.m in Sources */,
+				C78FC77D2FE2B46F0053C10B /* SaFError.swift in Sources */,
+				C78FC77E2FE2B46F0053C10B /* SearchError.swift in Sources */,
+				C78FC77F2FE2B46F0053C10B /* TerminalError.swift in Sources */,
 				DDFF36902937AF4400C2D1D1 /* HpsConfiguredServices.m in Sources */,
+				C763BD8E2FB603B800712966 /* IngenicoDeviceManagerDelegate.swift in Sources */,
 				DDFF368C2937AF4400C2D1D1 /* HpsGatewayResponse.m in Sources */,
 				DDFF35EA2937AF4300C2D1D1 /* HpsHpaDebitSaleBuilder.m in Sources */,
 				DDFF36772937AF4400C2D1D1 /* HpsAddress.m in Sources */,
 				DDFF36112937AF4400C2D1D1 /* Field.m in Sources */,
+				C76C866B2FBC4E2B0043E2C4 /* TokenizationTransaction.swift in Sources */,
 				DDFF362A2937AF4400C2D1D1 /* HpsWiseCubeCreditAuthBuilder.swift in Sources */,
 				DDFF35F22937AF4300C2D1D1 /* HpsHpaBatchResponse.m in Sources */,
+				C7EDAD0E2FE930C00010D122 /* TLVObject.swift in Sources */,
 				DDFF35EE2937AF4300C2D1D1 /* HpsHpaDownloadBuilder.m in Sources */,
 				DD426BFE299EC92300DBFAC5 /* HpsUpaSendSaf.swift in Sources */,
 				DDFF357D2937AF4300C2D1D1 /* HpsPaxDebitVoidBuilder.m in Sources */,
 				DDFF362D2937AF4400C2D1D1 /* HpsTerminalEnums.m in Sources */,
 				14F88D582A029BE9009E821B /* HpsUpaCAModel.swift in Sources */,
+				43CC2F662FDAF2F900478E82 /* ConnectionListener.swift in Sources */,
 				DDFF35BB2937AF4300C2D1D1 /* HpsPaxTcpInterface.m in Sources */,
 				DDFF356E2937AF4300C2D1D1 /* HpsPaxLocalDetailReportBuilder.m in Sources */,
 				DDFF361B2937AF4400C2D1D1 /* HpsHpaInitializeResponse.m in Sources */,
@@ -2923,19 +3626,32 @@
 				DDFF35EC2937AF4300C2D1D1 /* HpsHpaDiagnosticBuilder.m in Sources */,
 				DDFF36652937AF4400C2D1D1 /* HpsGiftCard.m in Sources */,
 				DDFF35AB2937AF4300C2D1D1 /* HpsPaxLocalDetailResponse.m in Sources */,
+				C76C86692FBC4DFA0043E2C4 /* VerifyTransaction.swift in Sources */,
 				DDFF35B92937AF4300C2D1D1 /* HpsPaxHttpInterface.m in Sources */,
 				1438BFF62CC7FD940040F364 /* ReceiptHelper.swift in Sources */,
 				DDFF365C2937AF4400C2D1D1 /* HpsServerListResponse.m in Sources */,
 				DDFF35572937AF4300C2D1D1 /* HpsC2xCreditAdjustBuilder.swift in Sources */,
 				DDFF35982937AF4300C2D1D1 /* HpsPaxAvsRequest.m in Sources */,
+				C78FC7842FE2BBBF0053C10B /* GenericPasswordStore.swift in Sources */,
+				C78FC7852FE2BBBF0053C10B /* CommonCryptoHelper.swift in Sources */,
+				C744D5562FC83AAA007EEC16 /* MobyBLEThread.swift in Sources */,
+				C73FD32A2FE3C6B5004C8EBE /* TerminalSettingResult.swift in Sources */,
 				DD37C2E32AE07C69003891D7 /* TapToPayViewModel.swift in Sources */,
 				DDFF354A2937AF4300C2D1D1 /* HpsUpaTcpInterface.m in Sources */,
 				DDFF35522937AF4300C2D1D1 /* HpsC2xCreditSaleBuilder.swift in Sources */,
 				C7B324832F2B669700A388C9 /* OpenTabDetail.m in Sources */,
 				DDFF370D2937B6FD00C2D1D1 /* GMSCreditAdjustBuilder.swift in Sources */,
+				43CC2F4F2FD8527200478E82 /* TerminalOTAState.swift in Sources */,
+				C76C86592FBAF5D10043E2C4 /* ConnectionDelegate.swift in Sources */,
+				C73FD32F2FE3C807004C8EBE /* AutoSubstantiation.swift in Sources */,
 				DDFF35582937AF4300C2D1D1 /* HpsC2xCreditReversalBuilder.swift in Sources */,
 				DDFF352B2937AF4300C2D1D1 /* HpsUpaReversalBuilder.m in Sources */,
+				43A101B12FC456FF007BAC35 /* CaptureTransaction.swift in Sources */,
+				C7031074301CB91900EB6122 /* TemCommunicationManager.m in Sources */,
+				C78FC7752FE2B1E60053C10B /* TerminalOTAResult.swift in Sources */,
 				DDFF37052937B6FC00C2D1D1 /* ReversalReasonCode.swift in Sources */,
+				C73FD33A2FE3D125004C8EBE /* GatewayEnvironment.swift in Sources */,
+				C72284832FC57AC7000550C0 /* TransactionDelegate.swift in Sources */,
 				DDFF355A2937AF4300C2D1D1 /* HpsC2xDevice.swift in Sources */,
 				14F88D5D2A02CCA0009E821B /* HpsUpaCASaleBuilder.swift in Sources */,
 				14864F1A2C90D60000B0E4F3 /* HpsMobyCreditReturnBuilder.swift in Sources */,
@@ -2943,29 +3659,52 @@
 				DDFF36822937AF4400C2D1D1 /* HpsEncryptionData.m in Sources */,
 				14864F102C89F8FD00B0E4F3 /* MobyTransactionsView.swift in Sources */,
 				DDFF359A2937AF4300C2D1D1 /* HpsPaxEcomSubGroup.m in Sources */,
+				C76C86712FBC4EAD0043E2C4 /* ReversalTransaction.swift in Sources */,
 				C7B3247C2F2B3EBD00A388C9 /* UpaOpenTabBuilder.swift in Sources */,
 				DDFF36BE2937AF4400C2D1D1 /* HpsBase64Encoder.m in Sources */,
 				DDFF357C2937AF4300C2D1D1 /* HpsPaxCreditReturnBuilder.m in Sources */,
 				28FCAA142A68528D0040B118 /* HpsUpaDeleteSafResponse.swift in Sources */,
 				DDFF36332937AF4400C2D1D1 /* HpsEnums.m in Sources */,
 				DDFF36FE2937B6FC00C2D1D1 /* GMSResponseHelper.swift in Sources */,
+				C78FC7982FE2CAD30053C10B /* TransactionError.swift in Sources */,
 				14864F142C8F242500B0E4F3 /* HpsMobyCreditCaptureBuilder.swift in Sources */,
+				4357895830122C080051FF3C /* BBPOSTerminal.swift in Sources */,
 				DD37C2EE2AFAE569003891D7 /* ProximityReaderViewModel.swift in Sources */,
 				C74707432EFC1F77005C2DC1 /* SampleRequestLogger.m in Sources */,
+				C722847E2FC5726E000550C0 /* TerminalTender.swift in Sources */,
+				C72284782FC571CD000550C0 /* TerminalTransactionDelegate.swift in Sources */,
 				DDFF35DE2937AF4300C2D1D1 /* HpsHpaGiftVoidBuilder.m in Sources */,
 				DDFF35632937AF4300C2D1D1 /* HpsPaxGiftBalanceBuilder.m in Sources */,
 				C771EFE62F73BAC1007743B8 /* BatchRecord.m in Sources */,
+				C7D2A60E2FBEF285007F0749 /* IngenicoEnums.swift in Sources */,
+				C7DF886F2FE2AB9E00E3E416 /* SaleResponse.swift in Sources */,
+				C7DF88702FE2AB9E00E3E416 /* ReturnResponse.swift in Sources */,
+				C7DF88712FE2AB9E00E3E416 /* ListSaFResponse.swift in Sources */,
+				C7DF88722FE2AB9E00E3E416 /* DuplicateDataResponse.swift in Sources */,
+				C7DF88732FE2AB9E00E3E416 /* CaptureResponse.swift in Sources */,
+				C7DF88742FE2AB9E00E3E416 /* ProcessSaFResponse.swift in Sources */,
+				C7DF88752FE2AB9E00E3E416 /* ReversalResponse.swift in Sources */,
+				C7DF88762FE2AB9E00E3E416 /* BatchCloseResponse.swift in Sources */,
+				C7DF88772FE2AB9E00E3E416 /* SurchargeRequestedResponse.swift in Sources */,
+				C7DF88782FE2AB9E00E3E416 /* TipAdjustResponse.swift in Sources */,
+				C7DF88792FE2AB9E00E3E416 /* VoidResponse.swift in Sources */,
+				C7DF887A2FE2AB9E00E3E416 /* VerifyResponse.swift in Sources */,
+				C7DF887B2FE2AB9E00E3E416 /* TokenizationResponse.swift in Sources */,
+				C7DF887C2FE2AB9E00E3E416 /* AuthResponse.swift in Sources */,
 				C771EFE72F73BAC1007743B8 /* BatchDetailRecords.m in Sources */,
 				14864F122C8F1E7900B0E4F3 /* HpsMobyCreditAuthBuilder.swift in Sources */,
+				C7EDAD0C2FE92D9A0010D122 /* EMVTagHelper.swift in Sources */,
 				14864F1E2C90D65800B0E4F3 /* HpsMobyCreditVoidBuilder.swift in Sources */,
 				DDFF37012937B6FC00C2D1D1 /* GMSConfiguration.swift in Sources */,
 				DDFF356F2937AF4300C2D1D1 /* HpsPaxCreditVoidBuilder.m in Sources */,
 				DDFF36572937AF4400C2D1D1 /* HpsTableServiceResponse.m in Sources */,
+				C76C86602FBAF9FF0043E2C4 /* TransactionType.swift in Sources */,
 				DDFF352A2937AF4300C2D1D1 /* HpsUpaVerifyBuilder.m in Sources */,
 				DDFF368E2937AF4400C2D1D1 /* HpsGateway.m in Sources */,
 				DDFF35BE2937AF4300C2D1D1 /* HpsDeviceMessage.m in Sources */,
 				DDFF35332937AF4300C2D1D1 /* HpsUpaSaleBuilder.m in Sources */,
 				DDFF35552937AF4300C2D1D1 /* HpsC2xBatchCloseBuilder.swift in Sources */,
+				C70BFF1B2FC04A8000DB1008 /* ContactlessCardData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3107,6 +3846,7 @@
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-device-lib/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3116,10 +3856,12 @@
 				);
 				MARKETING_VERSION = 2.0.25;
 				MODULEMAP_FILE = "ios-device-lib/ios-device-lib.modulemap";
+				OTHER_CFLAGS = "-DRUA_MFI";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-lc++",
+					"-lstdc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.heartland.Heartland-iOS-SDK";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3141,6 +3883,7 @@
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-device-lib/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3150,10 +3893,12 @@
 				);
 				MARKETING_VERSION = 2.0.25;
 				MODULEMAP_FILE = "ios-device-lib/ios-device-lib.modulemap";
+				OTHER_CFLAGS = "-DRUA_MFI";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-lc++",
+					"-lstdc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.heartland.Heartland-iOS-SDK";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

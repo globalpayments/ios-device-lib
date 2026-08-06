@@ -18,6 +18,7 @@ class ReceiptHelper {
                                    headerDetail: ReceiptHelperDetail) -> UIImage {
         let width: CGFloat = 550
         let height: CGFloat = 750
+        var margin: CGFloat = 30.0
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
         
         let image = renderer.image { ctx in
@@ -75,7 +76,8 @@ class ReceiptHelper {
                 .paragraphStyle: centeredParagraphStyle
             ]
             "CREDIT CARD".draw(in: CGRect(x: 0, y: margin + fontSize * 6, width: width, height: fontSizeLarge), withAttributes: centeredTextAttributes)
-            transaction.transactionType.draw(in: CGRect(x: 0, y: margin + 10 + fontSize * 7, width: width, height: fontSizeLarge), withAttributes: centeredTextAttributes)
+            let transactionType = (transaction.transactionType ?? "")
+            transactionType.draw(in: CGRect(x: 0, y: margin + 10 + fontSize * 7, width: width, height: fontSizeLarge), withAttributes: centeredTextAttributes)
             
             // Draw detail list
             var yOffset = margin + fontSize * 9
@@ -86,32 +88,36 @@ class ReceiptHelper {
                 .foregroundColor: UIColor.black,
                 .paragraphStyle: leftAlignedParagraphStyle
             ]
-            
-            if transaction.entryMode != HpsPaxEntryModes.swipe.rawValue && transaction.entryMode != HpsPaxEntryModes.chipFallBackSwipe.rawValue && transaction.entryMode != HpsPaxEntryModes.unknown.rawValue {
-                transaction.cardType.uppercased().draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
+
+            if transaction.entryMode != HpsPaxEntryModes.swipe.rawValue
+                && transaction.entryMode != HpsPaxEntryModes.chipFallBackSwipe.rawValue
+                && transaction.entryMode != HpsPaxEntryModes.unknown.rawValue {
+
+                let cardType = (transaction.cardType ?? "").uppercased()
+                cardType.draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
                 yOffset += fontSize
                 
                 "ACCT:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                ReceiptHelper.maskCardNumber(transaction.maskedCardNumber).draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                ReceiptHelper.maskCardNumber(transaction.maskedCardNumber ?? "").draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
                 yOffset += fontSize
                 
                 "APP NAME:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                transaction.applicationName.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                (transaction.applicationName ?? "").draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
                 yOffset += fontSize
                 
                 "ENTRY:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
                 ReceiptHelper.entryModeName(from: Int(transaction.entryMode)).draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
                 yOffset += fontSize
                 
-                if let _ = transaction.approvalCode {
+                if let approvalCode = transaction.approvalCode {
                     "APPROVAL:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                    transaction.approvalCode.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                    approvalCode.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
                     yOffset += fontSize
                 }
 
-                if let _ = transaction.transactionId {
+                if let transactionId = transaction.transactionId {
                     "TXN ID:".draw(in: CGRect(x: margin, y: yOffset, width: width, height: fontSize), withAttributes: leftAlignedTextAttributes)
-                    transaction.transactionId.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
+                    transactionId.draw(in: CGRect(x: 200, y: yOffset, width: width - 200, height: fontSize), withAttributes: leftAlignedTextAttributes)
                     yOffset += fontSize
                 }
                 // Continue drawing other details like AID, ARQC, Entry mode, Approval code, and Transaction ID similarly

@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objc
 public protocol GMSClientAppDelegate {
@@ -22,14 +21,14 @@ public protocol GMSClientAppDelegate {
 public protocol GMSClientTerminalOTAManagerDelegate {
     func terminalVersionDetails(info: [AnyHashable: Any]?)
 
-    func terminalOTAResult(resultType: GlobalMobileSDK.TerminalOTAResult,
+    func terminalOTAResult(resultType: TerminalOTAResult,
                            info: [String: AnyObject]?, error: Error?)
 
-    func listOfVersionsFor(type: GlobalMobileSDK.TerminalOTAUpdateType, results: [Any]?)
+    func listOfVersionsFor(type: TerminalOTAUpdateType, results: [Any]?)
 
     func otaUpdateProgress(percentage: Float)
 
-    func onReturnSetTargetVersion(resultType: GlobalMobileSDK.TerminalOTAResult,
-                                  type: GlobalMobileSDK.TerminalOTAUpdateType,
+    func onReturnSetTargetVersion(resultType: TerminalOTAResult,
+                                  type: TerminalOTAUpdateType,
                                   message: String)
 }

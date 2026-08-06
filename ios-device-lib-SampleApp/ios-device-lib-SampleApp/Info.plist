@@ -8,6 +8,17 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>e-hps.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>1.2</string>
+				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
 			<key>github.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
@@ -20,17 +31,6 @@
 				<false/>
 			</dict>
 			<key>globalpay.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSTemporaryExceptionMinimumTLSVersion</key>
-				<string>1.2</string>
-				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>e-hps.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -54,5 +54,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.landicorp.datapath</string>
+		<string>com.landicorp.USBdatapath</string>
+		<string>com.smartpos.datapath</string>
+	</array>
 </dict>
 </plist>

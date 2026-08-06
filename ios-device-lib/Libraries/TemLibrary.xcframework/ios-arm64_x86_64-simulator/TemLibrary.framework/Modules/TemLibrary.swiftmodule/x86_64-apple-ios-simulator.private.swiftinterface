@@ -1,16 +1,23 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TemLibrary
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name TemLibrary
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
+import OSLog
 import Swift
 
 @_exported import TemLibrary
 import _Concurrency
 import _StringProcessing
-public class Ntpt3Config {
-  public init(applicationId: Swift.String, applicationVersion: Swift.String, ip: Swift.String, port: Swift.Int32, callingMethod: Swift.Int32, authorizedActivities: Swift.Int32, offlineInstallMode: Swift.Int32, contractNumber: Swift.String, SSL: Swift.Int32, certClient: Swift.String, keyClient: Swift.String, certServ: Swift.String)
-  @objc deinit
+import _SwiftConcurrencyShims
+@objc public enum ReasonForCalling : Swift.Int {
+  case REPORT
+  case MANUAL
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc public enum SandboxStatus : Swift.Int {
   case InitilisationOk
@@ -22,14 +29,9 @@ public class Ntpt3Config {
     get
   }
 }
-@objc public enum ReasonForCalling : Swift.Int {
-  case REPORT
-  case MANUAL
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
+public class Ntpt3Config {
+  public init(applicationId: Swift.String, applicationVersion: Swift.String, ip: Swift.String, port: Swift.Int32, callingMethod: Swift.Int32, authorizedActivities: Swift.Int32, offlineInstallMode: Swift.Int32, contractNumber: Swift.String, SSL: Swift.Int32, certClient: Swift.String, keyClient: Swift.String, certServ: Swift.String)
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class Sandbox : ObjectiveC.NSObject {
   @objc override dynamic public init()
@@ -40,11 +42,15 @@ public class Ntpt3Config {
   @objc public func isUpdateAvailable(deviceSerialNumber: Swift.String, resultCompletionBlock: @escaping (Swift.Bool) -> Swift.Void)
   @objc public func getUpdateFilePath(deviceSerialNumber: Swift.String, resultCompletionBlock: @escaping (Swift.String) -> Swift.Void)
   @objc public func getRkiFileName(deviceSerialNumber: Swift.String, resultCompletionBlock: @escaping (Swift.String) -> Swift.Void)
+  @objc public func isProvisioningAvailable(deviceSerialNumber: Swift.String, resultCompletionBlock: @escaping (Swift.Bool) -> Swift.Void)
+  @objc public func getProvisionningFilePaths(deviceSerialNumber: Swift.String, resultCompletionBlock: @escaping (Foundation.NSArray) -> Swift.Void)
+  @objc public func saveDiagnostics(json: Swift.String, resultCompletionBlock: @escaping (Swift.Int32) -> Swift.Void)
+  @objc public func exportReaderLog(logFilePath: Swift.String, resultCompletionBlock: @escaping (Swift.Int32) -> Swift.Void)
   @objc deinit
 }
-extension TemLibrary.SandboxStatus : Swift.Equatable {}
-extension TemLibrary.SandboxStatus : Swift.Hashable {}
-extension TemLibrary.SandboxStatus : Swift.RawRepresentable {}
 extension TemLibrary.ReasonForCalling : Swift.Equatable {}
 extension TemLibrary.ReasonForCalling : Swift.Hashable {}
 extension TemLibrary.ReasonForCalling : Swift.RawRepresentable {}
+extension TemLibrary.SandboxStatus : Swift.Equatable {}
+extension TemLibrary.SandboxStatus : Swift.Hashable {}
+extension TemLibrary.SandboxStatus : Swift.RawRepresentable {}

@@ -1,0 +1,5 @@
+module RUA_MFI {
+    umbrella header "ROAMreaderUnifiedAPI-umbrella-header.h"
+    export *
+    module * {export *}
+}

@@ -41,11 +41,14 @@ struct MobyDeviceDetailView: View {
     
     @State var config: Configurations
     
+    var onBack: (() -> Void)?
+    
     private let fileUtils = FileUtils()
     
-    init(deviceSelected : RuaDevice){
+    init(deviceSelected : RuaDevice, onBack: (() -> Void)? = nil){
         config = Configurations()
         self.deviceSelected = deviceSelected
+        self.onBack = onBack
     }
     
     var body: some View {
@@ -78,7 +81,22 @@ struct MobyDeviceDetailView: View {
                     }
                 }.frame(maxWidth: .infinity, maxHeight: .infinity).background(Color.black.opacity(0.9)).edgesIgnoringSafeArea(.all)
             }
-        }.navigationBarBackButtonHidden(isConnectedToReader || showToastLoading).navigationBarHidden(showToastLoading)
+        }.navigationBarBackButtonHidden(onBack != nil || showToastLoading)
+            .navigationBarHidden(showToastLoading)
+            .toolbar {
+                if let onBack = onBack, !showToastLoading {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: onBack) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "chevron.left")
+                                Text(Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+                                     ?? Bundle.main.infoDictionary?["CFBundleName"] as? String
+                                     ?? "Back")
+                            }
+                        }
+                    }
+                }
+            }
             .onReceive(ruaHelper.$showLoadingScreen) { showLoadinScreen in
                 showToastLoading = showLoadinScreen
             }

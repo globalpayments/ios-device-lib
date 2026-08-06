@@ -20,13 +20,14 @@ public class GMSDevice: NSObject, GMSClientAppDelegate, GMSDeviceInterface {
         }
     }
     
-    internal init(config: HpsConnectionConfig, entryModes: [EntryMode], terminalType: TerminalType) {
+    internal init(config: HpsConnectionConfig, entryModes: [EntryMode], terminalType: TerminalType, connectionInterface: RUACommunicationInterface? = nil) {
         super.init()
         gmsWrapper = .init(
             .fromHpsConnectionConfig(config),
             delegate: self,
             entryModes: entryModes,
-            terminalType: terminalType
+            terminalType: terminalType,
+            connectionInterface: connectionInterface
         )
     }
     
@@ -227,13 +228,13 @@ extension GMSDevice: GMSClientTerminalOTAManagerDelegate {
         otaFirmwareUpdateDelegate?.onTerminalVersionDetails(info: info)
     }
     
-    public func terminalOTAResult(resultType: GlobalMobileSDK.TerminalOTAResult,
+    public func terminalOTAResult(resultType: TerminalOTAResult,
                                   info: [String: AnyObject]?, error: Error?)
     {
         otaFirmwareUpdateDelegate?.terminalOTAResult(resultType: resultType, info: info, error: error)
     }
     
-    public func listOfVersionsFor(type _: GlobalMobileSDK.TerminalOTAUpdateType, results: [Any]?) {
+    public func listOfVersionsFor(type _: TerminalOTAUpdateType, results: [Any]?) {
         otaFirmwareUpdateDelegate?.listOfVersionsFor(results: results)
     }
     
@@ -241,8 +242,8 @@ extension GMSDevice: GMSClientTerminalOTAManagerDelegate {
         otaFirmwareUpdateDelegate?.otaUpdateProgress(percentage: percentage)
     }
     
-    public func onReturnSetTargetVersion(resultType _: GlobalMobileSDK.TerminalOTAResult,
-                                         type _: GlobalMobileSDK.TerminalOTAUpdateType, message: String)
+    public func onReturnSetTargetVersion(resultType _: TerminalOTAResult,
+                                         type _: TerminalOTAUpdateType, message: String)
     {
         otaFirmwareUpdateDelegate?.onReturnSetTargetVersion(message: message)
     }

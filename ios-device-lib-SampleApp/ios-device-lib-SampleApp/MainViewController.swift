@@ -37,6 +37,11 @@ class MainViewController: UITableViewController {
                                    rootView: MobyDevicesView())
     }
     
+    @IBSegueAction func showSwiftUIComponentCredentialsView(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder,
+                                   rootView: MobyDevicesView(RUACommunicationInterfaceUSB))
+    }
+   
     @IBSegueAction func showTransactionsComponentView(_ coder: NSCoder) -> UIViewController? {
         return UIHostingController(coder: coder,
                                    rootView: MobyTransactionsView())

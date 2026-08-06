@@ -91,7 +91,7 @@ final class HpsMobyTransactionsTests: XCTestCase {
     
     
     func testAutoSubstantiation() {
-        let expectation = XCTestExpectation(description: "testAutoSubstantiation")
+        let expectation = self.expectation(description: "testAutoSubstantiation")
 
         device = self.setupDevice()
         guard let device = self.device else {
@@ -119,12 +119,10 @@ final class HpsMobyTransactionsTests: XCTestCase {
         builderCapture.transactionId = "123456789"
         builderCapture.execute()
         
-        self.waitForExpectations(timeout: 600) { error in
-    
-            XCTAssertNotNil(builder.autoSubstantiation)
+        XCTAssertNotNil(builder.autoSubstantiation)
+        expectation.fulfill()
         
-            expectation.fulfill()
-        }
+        self.waitForExpectations(timeout: 600)
     }
 }
 
@@ -161,7 +159,7 @@ extension HpsMobyTransactionsTests: HpsMobyDeviceDelegate, HpsMobyTransactionDel
         print("onConfirmAmount \(amount)")
     }
     
-    func onConfirmApplication(_ applications: Array<GlobalMobileSDK.AID>) {
+    func onConfirmApplication(_ applications: Array<AID>) {
         print("onConfirmApplication \(applications)")
     }
     

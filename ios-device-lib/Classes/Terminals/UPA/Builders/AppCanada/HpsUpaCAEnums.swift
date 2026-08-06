@@ -86,20 +86,6 @@ public enum CardGroup: String, CaseIterable, Identifiable, Codable {
     }
 }
 
-public enum TransactionType: String, CaseIterable, Codable {
-    case SALE
-    case REFUND
-    
-    public var rawValue: String {
-        switch self {
-        case .SALE:
-            return "Sale"
-        case .REFUND:
-            return "Refund"
-        }
-    }
-}
-
 public enum CardOnFileIndicator: String, CaseIterable, Codable {
     case CARDHOLDER
     case MERCHANT

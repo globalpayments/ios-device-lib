@@ -930,7 +930,7 @@ private extension C2XTransactionsViewController {
             let surchargeFee = response.surchargeFee ?? "0"
             var surchargeAmount: NSDecimalNumber = NSDecimalNumber(string: "0")
             var approvedAmount = response.approvedAmount.doubleValue
-            if response.surchargeRequested == SurchargeEligibility.Y {
+            if response.surchargeRequested == .Y {
                 surchargeAmount = NSDecimalNumber(string: response.surchargeAmount ?? "0")
             }
             

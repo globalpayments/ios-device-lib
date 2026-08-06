@@ -5,7 +5,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TemCommunicationManager.h>
+#import "TemCommunicationManager.h"
 
 @class Sandbox;
 

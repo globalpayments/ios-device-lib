@@ -25,17 +25,16 @@
 		431C49AB2E69D8E700F511B7 /* HpsCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C49AA2E69D8E700F511B7 /* HpsCreditTests.swift */; };
 		43233D002E356AC300DBB5B6 /* BBPOSCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43233CFF2E356AAF00DBB5B6 /* BBPOSCreditTests.swift */; };
 		432535152E68C8150070A5ED /* BBPOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432535142E68C8150070A5ED /* BBPOS.xcframework */; };
-		432535192E68C8220070A5ED /* GlobalMobileSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */; };
-		4325351A2E68C8220070A5ED /* GlobalMobileSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4325351D2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */; };
 		4325351E2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		432535202E68C8350070A5ED /* ios_device_lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; };
 		432535212E68C8350070A5ED /* ios_device_lib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4325351F2E68C8350070A5ED /* ios_device_lib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4357895A301231A80051FF3C /* BBDeviceOTA-1.6.8.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43578959301231A80051FF3C /* BBDeviceOTA-1.6.8.xcframework */; };
 		438C3D1D2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */; };
 		65F6E08A2FD1521B00A8ECCE /* UpaMexicoTYPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6E0892FD1521B00A8ECCE /* UpaMexicoTYPTests.swift */; };
 		C712FA242EC3698C00C18365 /* UPACreditDuplicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */; };
+		C7A1BEE02F28B519009E1E6F /* UPABatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1BEDF2F28B519009E1E6F /* UPABatchTests.swift */; };
 		C7CB24932EE6B2E100D80770 /* UpaCreditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */; };
-        C7A1BEE02F28B519009E1E6F /* UPABatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1BEDF2F28B519009E1E6F /* UPABatchTests.swift */; };
 		C7CB24982EE8346900D80770 /* UPAAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB24972EE8346900D80770 /* UPAAdminTests.swift */; };
 		C7E1A65E2EDF145D00682D19 /* HpsPaxDebitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */; };
 		DD37C2E72AE0829E003891D7 /* TapToPayHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */; };
@@ -98,7 +97,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4325351E2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework in Embed Frameworks */,
-				4325351A2E68C8220070A5ED /* GlobalMobileSDK.xcframework in Embed Frameworks */,
 				432535212E68C8350070A5ED /* ios_device_lib.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -126,14 +124,14 @@
 		431C49AA2E69D8E700F511B7 /* HpsCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsCreditTests.swift; sourceTree = "<group>"; };
 		43233CFF2E356AAF00DBB5B6 /* BBPOSCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSCreditTests.swift; sourceTree = "<group>"; };
 		432535142E68C8150070A5ED /* BBPOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BBPOS.xcframework; path = "../ios-device-lib/Libraries/BBPOS.xcframework"; sourceTree = "<group>"; };
-		432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GlobalMobileSDK.xcframework; path = "../ios-device-lib/Libraries/GlobalMobileSDK.xcframework"; sourceTree = "<group>"; };
 		4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GlobalPaymentsApi.xcframework; path = "../ios-device-lib/Libraries/GlobalPaymentsApi.xcframework"; sourceTree = "<group>"; };
 		4325351F2E68C8350070A5ED /* ios_device_lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_device_lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43578959301231A80051FF3C /* BBDeviceOTA-1.6.8.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "BBDeviceOTA-1.6.8.xcframework"; path = "../ios-device-lib/Libraries/BBDeviceOTA-1.6.8.xcframework"; sourceTree = "<group>"; };
 		438C3D1C2EABBCCB00E77CCA /* BBPOSDuplicateTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSDuplicateTransactionTests.swift; sourceTree = "<group>"; };
 		65F6E0892FD1521B00A8ECCE /* UpaMexicoTYPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaMexicoTYPTests.swift; sourceTree = "<group>"; };
 		C712FA232EC3698C00C18365 /* UPACreditDuplicateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPACreditDuplicateTests.swift; sourceTree = "<group>"; };
+		C7A1BEDF2F28B519009E1E6F /* UPABatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPABatchTests.swift; sourceTree = "<group>"; };
 		C7CB24922EE6B2E100D80770 /* UpaCreditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpaCreditTests.swift; sourceTree = "<group>"; };
-        C7A1BEDF2F28B519009E1E6F /* UPABatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPABatchTests.swift; sourceTree = "<group>"; };
 		C7CB24972EE8346900D80770 /* UPAAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPAAdminTests.swift; sourceTree = "<group>"; };
 		C7E1A65D2EDF145D00682D19 /* HpsPaxDebitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpsPaxDebitTests.swift; sourceTree = "<group>"; };
 		DD37C2E62AE0829E003891D7 /* TapToPayHostedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayHostedViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +190,7 @@
 				432535202E68C8350070A5ED /* ios_device_lib.framework in Frameworks */,
 				432535152E68C8150070A5ED /* BBPOS.xcframework in Frameworks */,
 				4325351D2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework in Frameworks */,
-				432535192E68C8220070A5ED /* GlobalMobileSDK.xcframework in Frameworks */,
+				4357895A301231A80051FF3C /* BBDeviceOTA-1.6.8.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,9 +307,9 @@
 		DD6A4F6C2937C2D0008B8165 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43578959301231A80051FF3C /* BBDeviceOTA-1.6.8.xcframework */,
 				4325351F2E68C8350070A5ED /* ios_device_lib.framework */,
 				4325351C2E68C82A0070A5ED /* GlobalPaymentsApi.xcframework */,
-				432535182E68C8220070A5ED /* GlobalMobileSDK.xcframework */,
 				432535142E68C8150070A5ED /* BBPOS.xcframework */,
 			);
 			name = Frameworks;

@@ -449,6 +449,9 @@ public struct MobyTransactionsView: View {
         .onReceive(RUAHelper.sharedInstance.$status, perform: { status in
             self.status = status
         })
+        .onAppear() {
+            RUAHelper.sharedInstance.showMessage = false
+        }
         .alert(
             Text(RUAHelper.sharedInstance.success ? "Success" : "Failure"),
             isPresented: $showMessage
@@ -456,6 +459,7 @@ public struct MobyTransactionsView: View {
             VStack {
                 Button("Got it!") {
                     self.showMessage = false
+                    RUAHelper.sharedInstance.showMessage = false
                 }
                 if let image = self.image {
                     Button("Print Receipt") {

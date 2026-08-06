@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objc
 public enum GMSErrorType: Int {
@@ -9,7 +8,7 @@ public enum GMSErrorType: Int {
 }
 
 extension NSError {
-    convenience init(fromConnectionError error: GlobalMobileSDK.ConnectionError) {
+    convenience init(fromConnectionError error: ConnectionError) {
         var reason = "unknown"
         switch error {
         case .bluetoothNotSupported:
@@ -35,7 +34,7 @@ extension NSError {
         self.init(domain: "com.heartlandpaymentsystems.iossdk", code: GMSErrorType.connectionError.rawValue, userInfo: ["reason": reason])
     }
 
-    convenience init(fromSearchError error: GlobalMobileSDK.SearchError) {
+    convenience init(fromSearchError error: SearchError) {
         var reason = "unknown"
         switch error {
         case .bluetoothNotSupported:
@@ -53,7 +52,7 @@ extension NSError {
         self.init(domain: "com.heartlandpaymentsystems.iossdk", code: GMSErrorType.searchError.rawValue, userInfo: ["reason": reason])
     }
 
-    convenience init(fromTransactionError error: GlobalMobileSDK.TransactionError) {
+    convenience init(fromTransactionError error: TransactionError) {
         var reason = "unknown"
         var message: String?
         var errorCode: Int?

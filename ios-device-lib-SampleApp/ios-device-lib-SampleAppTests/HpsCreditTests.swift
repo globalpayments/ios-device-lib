@@ -142,7 +142,7 @@ extension HpsCreditTests: GMSTransactionDelegate {
 
     func onConfirmAmount(_: Decimal) {}
 
-    func onConfirmApplication(_: [GlobalMobileSDK.AID]) {}
+    func onConfirmApplication(_: [AID]) {}
 
     func onTransactionComplete(_ response: HpsTerminalResponse) {
         self.response = response

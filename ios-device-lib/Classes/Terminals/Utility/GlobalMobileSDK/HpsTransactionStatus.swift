@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objc
 public enum HpsTransactionStatus: UInt {

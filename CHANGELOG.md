@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 
+## 3.3.0 2026-08-06
+- ios-device-lib: Migrated Moby 5500 and BBPOS terminal functionality from GlobalMobileSDK to ios-device-lib
+- ios-device-lib: Added USB (MFI/Lightning + USB-C) connection support for the Moby 5500 terminal device
+
 ## 3.2.5 2026-06-11
 - ios-device-lib: Fixed MOBY CL1/CL3 Bluetooth connection issue
 - ios-device-lib: Mexico GP-API CP UPA TYP added

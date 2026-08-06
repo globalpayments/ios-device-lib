@@ -160,12 +160,12 @@ extension C2XFirmwareUpdateViewController: GMSDeviceFirmwareUpdateDelegate {
                            info _: [String: AnyObject]?,
                            error _: Error?)
     {
-        if resultType == GlobalMobileSDK.TerminalOTAResult.success {
+        if resultType == TerminalOTAResult.success {
             isSuccess = true
             device?.setVersionDataFor(versionString: lastFirmwareVersion)
         }
 
-        if resultType == GlobalMobileSDK.TerminalOTAResult.setupError {
+        if resultType == TerminalOTAResult.setupError {
             hideDialogView()
             showTextDialog(LoadingStatus.SOMETHING_WENT_WRONG.rawValue)
         }

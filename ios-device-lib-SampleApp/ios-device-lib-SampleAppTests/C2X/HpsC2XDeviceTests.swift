@@ -94,7 +94,7 @@ final class HpsC2XDeviceTests: XCTestCase, HpsC2xDeviceDelegate, HpsC2xTransacti
         print("onConfirmAmount \(amount)")
     }
     
-    func onConfirmApplication(_ applications: Array<GlobalMobileSDK.AID>) {
+    func onConfirmApplication(_ applications: Array<AID>) {
         print("onConfirmApplication \(applications)")
     }
     

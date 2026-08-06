@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 import TemLibrary
 
 @available(iOS 13.0, *)
@@ -10,7 +9,7 @@ public class HpsMobyDevice: GMSDevice, IC2xDeviceInterface {
     
     var ruaDevice: RuaDevice?
     
-    public init(config: HpsConnectionConfig) {
+    public init(config: HpsConnectionConfig, connectionInterface: RUACommunicationInterface? = nil) {
         super.init(
             config: config,
             entryModes: [
@@ -21,7 +20,8 @@ public class HpsMobyDevice: GMSDevice, IC2xDeviceInterface {
                 .manual,
                 .quickChip,
             ],
-            terminalType: .ingenico_moby5500
+            terminalType: .ingenico_moby5500,
+            connectionInterface: connectionInterface
         )
     }
     

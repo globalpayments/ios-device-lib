@@ -1,6 +1,5 @@
 #import "HpsTerminalResponse.h"
 #import "HpsHpaSharedParams.h"
-#import <ios_device_lib/ios_device_lib-Swift.h>
 
 @implementation HpsTerminalResponse
 

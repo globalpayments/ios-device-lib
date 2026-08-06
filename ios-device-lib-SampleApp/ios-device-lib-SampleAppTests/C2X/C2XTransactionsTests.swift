@@ -159,7 +159,7 @@ extension C2XTransactionsTests: HpsC2xDeviceDelegate, HpsC2xTransactionDelegate 
         print("onConfirmAmount \(amount)")
     }
     
-    func onConfirmApplication(_ applications: Array<GlobalMobileSDK.AID>) {
+    func onConfirmApplication(_ applications: Array<AID>) {
         print("onConfirmApplication \(applications)")
     }
     

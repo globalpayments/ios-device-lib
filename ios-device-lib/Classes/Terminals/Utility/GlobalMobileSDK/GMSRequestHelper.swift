@@ -52,7 +52,7 @@ class GMSRequestHelper {
         let clientTransactionId: String? = builder.clientTransactionId
         let allowPartialAuth: Bool? = builder.allowPartialAuth as? Bool
         let cpcReq: Bool? = builder.cpcReq as? Bool
-        var autoSubstantiation: GlobalMobileSDK.AutoSubstantiation? = nil
+        var autoSubstantiation: AutoSubstantiation? = nil
         
         let isSurchargeEnabled: Bool = builder.isSurchargeEnabled as? Bool ?? false
         let allowDuplicates: Bool = builder.allowDuplicates as? Bool ?? false
@@ -209,7 +209,7 @@ class GMSRequestHelper {
         let clientTransactionId: String? = builder.clientTransactionId
         let allowPartialAuth: Bool? = builder.allowPartialAuth as? Bool
         let cpcReq: Bool? = builder.cpcReq as? Bool
-        var autoSubstantiation: GlobalMobileSDK.AutoSubstantiation? = nil
+        var autoSubstantiation: AutoSubstantiation? = nil
         let isSurchargeEnabled: Bool = builder.isSurchargeEnabled as? Bool ?? false
         let allowDuplicates: Bool = builder.allowDuplicates as? Bool ?? false
         let surchargeFee: Decimal = {

@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import <GlobalMobileSDK/GlobalMobileSDK.h>
 
 @protocol IHPSDeviceMessage
 @required

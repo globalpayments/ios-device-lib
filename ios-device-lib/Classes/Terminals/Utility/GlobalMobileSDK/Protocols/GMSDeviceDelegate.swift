@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objc
 public protocol GMSDeviceDelegate {

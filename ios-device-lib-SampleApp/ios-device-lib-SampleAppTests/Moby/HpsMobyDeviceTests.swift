@@ -99,7 +99,7 @@ final class HpsMobyDeviceTests: XCTestCase, HpsMobyDeviceDelegate, HpsMobyTransa
         print("onConfirmAmount \(amount)")
     }
     
-    func onConfirmApplication(_ applications: Array<GlobalMobileSDK.AID>) {
+    func onConfirmApplication(_ applications: Array<AID>) {
         print("onConfirmApplication \(applications)")
     }
     

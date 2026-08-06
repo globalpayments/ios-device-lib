@@ -1,9 +1,8 @@
 import Foundation
-import GlobalMobileSDK
 
 @objc
 public class HpsC2xEnums: NSObject {
-    public static func transactionTypeToString(_ transactionType: GlobalMobileSDK.TransactionType?) -> String {
+    public static func transactionTypeToString(_ transactionType: TransactionType?) -> String {
         switch transactionType {
         case .Auth:
             return "Auth"
@@ -30,7 +29,7 @@ public class HpsC2xEnums: NSObject {
         }
     }
 
-    public static func cardDataSourceTypeToString(_ cardDataSourceType: GlobalMobileSDK.EntryMode?) -> String {
+    public static func cardDataSourceTypeToString(_ cardDataSourceType: EntryMode?) -> String {
         switch cardDataSourceType {
         case .chipFallback:
             return "chipFallback"
@@ -49,7 +48,7 @@ public class HpsC2xEnums: NSObject {
         }
     }
 
-    public static func cardDataSourceTypeToEntryMode(_ cardDataSourceType: GlobalMobileSDK.EntryMode?) -> HpsPaxEntryModes {
+    public static func cardDataSourceTypeToEntryMode(_ cardDataSourceType: EntryMode?) -> HpsPaxEntryModes {
         switch cardDataSourceType {
         case .chipFallback:
             return .chipFallBackSwipe

@@ -1,9 +1,232 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "TemLibrary",
+    "printedName": "TemLibrary",
     "children": [
+      {
+        "kind": "TypeDecl",
+        "name": "ReasonForCalling",
+        "printedName": "ReasonForCalling",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "REPORT",
+            "printedName": "REPORT",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TemLibrary.ReasonForCalling.Type) -> TemLibrary.ReasonForCalling",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReasonForCalling",
+                    "printedName": "TemLibrary.ReasonForCalling",
+                    "usr": "c:@M@TemLibrary@E@ReasonForCalling"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TemLibrary.ReasonForCalling.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ReasonForCalling",
+                        "printedName": "TemLibrary.ReasonForCalling",
+                        "usr": "c:@M@TemLibrary@E@ReasonForCalling"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TemLibrary@E@ReasonForCalling@ReasonForCallingREPORT",
+            "mangledName": "$s10TemLibrary16ReasonForCallingO6REPORTyA2CmF",
+            "moduleName": "TemLibrary",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "MANUAL",
+            "printedName": "MANUAL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TemLibrary.ReasonForCalling.Type) -> TemLibrary.ReasonForCalling",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReasonForCalling",
+                    "printedName": "TemLibrary.ReasonForCalling",
+                    "usr": "c:@M@TemLibrary@E@ReasonForCalling"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TemLibrary.ReasonForCalling.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ReasonForCalling",
+                        "printedName": "TemLibrary.ReasonForCalling",
+                        "usr": "c:@M@TemLibrary@E@ReasonForCalling"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TemLibrary@E@ReasonForCalling@ReasonForCallingMANUAL",
+            "mangledName": "$s10TemLibrary16ReasonForCallingO6MANUALyA2CmF",
+            "moduleName": "TemLibrary",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TemLibrary.ReasonForCalling?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ReasonForCalling",
+                    "printedName": "TemLibrary.ReasonForCalling",
+                    "usr": "c:@M@TemLibrary@E@ReasonForCalling"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10TemLibrary16ReasonForCallingO8rawValueACSgSi_tcfc",
+            "mangledName": "$s10TemLibrary16ReasonForCallingO8rawValueACSgSi_tcfc",
+            "moduleName": "TemLibrary",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10TemLibrary16ReasonForCallingO8rawValueSivp",
+            "mangledName": "$s10TemLibrary16ReasonForCallingO8rawValueSivp",
+            "moduleName": "TemLibrary",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TemLibrary16ReasonForCallingO8rawValueSivg",
+                "mangledName": "$s10TemLibrary16ReasonForCallingO8rawValueSivg",
+                "moduleName": "TemLibrary",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@TemLibrary@E@ReasonForCalling",
+        "mangledName": "$s10TemLibrary16ReasonForCallingO",
+        "moduleName": "TemLibrary",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
       {
         "kind": "Import",
         "name": "Foundation",
@@ -30,143 +253,6 @@
         "printedName": "TemCWrapper_Private",
         "declKind": "Import",
         "moduleName": "TemLibrary"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "TemLibrary",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "Ntpt3Config",
-        "printedName": "Ntpt3Config",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(applicationId:applicationVersion:ip:port:callingMethod:authorizedActivities:offlineInstallMode:contractNumber:SSL:certClient:keyClient:certServ:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Ntpt3Config",
-                "printedName": "TemLibrary.Ntpt3Config",
-                "usr": "s:10TemLibrary11Ntpt3ConfigC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int32",
-                "printedName": "Swift.Int32",
-                "usr": "s:s5Int32V"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int32",
-                "printedName": "Swift.Int32",
-                "usr": "s:s5Int32V"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int32",
-                "printedName": "Swift.Int32",
-                "usr": "s:s5Int32V"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int32",
-                "printedName": "Swift.Int32",
-                "usr": "s:s5Int32V"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int32",
-                "printedName": "Swift.Int32",
-                "usr": "s:s5Int32V"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:10TemLibrary11Ntpt3ConfigC13applicationId0E7Version2ip4port13callingMethod20authorizedActivities18offlineInstallMode14contractNumber3SSL10certClient03keyU00T4ServACSS_S2Ss5Int32VA3QSSAQS3Stcfc",
-            "mangledName": "$s10TemLibrary11Ntpt3ConfigC13applicationId0E7Version2ip4port13callingMethod20authorizedActivities18offlineInstallMode14contractNumber3SSL10certClient03keyU00T4ServACSS_S2Ss5Int32VA3QSSAQS3Stcfc",
-            "moduleName": "TemLibrary",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:10TemLibrary11Ntpt3ConfigC",
-        "mangledName": "$s10TemLibrary11Ntpt3ConfigC",
-        "moduleName": "TemLibrary",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "TemLibrary",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "TemLibrary",
-        "declAttributes": [
-          "RawDocComment"
-        ]
       },
       {
         "kind": "TypeDecl",
@@ -375,10 +461,25 @@
         "moduleName": "TemLibrary",
         "declAttributes": [
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -418,211 +519,156 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TemLibrary",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
-        "name": "ReasonForCalling",
-        "printedName": "ReasonForCalling",
+        "name": "Ntpt3Config",
+        "printedName": "Ntpt3Config",
         "children": [
-          {
-            "kind": "Var",
-            "name": "REPORT",
-            "printedName": "REPORT",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(TemLibrary.ReasonForCalling.Type) -> TemLibrary.ReasonForCalling",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ReasonForCalling",
-                    "printedName": "TemLibrary.ReasonForCalling",
-                    "usr": "c:@M@TemLibrary@E@ReasonForCalling"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "TemLibrary.ReasonForCalling.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ReasonForCalling",
-                        "printedName": "TemLibrary.ReasonForCalling",
-                        "usr": "c:@M@TemLibrary@E@ReasonForCalling"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@TemLibrary@E@ReasonForCalling@ReasonForCallingREPORT",
-            "mangledName": "$s10TemLibrary16ReasonForCallingO6REPORTyA2CmF",
-            "moduleName": "TemLibrary",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 0
-          },
-          {
-            "kind": "Var",
-            "name": "MANUAL",
-            "printedName": "MANUAL",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(TemLibrary.ReasonForCalling.Type) -> TemLibrary.ReasonForCalling",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ReasonForCalling",
-                    "printedName": "TemLibrary.ReasonForCalling",
-                    "usr": "c:@M@TemLibrary@E@ReasonForCalling"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "TemLibrary.ReasonForCalling.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ReasonForCalling",
-                        "printedName": "TemLibrary.ReasonForCalling",
-                        "usr": "c:@M@TemLibrary@E@ReasonForCalling"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@TemLibrary@E@ReasonForCalling@ReasonForCallingMANUAL",
-            "mangledName": "$s10TemLibrary16ReasonForCallingO6MANUALyA2CmF",
-            "moduleName": "TemLibrary",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 1
-          },
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(rawValue:)",
+            "printedName": "init(applicationId:applicationVersion:ip:port:callingMethod:authorizedActivities:offlineInstallMode:contractNumber:SSL:certClient:keyClient:certServ:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "TemLibrary.ReasonForCalling?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ReasonForCalling",
-                    "printedName": "TemLibrary.ReasonForCalling",
-                    "usr": "c:@M@TemLibrary@E@ReasonForCalling"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "Ntpt3Config",
+                "printedName": "TemLibrary.Ntpt3Config",
+                "usr": "s:10TemLibrary11Ntpt3ConfigC"
               },
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10TemLibrary16ReasonForCallingO8rawValueACSgSi_tcfc",
-            "mangledName": "$s10TemLibrary16ReasonForCallingO8rawValueACSgSi_tcfc",
+            "usr": "s:10TemLibrary11Ntpt3ConfigC13applicationId0E7Version2ip4port13callingMethod20authorizedActivities18offlineInstallMode14contractNumber3SSL10certClient03keyU00T4ServACSS_S2Ss5Int32VA3QSSAQS3Stcfc",
+            "mangledName": "$s10TemLibrary11Ntpt3ConfigC13applicationId0E7Version2ip4port13callingMethod20authorizedActivities18offlineInstallMode14contractNumber3SSL10certClient03keyU00T4ServACSS_S2Ss5Int32VA3QSSAQS3Stcfc",
             "moduleName": "TemLibrary",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
+            "declAttributes": [
+              "AccessControl"
             ],
-            "declKind": "Var",
-            "usr": "s:10TemLibrary16ReasonForCallingO8rawValueSivp",
-            "mangledName": "$s10TemLibrary16ReasonForCallingO8rawValueSivp",
-            "moduleName": "TemLibrary",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10TemLibrary16ReasonForCallingO8rawValueSivg",
-                "mangledName": "$s10TemLibrary16ReasonForCallingO8rawValueSivg",
-                "moduleName": "TemLibrary",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
+            "init_kind": "Designated"
           }
         ],
-        "declKind": "Enum",
-        "usr": "c:@M@TemLibrary@E@ReasonForCalling",
-        "mangledName": "$s10TemLibrary16ReasonForCallingO",
+        "declKind": "Class",
+        "usr": "s:10TemLibrary11Ntpt3ConfigC",
+        "mangledName": "$s10TemLibrary11Ntpt3ConfigC",
         "moduleName": "TemLibrary",
         "declAttributes": [
-          "AccessControl",
-          "ObjC"
+          "AccessControl"
         ],
-        "enumRawTypeName": "Int",
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           },
           {
             "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "TemLibrary",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TemLibrary",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -1043,6 +1089,190 @@
               "ObjC"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isProvisioningAvailable",
+            "printedName": "isProvisioningAvailable(deviceSerialNumber:resultCompletionBlock:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TemLibrary@objc(cs)Sandbox(im)isProvisioningAvailableWithDeviceSerialNumber:resultCompletionBlock:",
+            "mangledName": "$s10TemLibrary7SandboxC23isProvisioningAvailable18deviceSerialNumber21resultCompletionBlockySS_ySbctF",
+            "moduleName": "TemLibrary",
+            "objc_name": "isProvisioningAvailableWithDeviceSerialNumber:resultCompletionBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getProvisionningFilePaths",
+            "printedName": "getProvisionningFilePaths(deviceSerialNumber:resultCompletionBlock:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Foundation.NSArray) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSArray",
+                    "printedName": "Foundation.NSArray",
+                    "usr": "c:objc(cs)NSArray"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TemLibrary@objc(cs)Sandbox(im)getProvisionningFilePathsWithDeviceSerialNumber:resultCompletionBlock:",
+            "mangledName": "$s10TemLibrary7SandboxC25getProvisionningFilePaths18deviceSerialNumber21resultCompletionBlockySS_ySo7NSArrayCctF",
+            "moduleName": "TemLibrary",
+            "objc_name": "getProvisionningFilePathsWithDeviceSerialNumber:resultCompletionBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "saveDiagnostics",
+            "printedName": "saveDiagnostics(json:resultCompletionBlock:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Int32) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TemLibrary@objc(cs)Sandbox(im)saveDiagnosticsWithJson:resultCompletionBlock:",
+            "mangledName": "$s10TemLibrary7SandboxC15saveDiagnostics4json21resultCompletionBlockySS_ys5Int32VctF",
+            "moduleName": "TemLibrary",
+            "objc_name": "saveDiagnosticsWithJson:resultCompletionBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "exportReaderLog",
+            "printedName": "exportReaderLog(logFilePath:resultCompletionBlock:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Int32) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TemLibrary@objc(cs)Sandbox(im)exportReaderLogWithLogFilePath:resultCompletionBlock:",
+            "mangledName": "$s10TemLibrary7SandboxC15exportReaderLog11logFilePath21resultCompletionBlockySS_ys5Int32VctF",
+            "moduleName": "TemLibrary",
+            "objc_name": "exportReaderLogWithLogFilePath:resultCompletionBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -1059,6 +1289,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1125,49 +1369,28 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/libtem\/Sandbox.swift",
+      "filePath": "\/Users\/hchang\/Repo\/rndsoft\/rua-ios\/temframework\/TemLibrary\/libtem\/ReasonForCalling.swift",
       "kind": "IntegerLiteral",
-      "offset": 178,
-      "length": 18,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/libtem\/Sandbox.swift",
-      "kind": "IntegerLiteral",
-      "offset": 206,
-      "length": 18,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/libtem\/Sandbox.swift",
-      "kind": "IntegerLiteral",
-      "offset": 178,
-      "length": 18,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/libtem\/Sandbox.swift",
-      "kind": "IntegerLiteral",
-      "offset": 206,
-      "length": 18,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/libtem\/Sandbox.swift",
-      "kind": "IntegerLiteral",
-      "offset": 296,
+      "offset": 165,
       "length": 6,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/libtem\/Sandbox.swift",
+      "filePath": "\/Users\/hchang\/Repo\/rndsoft\/rua-ios\/temframework\/TemLibrary\/libtem\/SandboxStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 296,
-      "length": 6,
+      "offset": 167,
+      "length": 18,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/hchang\/Repo\/ruasdkios\/temframework\/TemLibrary\/extension\/StringExtension.swift",
+      "filePath": "\/Users\/hchang\/Repo\/rndsoft\/rua-ios\/temframework\/TemLibrary\/libtem\/SandboxStatus.swift",
+      "kind": "IntegerLiteral",
+      "offset": 195,
+      "length": 18,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/hchang\/Repo\/rndsoft\/rua-ios\/temframework\/TemLibrary\/extension\/StringExtension.swift",
       "kind": "BooleanLiteral",
       "offset": 524,
       "length": 4,

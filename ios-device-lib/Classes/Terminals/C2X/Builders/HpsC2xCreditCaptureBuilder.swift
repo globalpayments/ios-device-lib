@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objcMembers
 public class HpsC2xCreditCaptureBuilder: HpsC2xBaseBuilder, GMSCreditCaptureBuilder {

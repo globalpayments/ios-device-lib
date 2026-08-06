@@ -542,7 +542,7 @@ extension BBPOSCreditTests: GMSTransactionDelegate {
         print("GMSTransactionDelegate - onConfirmAmount")
     }
     
-    func onConfirmApplication(_ applications: [GlobalMobileSDK.AID]) {
+    func onConfirmApplication(_ applications: [AID]) {
         print("GMSTransactionDelegate - onConfirmApplication")
     }
     
@@ -601,7 +601,7 @@ extension BBPOSCreditTests: HpsC2xDeviceDelegate, GMSClientAppDelegate {
         print("GMSClientAppDelegate - onStatus")
     }
     
-    func requestAIDSelection(_ applications: [GlobalMobileSDK.AID]) {
+    func requestAIDSelection(_ applications: [AID]) {
         print("GMSClientAppDelegate - requestAIDSelection")
     }
     

@@ -1,0 +1,6 @@
+
+framework module LandiSDK_MFI {
+    umbrella header "Global.h"
+    export *
+    module * { export * }
+}

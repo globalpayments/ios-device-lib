@@ -1,5 +1,4 @@
 import Foundation
-import GlobalMobileSDK
 
 @objcMembers
 public class GMSConfiguration: NSObject {

@@ -29,18 +29,18 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '12.0'
   s.requires_arc = true
 
-  s.source_files = ['ios-device-lib/Classes/**/*', 'ios-device-lib/ThirdParty/**/*']
+  s.source_files = ['ios-device-lib/Classes/**/*.{h,m,mm,swift}', 'ios-device-lib/ThirdParty/**/*.{h,m,mm,swift}', 'ios-device-lib/Libraries/*.h']
   s.resource_bundles = {
-    'ios-device-lib' => ['ios-device-lib/Assets/*.png', 'ios-device-lib/Assets/*.xib']
+    'ios-device-lib' => ['ios-device-lib/Assets/*.png', 'ios-device-lib/Assets/*.xib', 'ios-device-lib/Assets/Assets.xcassets', 'ios-device-lib/Classes/**/*.xcassets']
   }
 
-  s.frameworks = 'UIKit'
-  s.vendored_frameworks = 'ios-device-lib/Libraries/GlobalMobileSDK.xcframework',
-                        'ios-device-lib/Libraries/GlobalPaymentsApi.xcframework',
+  s.frameworks = 'UIKit', 'SystemConfiguration'
+  s.vendored_frameworks = 'ios-device-lib/Libraries/GlobalPaymentsApi.xcframework',
                         'ios-device-lib/Libraries/BBPOS.xcframework',
+                        'ios-device-lib/Libraries/BBDeviceOTA-1.6.8.xcframework',
                         'ios-device-lib/Libraries/TemLibrary.xcframework',
-                        'ios-device-lib/Libraries/LandiSDK_BLE.xcframework',
-                        'ios-device-lib/Libraries/RUA_BLE.xcframework'
+                        'ios-device-lib/Libraries/LandiSDK_MFI.xcframework',
+                        'ios-device-lib/Libraries/RUA_MFI.xcframework'
 
   s.swift_version = '5.0'
   s.pod_target_xcconfig = { 

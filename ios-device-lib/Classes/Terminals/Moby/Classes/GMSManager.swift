@@ -151,7 +151,7 @@ public class GMSManager {
             DispatchQueue.main.async {
                 delegate.onError(error: .gatewayNotConfigured)
             }
-            return 
+            return
         }
         
         guard transactionManager == nil else {
@@ -589,6 +589,49 @@ extension GMSManager: TerminalOTAManagerDelegate {
     public func otaUpdateProgress(percentage: Float) {
         DispatchQueue.main.async { [unowned self] in
             self.terminalOTADelegate?.otaUpdateProgress(percentage: percentage)
+        }
+    }
+}
+
+extension GMSManager: GMSDeviceReconnectionInterface {
+    
+    func hasSavedDevice(_ terminalType: TerminalType) -> Bool {
+        if let terminal = terminal {
+            return terminal.hasSavedDevice()
+        }
+        
+        let savedDeviceKey = terminalType == .bbpos_c2x ?  "lastUsedBBPOSDevice" : "lastUsedMobyDevice"
+        return UserDefaults.standard.data(forKey: savedDeviceKey) != nil
+    }
+    
+    func reconnectLastDevice(_ terminalType: TerminalType, connectingFinishBlock: @escaping (Bool?) -> Void) {
+        if terminal == nil {
+            
+            let terminalConfig = TerminalConfig(
+                terminalType: terminalType,
+                autoConnect: false,
+                gatewayType: .Portico,
+                contactAIDs: nil,
+                contactLessAIDs: nil,
+                entryModes: [],
+                timeout: 0,
+                emvTerminalConfig: nil,
+                terminalOnlineProcessTimeout: nil
+            )
+            
+            if terminalType == .bbpos_c2x {
+                terminal = BBPOSTerminal(terminal: terminalType, config: terminalConfig)
+            } else {
+                terminal = IngenicoTerminal(terminal: terminalType,
+                                            isDebug: false,
+                                            config: terminalConfig,
+                                            connectionInterface: RUACommunicationInterfaceBluetooth)
+            }
+        }
+        guard var terminal = self.terminal else { return connectingFinishBlock(false) }
+        terminal.connectionDelegate = self
+        terminal.reconnectLastDevice { isConnected in
+            connectingFinishBlock(isConnected)
         }
     }
 }

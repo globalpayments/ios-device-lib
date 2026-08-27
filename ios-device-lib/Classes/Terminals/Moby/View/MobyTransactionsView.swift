@@ -34,6 +34,8 @@ public struct MobyTransactionsView: View {
     
     private var uiImage = UIImage(named: "Moby5500")
     
+    var ruaHelper : RUAHelper = RUAHelper.sharedInstance
+    
     private func initScreen() {
         isTransactioning = false
         invoiceNumber = String.empty
@@ -49,12 +51,25 @@ public struct MobyTransactionsView: View {
         VStack {
             if self.isTransactioning {
                 ZStack {
-                    VStack {
+                    VStack(spacing: 24) {
                         Text(self.status)
                             .font(.largeTitle)
                         
                         ProgressView()
                             .foregroundColor(.green)
+                        
+                        Button {
+                            cancelTransaction()
+                        } label: {
+                            Text("CANCEL")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity, minHeight: UIScreen.main.bounds.height * 0.08)
+                                .background(Color(UIColor.systemBlue))
+                        }
+                        .frame(maxWidth: UIScreen.main.bounds.width * 0.7)
+                        .padding(.top, 32)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
@@ -477,6 +492,11 @@ public struct MobyTransactionsView: View {
         .onReceive(RUAHelper.sharedInstance.$receiptImage, perform: { image in
             self.image = image
         })
+    }
+    
+    func cancelTransaction()  {
+        self.isTransactioning = false
+        ruaHelper.cancelTransaction()
     }
 }
 

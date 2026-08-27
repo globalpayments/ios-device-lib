@@ -1182,6 +1182,14 @@ extension IngenicoDeviceManager: IngenicoMethods {
             }
         }
     }
+    
+    func hasSavedDevice() -> Bool {
+        return false
+    }
+    
+    func reconnectLastDevice(connectingFinishBlock : @escaping (Bool?) -> Void) {
+        connectingFinishBlock(false)
+    }
 }
 
 // MARK: - EMV Parameter Builders

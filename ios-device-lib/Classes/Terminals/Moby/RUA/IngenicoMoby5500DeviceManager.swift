@@ -75,6 +75,7 @@ public class IngenicoMoby5500DeviceManager: NSObject, ConnectionListener {
     // LED pairing callback (replaces the static ivar)
     var ledConfirmationMoby5500Cb: RUALedPairingConfirmationCallback?
     var connectionInterface: RUACommunicationInterface? = RUACommunicationInterfaceBluetooth
+    private var connectingFinishBlock: ((Bool?) -> Void) = {_ in }
     
     // MARK: - Init
     
@@ -486,6 +487,19 @@ extension IngenicoMoby5500DeviceManager: IngenicoMethods {
             }
         }
     }
+    
+    func reconnectLastDevice(connectingFinishBlock : @escaping (Bool?) -> Void) {
+        guard let saved = lastSelectedDevice() else { return connectingFinishBlock(false) }
+        selectedDevice = saved
+        isUserInitiatedDisconnect = false
+        retryCount = 0
+        _initializeDevice()   // BLE thread, no scan
+        self.connectingFinishBlock = connectingFinishBlock
+    }
+    
+    func hasSavedDevice() -> Bool {
+        return lastSelectedDevice() != nil
+    }
 }
 
 // MARK: - RUADeviceSearchListener
@@ -539,6 +553,11 @@ extension IngenicoMoby5500DeviceManager: RUADeviceStatusHandler {
 
     public func onConnected() {
         os_log("[BLE] onConnected — %@", selectedRUADevice?.name ?? "")
+        self.connectingFinishBlock(true)
+        
+        if let device = self.selectedDevice ?? self.selectedRUADevice {
+            saveSelectedDevice(device)
+        }
         let tmgr = deviceManager?.getTransactionManager()
         if let tmgr = tmgr {
             tmgr.send(.commandEMVTransactionStop,
@@ -556,11 +575,12 @@ extension IngenicoMoby5500DeviceManager: RUADeviceStatusHandler {
 
     public func onDisconnected() {
         os_log("[BLE] onDisconnected (user-initiated: %d)", isUserInitiatedDisconnect ? 1 : 0)
+        clearSavedDevice()
+        connectingFinishBlock(false)
         if !isUserInitiatedDisconnect, selectedDevice != nil {
             DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) { [weak self] in
                 guard let self = self else { return }
                 self.retryCount = 0
-                self._initializeDevice()
             }
             return
         }
@@ -1002,9 +1022,6 @@ extension IngenicoMoby5500DeviceManager {
     func resetDeviceManager() {
         dipCount = 0
         terminalTender = nil
-        if let isReady = deviceManager?.isReady, isReady() {
-            releaseDevice()
-        }
     }
 
     func releaseDevice() {
@@ -2005,14 +2022,20 @@ extension IngenicoMoby5500DeviceManager {
 
     func saveSelectedDevice(_ ruaDevice: RUADevice) {
         if let encoded = try? NSKeyedArchiver.archivedData(withRootObject: ruaDevice, requiringSecureCoding: false) {
-            UserDefaults.standard.set(encoded, forKey: "lastUsedDevice")
+            UserDefaults.standard.set(encoded, forKey: "lastUsedMobyDevice")
             UserDefaults.standard.synchronize()
         }
     }
 
     func lastSelectedDevice() -> RUADevice? {
-        guard let data = UserDefaults.standard.object(forKey: "lastUsedDevice") as? Data else { return nil }
-        return try? NSKeyedUnarchiver.unarchivedObject(ofClass: RUADevice.self, from: data)
+        guard let data = UserDefaults.standard.object(forKey: "lastUsedMobyDevice") as? Data,
+              let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data) else { return nil }
+        unarchiver.requiresSecureCoding = false
+        return unarchiver.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as? RUADevice
+    }
+    
+    func clearSavedDevice() {
+        UserDefaults.standard.removeObject(forKey: "lastUsedMobyDevice")
     }
 }
 

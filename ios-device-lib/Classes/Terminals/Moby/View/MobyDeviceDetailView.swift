@@ -100,6 +100,10 @@ struct MobyDeviceDetailView: View {
             .onReceive(ruaHelper.$showLoadingScreen) { showLoadinScreen in
                 showToastLoading = showLoadinScreen
             }
+            .onReceive(ruaHelper.$isConnectedToDevice) { connected in
+                isConnectedToReader = connected
+                connectionMessage = connected ? "Connected" : "Disconnected"
+            }
         
     }
     
@@ -109,7 +113,11 @@ struct MobyDeviceDetailView: View {
             HStack(spacing: 2) {
                 
                 Button(action: {
-                    initConnection()
+                    if ruaHelper.hasSavedDevice(.ingenico_moby5500) {
+                        initPreviousDeviceConnection()
+                    } else {
+                        initConnection()
+                    }
                    
                 }){
                     Text("CONNECT")
@@ -239,6 +247,20 @@ struct MobyDeviceDetailView: View {
             loadingMessage = isConnectedToReader ? "Connected" : "Disconnected"
             connectionMessage = isConnectedToReader ? "Connected" : "Disconnected"
         }
+    }
+    
+    func initPreviousDeviceConnection()  {
+        showToastLoading = true
+        loadingMessage = "Connecting"
+        ruaHelper.reconnectLastDevice(.ingenico_moby5500, connectingFinishBlock: { isConnected in
+            if let isConnected = isConnected {
+                print("connect completion block")
+                showToastLoading = ruaHelper.showLoadingScreen
+                isConnectedToReader = isConnected
+                loadingMessage = isConnectedToReader ? "Connected" : "Disconnected"
+                connectionMessage = isConnectedToReader ? "Connected" : "Disconnected"
+            }
+        })
     }
     
     func releaseDevice(){

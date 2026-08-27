@@ -147,6 +147,8 @@
 		C76755FA2FF5131A006349CD /* RUA_MFI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755F72FF5131A006349CD /* RUA_MFI.xcframework */; };
 		C76755FB2FF5131A006349CD /* TemLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755F82FF5131A006349CD /* TemLibrary.xcframework */; };
 		C76755FE2FF51648006349CD /* TemCommunicationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C76755FD2FF51648006349CD /* TemCommunicationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7682B103029FEFE00467BDE /* BBPOSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7682B0E3029FEFE00467BDE /* BBPOSDevice.swift */; };
+		C7682B12302B05C700467BDE /* GMSDeviceReconnectionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7682B11302B05C700467BDE /* GMSDeviceReconnectionInterface.swift */; };
 		C76C86592FBAF5D10043E2C4 /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C86582FBAF5D10043E2C4 /* ConnectionDelegate.swift */; };
 		C76C865B2FBAF77B0043E2C4 /* TransactionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C865A2FBAF77B0043E2C4 /* TransactionState.swift */; };
 		C76C865E2FBAF8370043E2C4 /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C865D2FBAF8370043E2C4 /* ConnectionError.swift */; };
@@ -684,7 +686,6 @@
 		DDFF370F2937B6FD00C2D1D1 /* GMSCreditCaptureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF36F62937B6FC00C2D1D1 /* GMSCreditCaptureBuilder.swift */; };
 		DDFF37102937B6FD00C2D1D1 /* GMSBatchCloseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF36F72937B6FC00C2D1D1 /* GMSBatchCloseBuilder.swift */; };
 		DDFF37112937B6FD00C2D1D1 /* GMSTransactionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF36F82937B6FC00C2D1D1 /* GMSTransactionDelegate.swift */; };
-		0EDB66E88C6D4FD9836DAAB3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -828,6 +829,8 @@
 		C76755F82FF5131A006349CD /* TemLibrary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TemLibrary.xcframework; sourceTree = "<group>"; };
 		C76755FC2FF51418006349CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C76755FD2FF51648006349CD /* TemCommunicationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemCommunicationManager.h; sourceTree = "<group>"; };
+		C7682B0E3029FEFE00467BDE /* BBPOSDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBPOSDevice.swift; sourceTree = "<group>"; };
+		C7682B11302B05C700467BDE /* GMSDeviceReconnectionInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSDeviceReconnectionInterface.swift; sourceTree = "<group>"; };
 		C76C86582FBAF5D10043E2C4 /* ConnectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
 		C76C865A2FBAF77B0043E2C4 /* TransactionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionState.swift; sourceTree = "<group>"; };
 		C76C865D2FBAF8370043E2C4 /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
@@ -1369,7 +1372,6 @@
 		DDFF36F62937B6FC00C2D1D1 /* GMSCreditCaptureBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSCreditCaptureBuilder.swift; sourceTree = "<group>"; };
 		DDFF36F72937B6FC00C2D1D1 /* GMSBatchCloseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSBatchCloseBuilder.swift; sourceTree = "<group>"; };
 		DDFF36F82937B6FC00C2D1D1 /* GMSTransactionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSTransactionDelegate.swift; sourceTree = "<group>"; };
-		7EF0710749384A3EA2FCB64C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1580,6 +1582,7 @@
 			children = (
 				4357895730122C060051FF3C /* BBPOSTerminal.swift */,
 				4357895C301231E90051FF3C /* BBDeviceConstants.swift */,
+				C7682B0F3029FEFE00467BDE /* Model */,
 			);
 			path = BBPOS;
 			sourceTree = "<group>";
@@ -1749,6 +1752,14 @@
 				C744D5482FC7065E007EEC16 /* EncryptionType.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		C7682B0F3029FEFE00467BDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7682B0E3029FEFE00467BDE /* BBPOSDevice.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C76C865C2FBAF8150043E2C4 /* Errors */ = {
@@ -2954,6 +2965,7 @@
 				DDFF36F62937B6FC00C2D1D1 /* GMSCreditCaptureBuilder.swift */,
 				DDFF36F72937B6FC00C2D1D1 /* GMSBatchCloseBuilder.swift */,
 				DDFF36F82937B6FC00C2D1D1 /* GMSTransactionDelegate.swift */,
+				C7682B11302B05C700467BDE /* GMSDeviceReconnectionInterface.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -3430,6 +3442,7 @@
 				C744D5452FC70357007EEC16 /* EMVTerminalConfiguration.swift in Sources */,
 				C70BFF202FC0677400DB1008 /* MSRFallbackCardData.swift in Sources */,
 				DDFF35842937AF4300C2D1D1 /* HpaPaxSafDeleteResponse.m in Sources */,
+				C7682B103029FEFE00467BDE /* BBPOSDevice.swift in Sources */,
 				14864F182C90D59E00B0E4F3 /* HpsMobyBatchCloseBuilder.swift in Sources */,
 				DDFF37102937B6FD00C2D1D1 /* GMSBatchCloseBuilder.swift in Sources */,
 				DDFF36852937AF4400C2D1D1 /* HpsCardInfoViewController.m in Sources */,
@@ -3490,6 +3503,7 @@
 				DDFF35C12937AF4300C2D1D1 /* HpsTerminalResponse.m in Sources */,
 				DDFF36092937AF4400C2D1D1 /* HpsHpaResponse.m in Sources */,
 				DDFF37062937B6FD00C2D1D1 /* GMSDeviceDelegate.swift in Sources */,
+				C7682B12302B05C700467BDE /* GMSDeviceReconnectionInterface.swift in Sources */,
 				DDFF36692937AF4400C2D1D1 /* HpsGatewayData.m in Sources */,
 				DDFF365F2937AF4400C2D1D1 /* HpsTicket.m in Sources */,
 				DDFF35F02937AF4300C2D1D1 /* HpsHpaDevice.m in Sources */,

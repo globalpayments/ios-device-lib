@@ -68,6 +68,8 @@ class BBPOSTerminal: NSObject, Terminal {
     private var cardFlowType: BBDeviceCheckCardResult?
     private var cardData: [AnyHashable : Any]?
     
+    private var connectingFinishBlock: ((Bool?) -> Void)?
+    private let savedDeviceKey = "lastUsedBBPOSDevice"
 
     required init?(terminal: TerminalType, config: TerminalConfig) {
         terminalType = terminal
@@ -355,6 +357,31 @@ class BBPOSTerminal: NSObject, Terminal {
             BBDeviceOTAController.shared()?.startRemoteKeyInjection(withData: inputData)
         }
     }
+    
+    func hasSavedDevice() -> Bool {
+        return loadLastDevice() != nil
+    }
+
+    func reconnectLastDevice(connectingFinishBlock: @escaping (Bool?) -> Void) {
+        guard let saved = loadLastDevice() else {
+            connectingFinishBlock(false)
+            return
+        }
+        let uuid = UUID(uuidString: saved.identifier) ?? UUID()
+        selectedTerminal = GMSTerminalInfo(name: saved.name,
+                                           description: saved.name,
+                                           connected: false,
+                                           terminalType: terminalType,
+                                           identifier: uuid)
+        
+        self.connectingFinishBlock = connectingFinishBlock
+        
+        if let peripheral = scannedDevices[uuid] {
+            BBDeviceController.shared()?.connectBT(peripheral)
+        } else {
+            BBDeviceController.shared()?.startBTScan(nil, scanTimeout: 15)
+        }
+    }
 }
 
 extension BBPOSTerminal: BBDeviceControllerDelegate {
@@ -383,6 +410,8 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
     }
     
     func onBTScanTimeout() {
+        connectingFinishBlock?(false)
+        connectingFinishBlock = nil
         searchDelegate?.onSearchComplete()
     }
     
@@ -395,6 +424,10 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
         terminalInfo.setConnected(true)
         terminalInfo.identifier = peripheral.identifier
         selectedTerminal = terminalInfo
+        scannedDevices[peripheral.identifier] = peripheral
+        saveLastDevice(peripheral: peripheral)
+        connectingFinishBlock?(true)
+        connectingFinishBlock = nil
         connectionDelegate?.onConnected(terminalInfo: terminalInfo)
     }
     
@@ -404,10 +437,15 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
         }
         terminalInfo.setConnected(false)
         selectedTerminal = terminalInfo
+        connectingFinishBlock?(false)
+        connectingFinishBlock = nil
         connectionDelegate?.onDisconnected(terminalInfo: terminalInfo)
+        clearLastDevice()
     }
     
     func onBTConnectTimeout() {
+        connectingFinishBlock?(false)
+        connectingFinishBlock = nil
         connectionDelegate?.onError(error: .bluetoothConnectionTimeout)
     }
     
@@ -937,6 +975,8 @@ extension BBPOSTerminal {
             }
             terminalInfo.setConnected(true)
             selectedTerminal = terminalInfo
+            connectingFinishBlock?(true)
+            connectingFinishBlock = nil
             connectionDelegate?.onConnected(terminalInfo: terminalInfo)
             
         case .pairingError_AlreadyPairedWithAnotherDevice:
@@ -1231,4 +1271,23 @@ extension BBPOSTerminal: BBDeviceOTAControllerDelegate {
     }
 }
 
+extension BBPOSTerminal {
 
+    private func saveLastDevice(peripheral: CBPeripheral) {
+        let saved = BBPOSDevice(identifier: peripheral.identifier.uuidString,
+                                     name: peripheral.name ?? "")
+        if let data = try? JSONEncoder().encode(saved) {
+            UserDefaults.standard.set(data, forKey: savedDeviceKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
+
+    private func loadLastDevice() -> BBPOSDevice? {
+        guard let data = UserDefaults.standard.data(forKey: savedDeviceKey) else { return nil }
+        return try? JSONDecoder().decode(BBPOSDevice.self, from: data)
+    }
+
+    private func clearLastDevice() {
+        UserDefaults.standard.removeObject(forKey: savedDeviceKey)
+    }
+}

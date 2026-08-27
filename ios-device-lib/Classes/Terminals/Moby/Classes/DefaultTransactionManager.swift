@@ -371,10 +371,12 @@ extension DefaultTransactionManager {
             if let safTransaction = safTransaction {
                 delegate?.onError(error: .safTransactionFailed(message: message, transactionID: safTransaction.clientTransactionId))
             } else {
+                transactionState = .complete
                 delegate?.onError(error: .transactionFailed(message: message))
                 delegate?.onTransactionComplete(result: .fail, response: response)
             }
         case .requestFailed(message: let message, let errorCode):
+            transactionState = .complete
             delegate?.onError(error: .gatewayFailure(message: message, errorCode: errorCode))
             delegate?.onTransactionComplete(result: .fail, response: response)
         case .trackReadFail:

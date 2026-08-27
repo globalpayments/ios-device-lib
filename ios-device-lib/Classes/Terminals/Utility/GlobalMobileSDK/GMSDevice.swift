@@ -248,3 +248,18 @@ extension GMSDevice: GMSClientTerminalOTAManagerDelegate {
         otaFirmwareUpdateDelegate?.onReturnSetTargetVersion(message: message)
     }
 }
+
+extension GMSDevice: GMSDeviceReconnectionInterface {
+    
+    /// Returns `true` when a previous BBPOS C2X/C3X session was saved and can be restored.
+    public func hasSavedDevice(_ terminalType: TerminalType) -> Bool {
+        return gmsWrapper?.hasSavedDevice(terminalType) ?? false
+    }
+    
+    /// Attempt to reconnect the previously-used BBPOS C2X/C3X device without a new Bluetooth scan.
+    /// The result arrives via the normal `deviceDelegate` callbacks (`onConnected` / `onDisconnected`
+    /// / `onError`) as well as the `completion` block (`true` = connected, `false`/`nil` = failed).
+    public func reconnectLastDevice(_ terminalType: TerminalType, connectingFinishBlock: @escaping (Bool?) -> Void) {
+        gmsWrapper?.reconnectLastDevice(terminalType, connectingFinishBlock: connectingFinishBlock)
+    }
+}

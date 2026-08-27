@@ -81,7 +81,7 @@ class RUAHelper: NSObject {
     
     var currentKeyMappingInfoMode = KeyMappingStubMode.None
     
-    var isConnectedToDevice = false
+    @Published var isConnectedToDevice = false
     
     private var stateJson: [String:AnyObject]
     
@@ -115,6 +115,8 @@ class RUAHelper: NSObject {
     @Published public var isProcessing: Bool = false
     @Published public var status: String = "PROCESSING"
     @Published public var receiptImage: UIImage?
+    
+    public var gmsWrapper: GMSWrapper?
     
     let headerDetail = ReceiptHelperDetail(headerTitle: "HPS Test",
                                            headerAddress: "1 Heartland Way",
@@ -156,7 +158,13 @@ class RUAHelper: NSObject {
         //        mobyDevice?.otaFirmwareUpdateDelegate = self
         mobyDevice?.transactionDelegate = self
         mobyDevice?.deviceDelegate = self
-        
+        gmsWrapper = .init(
+            .fromHpsConnectionConfig(config),
+            delegate: self,
+            entryModes: [.contact],
+            terminalType: .ingenico_moby5500,
+            connectionInterface: connectionInterface
+        )
     }
     
     func startSearchingDevices(searchFinishBlock : @escaping ([RuaDevice]) -> Void) {
@@ -213,16 +221,10 @@ class RUAHelper: NSObject {
     }
     
     private func lastSelectedDevice() -> RUADevice? {
-        var ruaDevice : RUADevice?
-        let lastDeviceSaveData = UserDefaults.standard.data(forKey: "lastUsedDevice")
-        guard let lastDeviceData = lastDeviceSaveData else {return nil}
-        
-        do {
-            try ruaDevice = NSKeyedUnarchiver.unarchivedObject(ofClass: RUADevice.self, from: lastDeviceData)
-        } catch {
-            print(error.localizedDescription)
-        }
-        return ruaDevice
+        guard let data = UserDefaults.standard.data(forKey: "lastUsedDevice"),
+              let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data) else { return nil }
+        unarchiver.requiresSecureCoding = false
+        return unarchiver.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as? RUADevice
     }
     
     // MARK:  RUADeviceSearchListener delegate methods
@@ -614,6 +616,7 @@ extension RUAHelper: GMSClientAppDelegate {
     
     func deviceDisconnected() {
         print("deviceDisconnected")
+        isConnectedToDevice = false
     }
     
     func deviceFound(_ device: NSObject) {
@@ -685,9 +688,10 @@ extension RUAHelper: GMSTransactionDelegate {
         case .surchargeRequested:
             statusText = "Surcharge Requested"
             self.isProcessing = false
+        case .cancelled, .cancel, .cancelling:
+            self.isProcessing = false
         default:
             statusText = LoadingStatus.PROCESSING.rawValue
-            self.isProcessing = true
         }
         
         self.status = self.statusText
@@ -852,6 +856,28 @@ extension RUAHelper {
         self.success = success
         
         self.showMessage = (message.count > 0)
+    }
+    
+    public func cancelTransaction() {
+        if let wrapper = gmsWrapper {
+            wrapper.cancelTransaction()
+        }
+    }
+}
+
+@available(iOS 13.0, *)
+extension RUAHelper: GMSDeviceReconnectionInterface {
+    
+    /// Returns `true` when a previous Moby session was saved and can be restored.
+    func hasSavedDevice(_ terminalType: TerminalType) -> Bool {
+        return gmsWrapper?.hasSavedDevice(terminalType) ?? false
+    }
+    
+    /// Attempt to reconnect the previously-used Moby device without a new Bluetooth scan.
+    /// The result arrives via the normal `deviceDelegate` callbacks (`onConnected` / `onDisconnected`
+    /// / `onError`) as well as the `completion` block (`true` = connected, `false`/`nil` = failed).
+    public func reconnectLastDevice(_ terminalType: TerminalType, connectingFinishBlock: @escaping (Bool?) -> Void) {
+        gmsWrapper?.reconnectLastDevice(terminalType, connectingFinishBlock: connectingFinishBlock)
     }
 }
 

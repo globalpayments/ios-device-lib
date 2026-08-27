@@ -188,18 +188,7 @@ public struct MobyDevicesView: View {
                
                HStack {
                    Button(action: {
-                       if self.connectionInterface == RUACommunicationInterfaceUSB {
-                           if let device = discoverConnectedUSBDevice() {
-                               usbDevice = device
-                               launchDevice()
-                               navigateToUSBDetail = true
-                           } else {
-                               usbDeviceNotFound = true
-                           }
-                       } else {
-                           launchDeviceSearching()
-                           self.showViewForCredentials = false
-                       }
+                       showDeviceDetailView()
                    }){
                        Text("START")
                            .padding(20)
@@ -284,6 +273,24 @@ public struct MobyDevicesView: View {
         } releaseCompletionBlock: { isConnected in
             os_log("releaseCompletionBlock")
             showToastLoading = RUAHelper.sharedInstance.showLoadingScreen
+        }
+    }
+    
+    func showDeviceDetailView() {
+        launchDevice()
+        if self.connectionInterface == RUACommunicationInterfaceUSB {
+            if let device = discoverConnectedUSBDevice() {
+                usbDevice = device
+                navigateToUSBDetail = true
+            } else {
+                usbDeviceNotFound = true
+            }
+        } else if RUAHelper.sharedInstance.hasSavedDevice(.ingenico_moby5500) {
+            usbDevice = RuaDevice(deviceName: "", deviceSerialNumber: "")
+            navigateToUSBDetail = true
+        } else {
+            launchDeviceSearching()
+            self.showViewForCredentials = false
         }
     }
     

@@ -41,4 +41,6 @@ protocol Terminal {
     func confirmSurcharge(amount: Decimal)
     func isSurchargeEnabled() -> Bool
     func setSurchargeTimeOutError(isSurchargeTimeOutError: Bool, completion: @escaping(()->Void))
+    func hasSavedDevice() -> Bool
+    func reconnectLastDevice(connectingFinishBlock : @escaping (Bool?) -> Void)
 }

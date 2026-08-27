@@ -21,4 +21,6 @@ protocol IngenicoMethods: AnyObject {
     func selectedAID(_ aid: AID)
     func sendOnlineProcessingResult(_ onlineResult: HostTenderResponse)
     func cancelTransaction()
+    func hasSavedDevice() -> Bool
+    func reconnectLastDevice(connectingFinishBlock : @escaping (Bool?) -> Void)
 }

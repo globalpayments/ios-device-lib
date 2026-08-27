@@ -521,6 +521,23 @@ class IngenicoTerminal: NSObject, Terminal, IngenicoDeviceManagerDelegate {
 
         }
     }
+    
+    func hasSavedDevice() -> Bool {
+        return ingenicoDeviceManager?.hasSavedDevice() ?? false
+    }
+
+    func reconnectLastDevice(connectingFinishBlock : @escaping (Bool?) -> Void) {
+        if let saved = (ingenicoDeviceManager as? IngenicoMoby5500DeviceManager)?.lastSelectedDevice() {
+            selectedTerminal = GMSTerminalInfo(name: saved.name ?? "",
+                                              description: saved.name ?? "",
+                                              connected: false,
+                                              terminalType: terminalType,
+                                              identifier: UUID(uuidString: saved.identifier ?? "") ?? UUID())
+        }
+        ingenicoDeviceManager?.reconnectLastDevice { isConnected in
+            connectingFinishBlock(isConnected)
+        }
+    }
 }
 
 extension IngenicoTerminal {

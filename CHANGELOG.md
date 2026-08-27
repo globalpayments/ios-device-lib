@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.3.1 2026-08-27
+- ios-device-lib: Bluetooth reconnect without re-scan for BBPOS & Moby 5500
+- ios-device-lib: Added cancel transaction support for Moby 5500 terminal devices
 
 ## 3.3.0 2026-08-06
 - ios-device-lib: Migrated Moby 5500 and BBPOS terminal functionality from GlobalMobileSDK to ios-device-lib

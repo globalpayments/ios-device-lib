@@ -389,3 +389,24 @@ extension GMSWrapper: TerminalOTAManagerDelegate {
         terminalOTADelegate?.onReturnSetTargetVersion(resultType: resultType, type: type, message: message)
     }
 }
+
+extension GMSWrapper: GMSDeviceReconnectionInterface {
+    
+    /// Returns `true` when a previous BBPOS C2X/C3X/Ingenico moby5500 connection has been saved in UserDefaults
+    /// and the device can be reconnected without a new Bluetooth scan.
+    func hasSavedDevice(_ terminalType: TerminalType) -> Bool {
+        return GMSManager.shared.hasSavedDevice(terminalType)
+    }
+    
+    /// Attempt to reconnect the last-used BBPOS C2X/C3X/Ingenico moby5500 device without triggering a new BT scan.
+    /// Connection events (connected / disconnected / error) are forwarded to the `GMSDevice`
+    /// delegate exactly as they are during a normal first-time connection.
+    func reconnectLastDevice(_ terminalType: TerminalType, connectingFinishBlock: @escaping (Bool?) -> Void) {
+        // Make sure this GMSWrapper instance is the connection-event receiver so the
+        // full chain  GMSManager → GMSWrapper → GMSDevice → app delegate fires correctly.
+        GMSManager.shared.connectionDelegate = self
+        GMSManager.shared.reconnectLastDevice(terminalType) { isConnected in
+            connectingFinishBlock(isConnected)
+        }
+    }
+}

@@ -167,7 +167,11 @@ class ConnectC2XViewController: UIViewController {
 
             device = HpsC2xDevice(config: config)
             device?.deviceDelegate = self
-            device?.scan()
+            if let device = device, device.hasSavedDevice(.bbpos_c2x) {
+                attemptAutoReconnect(device)
+            } else {
+                device?.scan()
+            }
             print(" Is Device Connected?: \(device?.isConnected())")
             activityIndicator.isHidden = false
         }
@@ -205,6 +209,21 @@ class ConnectC2XViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    private func attemptAutoReconnect(_ device: HpsC2xDevice?) {
+        connectionLabel.text = "Reconnecting"
+        activityIndicator.isHidden = false
+        scanButtonReference.isEnabled = false
+        
+        device?.reconnectLastDevice(.bbpos_c2x, connectingFinishBlock: { [weak self] isConnected in
+            DispatchQueue.main.async {
+                self?.activityIndicator.isHidden = true
+                self?.scanButtonReference.isEnabled = true
+                if isConnected != true {
+                    self?.connectionLabel.text = "Auto-reconnect failed. Tap Scan to connect."
+                }
+            }
+        })
+    }
 }
 
 extension ConnectC2XViewController: HpsC2xDeviceDelegate {
@@ -217,6 +236,9 @@ extension ConnectC2XViewController: HpsC2xDeviceDelegate {
                                 object: nil, userInfo: selectedDevice)
         
         print(" Is Device Connected?: \(device?.isConnected())")
+        DispatchQueue.main.async {
+            self.activityIndicator.isHidden = true
+        }
     }
     
     func onDisconnected() {

@@ -396,7 +396,7 @@ extension IngenicoMoby5500DeviceManager: IngenicoMethods {
                                                        withIngenicoResponse: self.terminalTender)
                 }
             } else if terminalTender?.cardDataSource == .emvContactless {
-                // TODO: (scheduled) Contactless feature
+                sendEMVTransactionDataCommandWithAID(aidValue)
             } else {
                 sendEMVTransactionDataCommandWithAID(aidValue)
             }
@@ -776,19 +776,11 @@ extension IngenicoMoby5500DeviceManager: RUAAudioJackPairingListener {
 
 extension IngenicoMoby5500DeviceManager {
 
-    func startTransactionProcess() {
-        transactionManager = deviceManager?.getTransactionManager()
-        saveConnectedDeviceSerialNumber(connectedDeviceSerialNumber)
-
-        let amount = String(terminalTender?.amount ?? 0)
-        let parameters = getEMVStartTransactionParameters(amount)
-
+    private func sendStartTransactionCommand(parameters: [NSNumber: Any]) {
         transactionManager?.send(
             .commandEMVStartTransaction,
             withParameters: parameters,
-            progress: { [weak self] messageType, _ in
-                self?.consoleLog(RUAEnumerationHelper.ruaProgressMessage_(toString: messageType))
-            }
+            progress: progressHandler
         ) { [weak self] ruaResponse in
             guard let self = self, let ruaResponse = ruaResponse else { return }
             self.consoleLog(self.ruaResponse(toString: ruaResponse))
@@ -798,6 +790,43 @@ extension IngenicoMoby5500DeviceManager {
                 self.handleRuaResponseError(ruaResponse)
             }
         }
+    }
+
+    private func enableContactlessAndStart(parameters: [NSNumber: Any]) {
+        guard let cmgr = configManager else {
+            sendStartTransactionCommand(parameters: parameters)
+            return
+        }
+
+        cmgr.configureContactlessTransactionOptions(
+            true,
+            supportAMEX: true,
+            enableCryptogram17: true,
+            enableOnlineCryptogram: true,
+            enableOnline: true,
+            enableMagStripe: false,
+            enableMagChip: true,
+            enableQVSDC: true,
+            enableMSD: false,
+            contactlessOutcomeDisplayTime: 1
+        ) { [weak self] response in
+            guard let self = self else { return }
+            if let response = response {
+                self.consoleLog(self.ruaResponse(toString: response))
+            }
+            self.sendStartTransactionCommand(parameters: parameters)
+        }
+    }
+
+    func startTransactionProcess() {
+        transactionManager = deviceManager?.getTransactionManager()
+        saveConnectedDeviceSerialNumber(connectedDeviceSerialNumber)
+
+        let amount = String(terminalTender?.amount ?? 0)
+        let parameters = getEMVStartTransactionParameters(amount)
+
+        // Ensure CL3 contactless interface is enabled for every card-present start.
+        enableContactlessAndStart(parameters: parameters)
     }
 
     func handleEmvStartTransactionResponse(_ response: RUAResponse) {
@@ -822,11 +851,12 @@ extension IngenicoMoby5500DeviceManager {
                                                     withIngenicoResponse: self?.terminalTender)
             }
 
-        case RUAResponseTypeContactEMVAmountDOL:
+        case RUAResponseTypeContactEMVAmountDOL, RUAResponseTypeContactLessEMVAmountDOL:
             sendEMVTransactionDataCommand()
 
         case RUAResponseTypeContactLessEMVResponseDOL:
-            break // TODO: (Scheduled) Complete later
+            sendEMVTransactionDataCommandWithAID(aidValue)
+
 
         case RUAResponseTypeContactQuickChipEMVResponseDOL:
             if paypassOutcome == "03" || paypassOutcome == "04" {

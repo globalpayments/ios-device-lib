@@ -67,7 +67,12 @@ class BBPOSTerminal: NSObject, Terminal {
     
     private var cardFlowType: BBDeviceCheckCardResult?
     private var cardData: [AnyHashable : Any]?
-    
+    private var isConnectRequested = false
+    private var isVerifyingConnection = false
+    private var verificationTimeoutWorkItem: DispatchWorkItem?
+    private var pendingConnectedPeripheral: CBPeripheral?
+    private var pendingConnectedTerminalInfo: InternalTerminalInfo?
+
     private var connectingFinishBlock: ((Bool?) -> Void)?
     private let savedDeviceKey = "lastUsedBBPOSDevice"
 
@@ -98,6 +103,7 @@ class BBPOSTerminal: NSObject, Terminal {
         searchDelegate = nil
         connectionDelegate = delegate
         selectedTerminal = terminalInfo
+        isConnectRequested = true
         // Connect with the selected peripheral
         guard let peripheral = scannedDevices[terminalInfo.identifier] else {
             BBDeviceController.shared()?.startBTScan([terminalInfo.name], scanTimeout: 15)
@@ -107,6 +113,8 @@ class BBPOSTerminal: NSObject, Terminal {
     }
     
     func disconnect() {
+        cancelPendingVerification()
+        isConnectRequested = false
         BBDeviceController.shared()?.disconnectBT()
     }
     
@@ -357,7 +365,7 @@ class BBPOSTerminal: NSObject, Terminal {
             BBDeviceOTAController.shared()?.startRemoteKeyInjection(withData: inputData)
         }
     }
-    
+
     func hasSavedDevice() -> Bool {
         return loadLastDevice() != nil
     }
@@ -373,9 +381,10 @@ class BBPOSTerminal: NSObject, Terminal {
                                            connected: false,
                                            terminalType: terminalType,
                                            identifier: uuid)
-        
+
+        isConnectRequested = true
         self.connectingFinishBlock = connectingFinishBlock
-        
+
         if let peripheral = scannedDevices[uuid] {
             BBDeviceController.shared()?.connectBT(peripheral)
         } else {
@@ -398,7 +407,7 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
                                                terminalType: terminalType,
                                                identifier: peripheral.identifier)
             scannedDevices[peripheral.identifier] = peripheral
-            if peripheral.identifier == selectedTerminal?.identifier {
+            if isConnectRequested, peripheral.identifier == selectedTerminal?.identifier {
                 BBDeviceController.shared()?.connectBT(peripheral)
             }
             searchDelegate?.deviceFound(terminalInfo: terminalInfo)
@@ -417,21 +426,22 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
     
     /// **Connction callbacks**
     func onBTConnected(_ connectedDevice: NSObject!) {
-        guard var terminalInfo = selectedTerminal as? InternalTerminalInfo,
+        guard isConnectRequested else {
+            return
+        }
+        guard let terminalInfo = selectedTerminal as? InternalTerminalInfo,
               let peripheral = connectedDevice as? CBPeripheral else {
             return
         }
-        terminalInfo.setConnected(true)
-        terminalInfo.identifier = peripheral.identifier
-        selectedTerminal = terminalInfo
-        scannedDevices[peripheral.identifier] = peripheral
-        saveLastDevice(peripheral: peripheral)
-        connectingFinishBlock?(true)
-        connectingFinishBlock = nil
-        connectionDelegate?.onConnected(terminalInfo: terminalInfo)
+        // The BT link may be established while the reader is still in pairing
+        // mode and not genuinely responsive. Verify the connection before
+        // reporting it to avoid a false positive onConnected.
+        verifyConnectionOrTeardown(peripheral: peripheral, terminalInfo: terminalInfo)
     }
     
     func onBTDisconnected() {
+        cancelPendingVerification()
+        isConnectRequested = false
         guard var terminalInfo = selectedTerminal as? InternalTerminalInfo else {
             return
         }
@@ -444,11 +454,38 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
     }
     
     func onBTConnectTimeout() {
+        cancelPendingVerification()
+        isConnectRequested = false
         connectingFinishBlock?(false)
         connectingFinishBlock = nil
         connectionDelegate?.onError(error: .bluetoothConnectionTimeout)
     }
     
+    func onDeviceHere(_ isHere: Bool) {
+        guard isVerifyingConnection else {
+            return
+        }
+        let peripheral = pendingConnectedPeripheral
+        let terminalInfo = pendingConnectedTerminalInfo
+        cancelPendingVerification()
+        if isHere, let terminalInfo = terminalInfo {
+            // The reader genuinely responded — the connection is real.
+            var terminalInfo = terminalInfo
+            terminalInfo.setConnected(true)
+            if let peripheral = peripheral {
+                terminalInfo.identifier = peripheral.identifier
+                scannedDevices[peripheral.identifier] = peripheral
+                saveLastDevice(peripheral: peripheral)
+            }
+            selectedTerminal = terminalInfo
+            connectingFinishBlock?(true)
+            connectingFinishBlock = nil
+            connectionDelegate?.onConnected(terminalInfo: terminalInfo)
+        } else {
+            teardownStaleConnection()
+        }
+    }
+
     func onReturnReadTerminalSettingResult(_ data: [AnyHashable : Any]!) {
         var terminalSettingKey: String = ""
         if data.count ==  1 {
@@ -473,6 +510,52 @@ extension BBPOSTerminal: BBDeviceControllerDelegate {
     
     func onReturnUpdateTerminalSettingResult(status: BBDeviceTerminalSettingStatus) {
         terminalSettingsDelegate?.onReturnUpdateSetting(settingType: terminalSettingType ?? .normalModeTimeout, result: TerminalSettingResult(rawValue: status.rawValue) ?? .invalidValue)
+    }
+}
+
+extension BBPOSTerminal {
+
+    private func verifyConnectionOrTeardown(peripheral: CBPeripheral?, terminalInfo: InternalTerminalInfo) {
+        guard isConnectRequested else {
+            // No connection was requested — just clear the stale state silently.
+            BBDeviceController.shared()?.disconnectBT()
+            return
+        }
+        guard !isVerifyingConnection else {
+            return
+        }
+        isVerifyingConnection = true
+        pendingConnectedPeripheral = peripheral
+        pendingConnectedTerminalInfo = terminalInfo
+        // Send a detect command to check whether the reader genuinely responds.
+        BBDeviceController.shared()?.isDeviceHere()
+        let workItem = DispatchWorkItem { [weak self] in
+            guard let self = self, self.isVerifyingConnection else {
+                return
+            }
+            // No response — the reader is not truly connected. Tear down the
+            // stale state so a subsequent connect can succeed.
+            self.teardownStaleConnection()
+        }
+        verificationTimeoutWorkItem = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: workItem)
+    }
+
+    private func cancelPendingVerification() {
+        verificationTimeoutWorkItem?.cancel()
+        verificationTimeoutWorkItem = nil
+        isVerifyingConnection = false
+        pendingConnectedPeripheral = nil
+        pendingConnectedTerminalInfo = nil
+    }
+
+    private func teardownStaleConnection() {
+        cancelPendingVerification()
+        isConnectRequested = false
+        connectingFinishBlock?(false)
+        connectingFinishBlock = nil
+        connectionDelegate?.onError(error: .bluetoothConnectionLost)
+        BBDeviceController.shared()?.disconnectBT()
     }
 }
 
@@ -970,15 +1053,15 @@ extension BBPOSTerminal {
         // TODO: Handle other errors here.
         switch errorType {
         case .btAlreadyConnected:
-            guard var terminalInfo = selectedTerminal as? InternalTerminalInfo else {
+            guard isConnectRequested else {
                 return
             }
-            terminalInfo.setConnected(true)
-            selectedTerminal = terminalInfo
-            connectingFinishBlock?(true)
-            connectingFinishBlock = nil
-            connectionDelegate?.onConnected(terminalInfo: terminalInfo)
-            
+            guard let terminalInfo = selectedTerminal as? InternalTerminalInfo else {
+                return
+            }
+            let peripheral = BBDeviceController.shared()?.getConnectedBTDevice() as? CBPeripheral
+            verifyConnectionOrTeardown(peripheral: peripheral, terminalInfo: terminalInfo)
+
         case .pairingError_AlreadyPairedWithAnotherDevice:
             connectionDelegate?.onError(error: .alreadyPairedWithAnotherDevice)
             return

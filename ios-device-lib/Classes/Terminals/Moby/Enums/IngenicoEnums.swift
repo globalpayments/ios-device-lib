@@ -5,6 +5,15 @@
 
 import Foundation
 
+/// PayPass / Contactless transaction outcome values returned in tag `DF6D`.
+enum PayPassOutcome: String {
+    case offlineApproved        = "01"
+    case offlineDeclined        = "02"
+    case onlineRequest          = "03"
+    case tryAnotherInterface    = "04"
+    case endApplication         = "05"
+}
+
 public enum ProgressMessage: UInt {
     case unknown = 0
     case configurationComplete

@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.3.2 2026-09-03
+- ios-device-lib: Moby 5500 tap issue fix
+- ios-device-lib: Moby 5500 tap issue fix 2nd PR HOT FIX
+- ios-device-lib: Fixed onConnected triggered in BBPOS pairing flow
+
 ## 3.3.1 2026-08-27
 - ios-device-lib: Bluetooth reconnect without re-scan for BBPOS & Moby 5500
 - ios-device-lib: Added cancel transaction support for Moby 5500 terminal devices

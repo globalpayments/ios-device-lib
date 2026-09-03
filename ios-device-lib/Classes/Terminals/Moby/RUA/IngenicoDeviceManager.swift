@@ -710,7 +710,10 @@ extension IngenicoDeviceManager {
                     self.delegate?.onTransactionStatus(.confirmAmount,
                                                        withIngenicoResponse: self.terminalTender)
                 case RUAResponseTypeContactLessEMVResponseDOL:
-                    break
+                    self.checkCID(
+                        (ruaResponse.responseData as? [NSNumber: Any])?[NSNumber(value: RUAParameter.cryptogramInformationData.rawValue)] as? String,
+                        andTerminalDecisionAfterGenerateAC: (ruaResponse.responseData as? [NSNumber: Any])?[NSNumber(value: RUAParameter.terminalDecisionafterGenerateAC.rawValue)] as? String
+                    )
                 case RUAResponseTypeListOfApplicationIdentifiers:
                     self.handleListOfAidsResponse(ruaResponse)
                 default:
@@ -787,7 +790,9 @@ extension IngenicoDeviceManager {
         case RUAResponseTypeContactEMVAmountDOL, RUAResponseTypeContactLessEMVAmountDOL:
             delegate?.onTransactionStatus(.confirmAmount, withIngenicoResponse: terminalTender)
         case RUAResponseTypeContactLessEMVResponseDOL:
-            break
+            let cid      = resp?[NSNumber(value: RUAParameter.cryptogramInformationData.rawValue)] as? String
+            let terminal = resp?[NSNumber(value: RUAParameter.terminalDecisionafterGenerateAC.rawValue)] as? String
+            checkCID(cid, andTerminalDecisionAfterGenerateAC: terminal)
         case RUAResponseTypeListOfApplicationIdentifiers:
             handleListOfAidsResponse(response)
         default:

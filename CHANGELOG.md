@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.3.3 2026-10-15
+- ios-device-lib: PAX - Parse responses for offline (SAF) approvals (000001) and declines (000100) so EMV/metadata tags in ExtData are available
+
 ## 3.3.2 2026-09-03
 - ios-device-lib: Moby 5500 tap issue fix
 - ios-device-lib: Moby 5500 tap issue fix 2nd PR HOT FIX

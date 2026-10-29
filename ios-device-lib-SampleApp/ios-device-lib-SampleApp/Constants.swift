@@ -10,4 +10,6 @@ import Foundation
 
 struct Constants {
     static let selectedDeviceNotification: String = "selectedDeviceNotification"
+    /// Replace locally with your Heartland public API key. Do not commit real keys.
+    static let tokenServicePublicApiKey: String = "YOUR_PUBLIC_API_KEY"
 }

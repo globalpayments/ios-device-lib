@@ -21,7 +21,7 @@ class TokenServiceHostedViewController: UIViewController {
         
         let tokenService = HpsTokenServiceWeb()
         do {
-            if let vc = try tokenService.tokenServiceWebView(completion: { response in
+            if let vc = try tokenService.tokenServiceWebView(apiKey: Constants.tokenServicePublicApiKey, completion: { response in
                 self.vc?.dismiss(animated: true)
                 
                 let alert = UIAlertController(title: "Response", message: "\(String(describing: response))", preferredStyle: .alert)

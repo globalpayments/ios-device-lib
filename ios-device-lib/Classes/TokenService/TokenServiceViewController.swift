@@ -12,14 +12,19 @@ class TokenServiceViewController: UIViewController {
     var webView: WKWebView!
     var html: String?
     var completion: HpsTokenServiceWebCompletionHandler?
-    let apiKey = "pkapi_cert_P6dRqs1LzfWJ6HgGVZ"
+    var publicApiKey: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let contentControllers = WKUserContentController()
-        let js = "window.dynamicApiKey = '\(TokenServiceConstant.apiKey)';"
-        let userScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: true)
-        contentControllers.addUserScript(userScript)
+        if let key = publicApiKey, !key.isEmpty {
+            let escaped = key
+                .replacingOccurrences(of: "\\", with: "\\\\")
+                .replacingOccurrences(of: "'", with: "\\'")
+            let js = "window.dynamicApiKey = '\(escaped)';"
+            let userScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+            contentControllers.addUserScript(userScript)
+        }
         
         let config = WKWebViewConfiguration()
         config.userContentController = contentControllers
@@ -45,8 +50,4 @@ extension TokenServiceViewController: WKScriptMessageHandler{
 
         self.completion?(dict)
     }
-}
-
-struct TokenServiceConstant {
-    static let apiKey = "pkapi_cert_P6dRqs1LzfWJ6HgGVZ"
 }

@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.3.4 2026-10-29
+- ios-device-lib: Removed hardcoded token service API key; the key is now read from `HpsPublicApiKey` in Info.plist or passed via the new `apiKey` overloads of `HpsTokenServiceWeb.tokenServiceWebView`
+
 ## 3.3.3 2026-10-15
 - ios-device-lib: PAX - Parse responses for offline (SAF) approvals (000001) and declines (000100) so EMV/metadata tags in ExtData are available
 
